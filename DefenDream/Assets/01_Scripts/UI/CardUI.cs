@@ -9,6 +9,7 @@ public class CardUI : MonoBehaviour
 
     [SerializeField] private Transform slotparent;
     [SerializeField] private CardSlotUI[] cardSlots;
+	[SerializeField] private LayerMask ground;
 
     private CardSlotUI selectedSlot;
 
@@ -30,7 +31,8 @@ public class CardUI : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            //&& hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")
+            if (Physics.Raycast(ray, out hit, Camera.main.depth, ground) )
             {
                 print(hit.collider.gameObject.layer);
                 if (selectedSlot != null && selectedSlot.CurrentCard != null)
