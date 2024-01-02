@@ -15,6 +15,7 @@ public class TestSave : MonoBehaviour
 	public int card3;
 	public int card4;
 	public int card5;
+	public int card6;
 
 	private void Awake()
 	{
@@ -35,7 +36,7 @@ public class TestSave : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.J))
 		{
-
+			LoadData();
 		}
 	}
 
@@ -47,6 +48,7 @@ public class TestSave : MonoBehaviour
 		data.card3 = card3;
 		data.card4 = card4;
 		data.card5 = card5;
+		data.card6 = card6;
 
 		saveSystem.Save(data);
 	}

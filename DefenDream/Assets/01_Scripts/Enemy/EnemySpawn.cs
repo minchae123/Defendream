@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] private float _spawnEnemyTime;
+    [SerializeField] private float spawnMin = 2, spawnMax = 4;
     [SerializeField] private GameObject _enemy;
     [SerializeField] private Transform _parent;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnEnemy());
@@ -18,13 +17,13 @@ public class EnemySpawn : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(_spawnEnemyTime);
+            float rTime = Random.Range(spawnMin, spawnMax);
+            yield return new WaitForSeconds(rTime);
 
             GameObject obj = Instantiate(_enemy, _parent);
 
-            int posZ = Random.Range(-15, 15);
+            float posZ = Random.Range(-10f, 5.5f);
             Vector3 pos = new Vector3(transform.position.x, 0, posZ);
-
             obj.transform.position = pos;
         }
     }

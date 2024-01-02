@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mana: 4
   icon: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
-  prefab: {fileID: 5137803985633869648, guid: 50de6749ced2cf44f9a6709e43eb9932, type: 3}
+  prefab: {fileID: 466174982370493815, guid: 7577e3de9babd604d9880ded032d1752, type: 3}

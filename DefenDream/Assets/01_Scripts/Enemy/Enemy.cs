@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         {
             case EnemyType.Melee:
                 {
-                    print("근거리");
+                    //print("근거리");
 
                     _eType = _eTypeSO[(int)EnemyType.Melee];
                     Melee();
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
                 break;
             case EnemyType.Range:
                 {
-                    print("원거리");
+                    //print("원거리");
 
                     _eType = _eTypeSO[(int)EnemyType.Range];
                     Range();
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
                 break;
             case EnemyType.Magic:
                 {
-                    print("마법");
+                    //print("마법");
 
                     _eType = _eTypeSO[(int)EnemyType.Magic];
                     Magic();

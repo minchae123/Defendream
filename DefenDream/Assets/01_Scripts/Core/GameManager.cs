@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null)
             Debug.Log("Error");
 
         instance = this;

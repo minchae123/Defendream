@@ -17,4 +17,4 @@ MonoBehaviour:
   _EnemyName: "\uC6D0\uAC70\uB9AC"
   _EnemyHp: 10
   _AttackDamage: 10
-  _AttackDistance: 7
+  _AttackDistance: 15

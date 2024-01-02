@@ -12,4 +12,5 @@ public class GameData
 	public int card3;
 	public int card4;
 	public int card5;
+	public int card6;
 }
