@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MercenaryCollected : MonoBehaviour
 {
-    [SerializeField] private List<MercenaryInfo> planets;
+    [SerializeField] private List<MercenaryInfo> MercenarysList;
 
     [SerializeField] private Image infoImage;
     [SerializeField] private TextMeshProUGUI mercenaryName;
@@ -19,23 +19,28 @@ public class MercenaryCollected : MonoBehaviour
 
     }
 
-    public void AddCollected(MercenaryInfo info)
+    public void Purchase()
     {
+        MercenaryInfo info = collected.info;
+        MercenarysList.Add(info);
+    }
 
+    public void goToInventory()
+    {
+        print("인벤토리로 갈까");
+    }
+
+    public void NextDay(MercenaryInfo info)
+    {
+        print("다음날 레츠고다민");
     }
 
     public void ShowChange(MercenaryInfo info)
     {
+        collected.info = info;
         infoImage.sprite = info.MercenarySprite;
         mercenaryName.text = info.MercenaryPrice;
         mercenaryExplain.text = info.MercenaryExplain;
         print("ShowChange");
-    }
-
-    public void ShowReset()
-    {
-        infoImage.sprite = null;
-        mercenaryName.text = "???";
-        mercenaryExplain.text = "??????????";
     }
 }

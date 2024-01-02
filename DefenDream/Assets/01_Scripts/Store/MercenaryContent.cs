@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MercenaryContent : MonoBehaviour, IPointerClickHandler
 {
     private MercenaryCollected mercenaryCollected;
-    [SerializeField] private MercenaryInfo info;
+    public MercenaryInfo info;
     [SerializeField] private Image mercenaryImage;
 
     private void Awake()
