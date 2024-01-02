@@ -7,6 +7,7 @@ public class MercenaryContent : MonoBehaviour, IPointerClickHandler
     private MercenaryCollected mercenaryCollected;
     public MercenaryInfo info;
     [SerializeField] private Image mercenaryImage;
+    public bool isCanClick = false;
 
     private void Awake()
     {
@@ -22,6 +23,9 @@ public class MercenaryContent : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        mercenaryCollected.ShowChange(info);
+        if (isCanClick)
+        {
+            mercenaryCollected.ShowChange(info);
+        }
     }
 }
