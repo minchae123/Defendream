@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 254518555}
   - component: {fileID: 254518554}
   m_Layer: 5
-  m_Name: Exit
+  m_Name: NextDay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 860417431}
   m_HandleRect: {fileID: 860417430}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4641,7 +4641,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB098\uAC00\uAE30"
+  m_text: "\uB2E4\uC74C\uB0A0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9c8f4a879e4935042b9c2e1ff5d20764, type: 2}
   m_sharedMaterial: {fileID: -4729068117200660375, guid: 9c8f4a879e4935042b9c2e1ff5d20764, type: 2}
