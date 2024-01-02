@@ -30,14 +30,6 @@ public class ManaUI : MonoBehaviour
         StartCoroutine(UpdateCoroutine());
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UseMana(2); 
-        }
-    }
-
     private IEnumerator UpdateCoroutine()
     {
         if(currentMana == maxMana)
