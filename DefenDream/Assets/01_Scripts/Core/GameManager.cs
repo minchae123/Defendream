@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Transform _player;
+    public Transform _playerTrm;
+    public Player _player;
     public static GameManager instance;
 
     private void Awake()

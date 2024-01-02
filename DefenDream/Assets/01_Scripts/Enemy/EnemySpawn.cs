@@ -20,7 +20,12 @@ public class EnemySpawn : MonoBehaviour
         {
             yield return new WaitForSeconds(_spawnEnemyTime);
 
-            Instantiate(_enemy, _parent);
+            GameObject obj = Instantiate(_enemy, _parent);
+
+            int posZ = Random.Range(-15, 15);
+            Vector3 pos = new Vector3(transform.position.x, 0, posZ);
+
+            obj.transform.position = pos;
         }
     }
 }

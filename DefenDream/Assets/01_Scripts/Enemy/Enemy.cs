@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public EnemyTypeSO _eType;
     [HideInInspector] public EnemyType TypeEnum;
 
-    private float time = 0;
+    [Header("visual")]
+    [SerializeField] private SkinnedMeshRenderer _meshRen;
 
     private void Awake()
     {
@@ -30,22 +31,25 @@ public class Enemy : MonoBehaviour
             case EnemyType.Melee:
                 {
                     print("근거리");
-                    Melee();
+
                     _eType = _eTypeSO[(int)EnemyType.Melee];
+                    Melee();
                 }
                 break;
             case EnemyType.Range:
                 {
                     print("원거리");
-                    Range();
+
                     _eType = _eTypeSO[(int)EnemyType.Range];
+                    Range();
                 }
                 break;
             case EnemyType.Magic:
                 {
                     print("마법");
-                    Magic();
+
                     _eType = _eTypeSO[(int)EnemyType.Magic];
+                    Magic();
                 }
                 break;
             default:
@@ -56,15 +60,18 @@ public class Enemy : MonoBehaviour
     private void Melee()
     {
         TypeEnum = EnemyType.Melee;
+        _meshRen.material = _eType._material;
     }
 
     private void Range()
     {
         TypeEnum = EnemyType.Range;
+        _meshRen.material = _eType._material;
     }
 
     private void Magic()
     {
         TypeEnum = EnemyType.Magic;
+        _meshRen.material = _eType._material;
     }
 }

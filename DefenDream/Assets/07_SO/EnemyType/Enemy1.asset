@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2689a49d9312b4643a3c6d741119e699, type: 3}
   m_Name: Enemy1
   m_EditorClassIdentifier: 
-  _EnemyName: 
-  _EnemyHp: 0
-  _EnemyDamage: 0
-  _EnemyDistance: 0
+  _eType: 0
+  _material: {fileID: 2100000, guid: d551c2eef8f9484488ab2085e79c7c00, type: 2}
+  _EnemyName: "\uADFC\uC811"
+  _EnemyHp: 10
+  _AttackDamage: 10
+  _AttackDistance: 1

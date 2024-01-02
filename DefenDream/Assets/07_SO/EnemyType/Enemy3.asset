@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Enemy3
   m_EditorClassIdentifier: 
   _eType: 2
-  _EnemyName: 
-  _EnemyHp: 0
-  _AttackDamage: 0
-  _AttackDistance: 0
+  _material: {fileID: 2100000, guid: cf69c2b8fbd70634fa77ed1d5f0e9797, type: 2}
+  _EnemyName: "\uB9C8\uBC95"
+  _EnemyHp: 10
+  _AttackDamage: 10
+  _AttackDistance: 4

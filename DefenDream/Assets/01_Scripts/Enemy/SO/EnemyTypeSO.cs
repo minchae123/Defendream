@@ -10,7 +10,7 @@ public class EnemyTypeSO : ScriptableObject
 
     public string _EnemyName;
 
-    public int _EnemyHp;
-    public int _AttackDamage;
-    public int _AttackDistance;
+    public float _EnemyHp;
+    public float _AttackDamage;
+    public float _AttackDistance;
 }
