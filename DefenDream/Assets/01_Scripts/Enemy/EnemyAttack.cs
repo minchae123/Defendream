@@ -100,6 +100,11 @@ public class EnemyAttack : MonoBehaviour
             Instantiate(_bulletPrefabs);
             _bulletPrefabs.transform.position = transform.position;
 
+            float damage = _enemy._eType._AttackDamage;
+
+            if (_bulletPrefabs._isCol)
+                GameManager.instance._player._hp -= damage;
+
             yield return new WaitForSeconds(3f);
         }
     }

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    Rigidbody _rb;
+    public bool _isCol = false;
+
     [SerializeField] private float _speed;
+
+    Rigidbody _rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,7 @@ public class Bullet : MonoBehaviour
     {
         if(collider.CompareTag("Player"))
         {
+            _isCol = true;
             Destroy(gameObject);
         }
     }
