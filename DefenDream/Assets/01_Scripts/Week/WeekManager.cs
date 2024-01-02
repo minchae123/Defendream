@@ -69,9 +69,9 @@ public class WeekManager : MonoBehaviour
     private void EndTimer()
     {
         _curTime = 0;
-        Debug.Log(_week[_weekIndex].sprite);
-        Debug.Log("End");
-        Debug.Log(_curTime);
+       //Debug.Log(_week[_weekIndex].sprite);
+       //Debug.Log("End");
+       //Debug.Log(_curTime);
         _isEnded = true;
         //스트레스 수치 따라 _week바꾸기
         if (_stressValue >= 6)
