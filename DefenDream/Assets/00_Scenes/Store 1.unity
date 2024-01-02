@@ -653,7 +653,7 @@ PrefabInstance:
     - target: {fileID: 3760629834031238048, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: info
       value: 
-      objectReference: {fileID: 11400000, guid: 42d15a66f2e4daa4dbed06ca4b549b94, type: 2}
+      objectReference: {fileID: 11400000, guid: 628af25926ffb9a4b9405908a4c4ec1c, type: 2}
     - target: {fileID: 8385565367374359180, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1159,7 +1159,7 @@ PrefabInstance:
     - target: {fileID: 3760629834031238048, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: info
       value: 
-      objectReference: {fileID: 11400000, guid: 42d15a66f2e4daa4dbed06ca4b549b94, type: 2}
+      objectReference: {fileID: 11400000, guid: 699af67b0f32f4c43bddae6422f5b3a5, type: 2}
     - target: {fileID: 8385565367374359180, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2410,7 +2410,7 @@ PrefabInstance:
     - target: {fileID: 3760629834031238048, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: info
       value: 
-      objectReference: {fileID: 11400000, guid: 42d15a66f2e4daa4dbed06ca4b549b94, type: 2}
+      objectReference: {fileID: 11400000, guid: 25417299b19b74f49995870709ae9b5d, type: 2}
     - target: {fileID: 8385565367374359180, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2766,7 +2766,7 @@ PrefabInstance:
     - target: {fileID: 3760629834031238048, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: info
       value: 
-      objectReference: {fileID: 11400000, guid: 42d15a66f2e4daa4dbed06ca4b549b94, type: 2}
+      objectReference: {fileID: 11400000, guid: 33dc2d6494d979a468bedcc85b02a40f, type: 2}
     - target: {fileID: 8385565367374359180, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 860417431}
   m_HandleRect: {fileID: 860417430}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4349,7 +4349,7 @@ PrefabInstance:
     - target: {fileID: 3760629834031238048, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: info
       value: 
-      objectReference: {fileID: 11400000, guid: 42d15a66f2e4daa4dbed06ca4b549b94, type: 2}
+      objectReference: {fileID: 11400000, guid: f2fff22b571dff24fa48128cea87bfc2, type: 2}
     - target: {fileID: 8385565367374359180, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
