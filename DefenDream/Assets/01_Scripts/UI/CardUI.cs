@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CardUI : MonoBehaviour
 {
@@ -25,17 +26,29 @@ public class CardUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
+                print(hit.collider.gameObject.layer);
                 if (selectedSlot != null && selectedSlot.CurrentCard != null)
                 {
-                    Instantiate(selectedSlot.CurrentCard.prefab, hit.point, Quaternion.identity);
+                    Instantiate(selectedSlot.CurrentCard.prefab, new Vector3(hit.point.x, hit.point.y + 1, hit.point.z), Quaternion.identity);
+                    ManaUI.Instance.UseMana(selectedSlot.RequiredMana);
                 }
             }
+        }
+    }
+
+
+    public void ResetSelectSlot(CardSlotUI slot)
+    {
+        if(slot == selectedSlot)
+        {
+            selectedSlot.ClearClickHistory();
+            selectedSlot = null;
         }
     }
 
@@ -49,8 +62,7 @@ public class CardUI : MonoBehaviour
         }
         else if (slot == selectedSlot) // 같은 거 또 클릭
         {
-            selectedSlot.ClearClickHistory();
-            selectedSlot = null;
+            ResetSelectSlot(slot);
             return;
         }
         // 만약 선택된 게 있었을 경우

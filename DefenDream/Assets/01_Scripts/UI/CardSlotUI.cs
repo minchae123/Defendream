@@ -9,6 +9,7 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
 {
     public TestSO CurrentCard;
     private int requiredMana;
+    public int RequiredMana => requiredMana;
     private bool canSelected = false;
 
     [Header("UI")]
@@ -24,11 +25,11 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     }
     public void AddClickHistroy()
     {
-        transform.DOLocalMoveY(-190f, 1f);
+        transform.DOLocalMoveY(-330f, 1f);
     }
     public void ClearClickHistory()
     {
-        transform.DOLocalMoveY(-240f, 1f);
+        transform.DOLocalMoveY(-360f, 1f);
     }
     #endregion
 
@@ -53,6 +54,12 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
             canSelected = true;
             enoughPanel.SetActive(false);
         }
-        else canSelected = false;
+        else
+        {
+            canSelected = false;
+            ClearClickHistory();
+            CardUI.Instance.ResetSelectSlot(this);
+            enoughPanel.SetActive(true);
+        }
     }
 }
