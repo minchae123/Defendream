@@ -4886,6 +4886,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotparent: {fileID: 1845992649}
   cardSlots: []
+  ground:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!4 &1625834208
 Transform:
   m_ObjectHideFlags: 0
