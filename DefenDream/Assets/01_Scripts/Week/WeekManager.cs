@@ -39,15 +39,15 @@ public class WeekManager : MonoBehaviour
 
     private void StressCheck()
     {
-        if (_stressValue == 10)
+        if (_stressValue >= 10)
             _stressUI.sprite = _stress[0];
-        else if (_stressValue > 8)
+        else if (_stressValue >= 8)
             _stressUI.sprite = _stress[1];
-        else if (_stressValue > 6)
+        else if (_stressValue >= 6)
             _stressUI.sprite = _stress[2];
-        else if (_stressValue > 4)
+        else if (_stressValue >= 4)
             _stressUI.sprite = _stress[3];
-        else if (_stressValue > 2)
+        else if (_stressValue >= 2)
             _stressUI.sprite = _stress[4];
         else
             _stressUI.sprite = _stress[5];
@@ -74,7 +74,7 @@ public class WeekManager : MonoBehaviour
         Debug.Log(_curTime);
         _isEnded = true;
         //스트레스 수치 따라 _week바꾸기
-        if (_stressValue > 6)
+        if (_stressValue >= 6)
             _week[_weekIndex].sprite = _OX[0];
         else
             _week[_weekIndex].sprite = _OX[1];
