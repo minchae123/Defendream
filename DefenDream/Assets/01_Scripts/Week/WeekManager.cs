@@ -58,7 +58,7 @@ public class WeekManager : MonoBehaviour
         if (0 < _curTime)
         {
             _curTime -= Time.deltaTime;
-            Debug.Log(_curTime);
+            //Debug.Log(_curTime);
         }
         else if (!_isEnded)
         {
