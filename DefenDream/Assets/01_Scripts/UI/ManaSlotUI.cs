@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ManaSlotUI : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class ManaSlotUI : MonoBehaviour
     {
         manaImage.color = Color.gray;
         transform.localScale = new Vector3(scale, 1, 1);
+    }
+    public void FinishUpdating(int currentMana)
+    {
+        int slotNum = currentMana - 1;
+        manaImage.transform.DOScale(1.1f, 0.12f).SetEase(Ease.OutBounce)
+            .OnComplete(() => manaImage.transform.DOScale(1f, 0.1f).SetEase(Ease.OutBounce)).OnComplete(() => UpdateSlot(currentMana, slotNum));
     }
     public void CleanUpSlot()
     {

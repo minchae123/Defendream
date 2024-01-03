@@ -25,16 +25,24 @@ public class CardUI : MonoBehaviour
         UpdateSlot();
     }
 
-    private void Update()
+    private void OnMouseDown()
     {
+        if(!EventSystem.current.IsPointerOverGameObject())
+        {
+
+        }
+    }
+
+    private void Update()
+    {   
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             //&& hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")
-            if (Physics.Raycast(ray, out hit, Camera.main.depth, ground) )
+            if (Physics.Raycast(ray, out hit, 100, ground))
             {
-                print(hit.collider.gameObject.layer);
+                //print(hit.collider.gameObject.layer);
                 if (selectedSlot != null && selectedSlot.CurrentCard != null)
                 {
                     Instantiate(selectedSlot.CurrentCard.prefab, new Vector3(hit.point.x, hit.point.y + 1, hit.point.z), Quaternion.identity);
@@ -80,7 +88,6 @@ public class CardUI : MonoBehaviour
         for (int i = 0; i < cardSlots.Length; ++i)
         {
             cardSlots[i].UpdateSlot();
-            cardSlots[i].CheckCanSelect(ManaUI.Instance.CurrentMana);
         }
     }
 }

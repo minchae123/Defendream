@@ -11,6 +11,7 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     private int requiredMana;
     public int RequiredMana => requiredMana;
     private bool canSelected = false;
+    private bool iscanSelectedFirst = false;
 
     [Header("UI")]
     [SerializeField] private Image iconImage;
@@ -25,7 +26,7 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     }
     public void AddClickHistroy()
     {
-        transform.DOLocalMoveY(-330f, 0/3f);
+        transform.DOLocalMoveY(-330f, 0.3f);
     }
     public void ClearClickHistory()
     {
@@ -46,17 +47,29 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
 
         iconImage.sprite = CurrentCard.icon;
         manaText.text = $"{requiredMana}";
+
+        CheckCanSelect();
     }
-    public void CheckCanSelect(int currentMana)
+    public void CheckCanSelect()
     {
+        int currentMana = ManaUI.Instance.CurrentMana;
         if (currentMana >= requiredMana)// 현재 가지고 있는 마나가 필요한 마나보다 많거나 같을 경ㅇ우
         {
             canSelected = true;
             enoughPanel.SetActive(false);
+
+            // 그냥 예쁘게 하려고
+            if(iscanSelectedFirst)
+            {
+                iscanSelectedFirst = false;
+                transform.DOScale(1.1f, 0.15f).OnComplete(() => transform.DOScale(1, 0.1f));
+            }
         }
         else
         {
             canSelected = false;
+            iscanSelectedFirst = true;
+
             ClearClickHistory();
             CardUI.Instance.ResetSelectSlot(this);
             enoughPanel.SetActive(true);
