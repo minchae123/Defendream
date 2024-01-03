@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tanker
   m_EditorClassIdentifier: 
   mana: 3
-  icon: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
-  prefab: {fileID: 4581718618250850183, guid: 8146374d820c3ac45baeed5014144363, type: 3}
+  icon: {fileID: 2026569046, guid: 2836190b5c70b00438c01cda28814611, type: 3}
+  prefab: {fileID: 919132149155446097, guid: 7561faae776be4f43b2382ef5c0e528c, type: 3}

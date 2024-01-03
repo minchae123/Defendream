@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ex1
   m_EditorClassIdentifier: 
   mana: 1
-  icon: {fileID: 21300000, guid: 8a6cca56e2b63344eb4769cd92d93ffb, type: 3}
-  prefab: {fileID: 25901200661331521, guid: aaf0bae1b4fe202469a91f418e19fa04, type: 3}
+  icon: {fileID: 1771176781, guid: 2836190b5c70b00438c01cda28814611, type: 3}
+  prefab: {fileID: 919132149155446097, guid: aa9b601d2d87c8946b10e5108bf5c720, type: 3}
