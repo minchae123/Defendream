@@ -75,11 +75,17 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     public void Purchase()
     {
         MercenaryInfo info = collected.info;
-        if (info != null)
+        if (info != null && info.Price <= CashManager.Instance.Cash)
         {
+            CashManager.Instance.SpendMoney(info.Price);
             numbers[info.number - 1]++;
             totalCount++;
             SaveData();
+        }
+        else
+        {
+            print("µ·ºÎÁ· or info¾øÀ½");
+            print(CashManager.Instance.Cash);
         }
     }
 
