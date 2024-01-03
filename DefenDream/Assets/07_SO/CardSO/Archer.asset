@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ae9391b05c3e9a4790c2304944932ad, type: 3}
-  m_Name: FireTest
+  m_Name: Archer
   m_EditorClassIdentifier: 
-  mana: 4
-  icon: {fileID: 21300000, guid: 764b30f7c21d2c046bab7fa36b62042a, type: 3}
-  prefab: {fileID: 2782861483224444456, guid: 67970343bf53663419c59804894a7d80, type: 3}
+  mana: 1
+  icon: {fileID: 21300000, guid: 6c6e0dd2777cbdb43b3ee933d2959d4c, type: 3}
+  prefab: {fileID: 919132149155446097, guid: aa9b601d2d87c8946b10e5108bf5c720, type: 3}

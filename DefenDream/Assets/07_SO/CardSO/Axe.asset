@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   mana: 4
-  icon: {fileID: -151812831, guid: 2836190b5c70b00438c01cda28814611, type: 3}
+  icon: {fileID: 21300000, guid: f689aa94f0a6ebe4581ff39421ad69c3, type: 3}
   prefab: {fileID: 919132149155446097, guid: 24a5ed56086743248ad56d1aafe5a059, type: 3}
