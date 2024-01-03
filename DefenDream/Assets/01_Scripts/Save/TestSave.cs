@@ -17,6 +17,8 @@ public class TestSave : MonoBehaviour
 	public int card5;
 	public int card6;
 
+	public GameData dataa;
+
 	private void Awake()
 	{
 		saveSystem = FindObjectOfType<SaveSystem>();
@@ -24,7 +26,7 @@ public class TestSave : MonoBehaviour
 
 	private void Start()
 	{
-		data = saveSystem.Load();
+		LoadData();
 	}
 
 	private void Update()
@@ -43,12 +45,6 @@ public class TestSave : MonoBehaviour
 	public void SaveData()
 	{
 		data.gold = coin;
-		data.card1 = card1;
-		data.card2 = card2;
-		data.card3 = card3;
-		data.card4 = card4;
-		data.card5 = card5;
-		data.card6 = card6;
 
 		saveSystem.Save(data);
 	}

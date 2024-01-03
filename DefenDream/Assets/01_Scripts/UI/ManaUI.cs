@@ -50,6 +50,7 @@ public class ManaUI : MonoBehaviour
         currentMana = Mathf.Clamp(currentMana, 0, maxMana);
 
         UpdateManaSlot();
+        manaSlots[currentMana - 1].FinishUpdating(currentMana); 
 
         yield return null;
         StartCoroutine(UpdateCoroutine());

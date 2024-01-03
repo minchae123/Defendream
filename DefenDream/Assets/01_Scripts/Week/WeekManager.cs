@@ -90,9 +90,7 @@ public class WeekManager : MonoBehaviour
     public void ResetTimer()
     {
         _curTime = _dayTime;
-        Debug.Log(_curTime);
         _isEnded = false;
-        Debug.Log("Start");
     }
 
     public void StressUp()

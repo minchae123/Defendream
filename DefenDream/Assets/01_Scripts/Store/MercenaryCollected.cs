@@ -17,6 +17,9 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     [SerializeField] private MercenaryContent collected;
 
+	[SerializeField] private SaveSystem save;
+    private GameData data;
+
     public int MercenaryCount = 0;
 
     //public int[] numbers = { 0, 0, 0, 0, 0, 0 };
@@ -30,11 +33,12 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     public ScrollRect StoreScrollRect; // ScrollRect 참조
     public ScrollRect InventoryScrollRect; // ScrollRect 참조
 
-    [SerializeField] MercenaryInfo[] infos;
+    public MercenaryInfo[] infos;
 
     private void Awake()
     {
         MercenaryCount = infos.Length;
+        save = FindObjectOfType<SaveSystem>();
     }
 
     private void Start()
@@ -53,13 +57,14 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
             InventoryContents[i].GetComponent<MercenaryContent>().info = infos[i];
         }
 
+
         for (int i = 0; i < MercenaryCount; i++)
         {
             numbers.Add(0);
         }
 
         UpdateCountText();
-
+        LoadData();
     }
 
     public void Purchase()
@@ -67,11 +72,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         MercenaryInfo info = collected.info;
         numbers[info.number - 1]++;
         totalCount++;
-    }
-
-    public void goToInventory()
-    {
-        print("인벤토리로 갈까");
+        SaveData();
     }
 
     public void NextDay(MercenaryInfo info)
@@ -85,7 +86,6 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         infoImage.sprite = info.MercenarySprite;
         mercenaryName.text = info.MercenaryPrice;
         mercenaryExplain.text = info.MercenaryExplain;
-        print("ShowChange");
     }
 
     public void ActiveInventory()
@@ -106,6 +106,26 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         for (int i = 0; i < MercenaryCount; i++)
         {
             InventoryContents[i].GetComponentInChildren<TMP_Text>().text = numbers[i].ToString();
+        }
+    }
+
+    public void SaveData()
+	{
+		for (int i = 0; i < numbers.Count; i++)
+		{
+			data.cards[i] = numbers[i];
+		}
+
+        save.Save(data);
+	}
+
+    public void LoadData()
+	{
+        data = save.Load();
+
+        for (int i = 0; i < numbers.Count; i++)
+        {
+            numbers[i] = data.cards[i];
         }
     }
 }
