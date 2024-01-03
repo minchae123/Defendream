@@ -19038,6 +19038,8 @@ GameObject:
   - component: {fileID: 7481765838526662293}
   - component: {fileID: 7242970076503240621}
   - component: {fileID: 7039150648208861862}
+  - component: {fileID: 7667872396085833908}
+  - component: {fileID: 3833877783255712662}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -23943,6 +23945,31 @@ MonoBehaviour:
     shakesDelay: 0
   animatedLights: []
   fadeOutReference: {fileID: 0}
+--- !u!114 &7667872396085833908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7284040559910351433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0615aad676d43164ca487bd95d524279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &3833877783255712662
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7284040559910351433}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7284439574557324065
 GameObject:
   m_ObjectHideFlags: 0

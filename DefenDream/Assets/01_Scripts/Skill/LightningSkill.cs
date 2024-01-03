@@ -9,4 +9,11 @@ public class LightningSkill : MonoBehaviour
         Destroy(gameObject, 1f);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<Enemy>().DecHp(5);
+        }
+    }
 }
