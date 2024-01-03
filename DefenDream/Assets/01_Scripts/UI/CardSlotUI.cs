@@ -17,9 +17,18 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     [SerializeField] private NextCardSlot next;
 
     [Header("UI")]
+    [SerializeField] private Outline outline;
     [SerializeField] private Image iconImage;
     [SerializeField] private TextMeshProUGUI manaText;
     [SerializeField] private GameObject enoughPanel;
+
+    private void Start()
+    {
+        outline.enabled = false;
+        enoughPanel.SetActive(false);
+
+        SetCard();
+    }
 
     #region clickEvent
     public void OnPointerClick(PointerEventData eventData)
@@ -29,11 +38,13 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     }
     public void AddClickHistroy()
     {
-        transform.DOLocalMoveY(-325f, 0.3f);
+        transform.DOLocalMoveY(-325f, 0.15f);
+        outline.enabled = true;
     }
     public void ClearClickHistory()
     {
         transform.DOLocalMoveY(-340f, 0.3f);
+        outline.enabled = false;
     }
     #endregion
 
@@ -94,9 +105,15 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     }
     public void SetCard()
     {
-        currentCard = next.nextCard;
-        next.SetRandomCard();
+        transform.DORotate(new Vector3(0, 290f, 0), 0.25f).SetEase(Ease.Linear).SetRelative(true)
+            .OnComplete(() =>
+            {
+                currentCard = next.nextCard;
+                next.SetNextCard();
+                transform.DORotate(new Vector3(0, 70f, 0), 0.15f).SetEase(Ease.Linear).SetRelative(true);
 
-        transform.DOLocalMoveY(-380f, 0.2f).OnComplete(() => transform.DOLocalMoveY(-360f, 0.3f));
+                ClearSlot();
+                UpdateSlot();
+            });
     }
 }

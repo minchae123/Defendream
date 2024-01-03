@@ -15,7 +15,15 @@ public class NextCardSlot : MonoBehaviour
 
     private void Start()
     {
-        SetRandomCard(); // 처음에 랜덤으로 다음 카드 결정
+        SetNextCard(); // 처음에 랜덤으로 다음 카드 결정
+    }
+
+    public void SetNextCard()
+    {
+        transform.DOScale(0.8f, 0.2f).OnComplete(() => transform.DOScale(1, 0.15f));
+        SetRandomCard();
+        ClearSlot();
+        UpdateSlot();
     }
 
     public void SetRandomCard()
@@ -39,11 +47,7 @@ public class NextCardSlot : MonoBehaviour
         int randomIndex = Random.Range(0, randomCards.Count);
         CardSO selectCard = randomCards[randomIndex];
         nextCard = selectCard;
-
-        ClearSlot();
-        UpdateSlot();
     }
-
     public void ClearSlot()
     {
         iconImage.sprite = null;
