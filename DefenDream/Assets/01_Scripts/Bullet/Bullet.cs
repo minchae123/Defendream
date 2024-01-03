@@ -16,10 +16,15 @@ public class Bullet : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    private void Update()
+    {
+        Invoke("DestroyObj", 10);
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
-        if (!collider.CompareTag("Enemy"))
-            Destroy(gameObject);
+        if(collider.CompareTag("Player") || collider.CompareTag("Team"))
+            DestroyObj();
 
         if (collider.TryGetComponent<OurTeam>(out OurTeam team))
         {
@@ -31,6 +36,11 @@ public class Bullet : MonoBehaviour
         {
             _isCol = true;
         }
+    }
+
+    private void DestroyObj()
+    {
+        Destroy(gameObject);
     }
 
     public void DecHp(float damage)

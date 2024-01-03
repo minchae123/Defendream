@@ -409,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0f2fd6d48a6db1047bb968b4e3c405d0, type: 3}
       propertyPath: m_Name
-      value: Barbarian
+      value: Barbarian Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0f2fd6d48a6db1047bb968b4e3c405d0, type: 3}
       propertyPath: m_TagString
@@ -720,9 +720,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _enemyList: []
-  _direction: {x: 0, y: 0, z: 0}
   _min: 3.4028235e+38
+  _direction: {x: 0, y: 0, z: 0}
   _nealEnemy: {fileID: 0}
+  maxRotationAngle: 10
 --- !u!114 &1914096788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,6 +751,8 @@ MonoBehaviour:
   _playerSO: {fileID: 11400000, guid: 17c3160778e10a24ab9c268bfbc56f62, type: 2}
   _move: {fileID: 1914096785}
   _pAnim: {fileID: 1914096788}
-  _magicBullet: {fileID: 0}
-  _ArcherBullet: {fileID: 0}
+  _magicBullet: {fileID: 3321121079508793677, guid: f70c6da378c9efd4aa588cfd8fd89284, type: 3}
+  _ArcherBullet: {fileID: 189547769556920799, guid: 914309a81d848b44db7d431fb978bae4, type: 3}
   _FirePos: {fileID: 0}
+  _bulletSpeed: 15
+  _hp: 0

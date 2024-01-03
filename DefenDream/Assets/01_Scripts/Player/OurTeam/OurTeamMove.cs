@@ -47,6 +47,9 @@ public class OurTeamMove : MonoBehaviour
     {
         _min = float.MaxValue;
 
+        if(_enemyList.Count == 0)
+            _direction += Vector3.right.normalized * _speed;
+
         foreach (Enemy obj in _enemyList)
         {
             float dis = Vector3.Distance(transform.position, obj.transform.position);
