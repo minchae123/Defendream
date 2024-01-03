@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -14,36 +15,46 @@ public class Inventory : MonoBehaviour
 
     private List<string> cardNames;
 
+    List<KeyValuePair<CardSO, int>> lists = new List<KeyValuePair<CardSO, int>>();
+    
     private void Awake()
     {
         if (Instance != null) print("inventory Error");
         Instance = this;
         cardInventory = new Dictionary<CardSO, int>();
+
     }
+
     private void Start()
     {
         save = FindObjectOfType<SaveSystem>();
         LoadData();
     }
+
+	public void InventoryIndex()
+	{
+        lists = cardInventory.OrderBy(kvp => kvp.Key).ToList();
+    }
+
     public void SetInventory(MercenaryInfo infos, int numbers)
     {
         cardInventory.Add(infos.card, numbers);
         //print($"{infos.MercenaryName}, {infos.card}, {numbers}");
     }
+
     public void UseInventory(CardSO currentCard)
     {
         --cardInventory[currentCard]; // 사용
-        SaveData(currentCard, cardInventory[currentCard]);
+        int index = lists.FindIndex(kvp => kvp.Key == currentCard);
+        print(index);
+        SaveData(index, cardInventory[currentCard]);
         // N번째 카드 데이터 삭제 -> data.cards[n]--; <- 이렇게 대충 해주면 될듯?
         //print($"{currentCard}: {cardInventory[currentCard]}개");
     }
 
-    public void SaveData(CardSO currentCard, int num)
+    public void SaveData(int currentCard, int num)
 	{
-        if (cardInventory.TryGetValue(currentCard, out int cardCount))
-        {
-			data.cards[cardCount] = num;
-        }
+		data.cards[currentCard] = num;
     }
 
     public void LoadData()

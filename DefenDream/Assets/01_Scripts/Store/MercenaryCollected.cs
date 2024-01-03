@@ -66,6 +66,8 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         {
             Inventory.Instance.SetInventory(infos[i], numbers[i]); // 인벤토리 set해주기
         }
+
+        Inventory.Instance.InventoryIndex();
     }
 
     public void Purchase()
