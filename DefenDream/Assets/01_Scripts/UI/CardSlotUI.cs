@@ -14,6 +14,8 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     private bool canSelected = false;
     private bool iscanSelectedFirst = false;
 
+    [SerializeField] private NextCardSlot next;
+
     [Header("UI")]
     [SerializeField] private Image iconImage;
     [SerializeField] private TextMeshProUGUI manaText;
@@ -80,37 +82,21 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     public void CreateArmy(Vector3 hit)
     {
         Instantiate(currentCard.prefab, new Vector3(hit.x, hit.y + 1, hit.z), Quaternion.identity);
-        UsingItem();
-        SetRandomCard();
-
+        UseItem();
+        SetCard();
         ClearClickHistory();
         CardUI.Instance.ResetSelectSlot();
     }
-    public void UsingItem()
+    public void UseItem()
     {
         ManaUI.Instance.UseMana(requiredMana);
         Inventory.Instance.UseInventory(currentCard);
     }
-    public void SetRandomCard()
+    public void SetCard()
     {
-        Dictionary<CardSO, int> cardInven = Inventory.Instance.cardInventory; // 인벤토리에서 가져오고
-        List<CardSO> randomCards = new List<CardSO>(); // 현재 사용 가능한 카드를 찾아냄
+        currentCard = next.nextCard;
+        next.SetRandomCard();
 
-        foreach (var card in cardInven) // 인벤토리에있는 카드
-        {
-            if (card.Value > 0) // 만약 카드 개수가 0보다 큼
-            {
-                randomCards.Add(card.Key); // 사용 가능
-            }
-        }
-        // 사용 가능한 카드가 없다면 쫄병 생성(나중에)
-        if (randomCards.Count == 0)
-        {
-            return;
-        }
-
-        int randomIndex = Random.Range(0, randomCards.Count); 
-        CardSO selectCard = randomCards[randomIndex];
-        currentCard = selectCard;
+        transform.DOLocalMoveY(-380f, 0.2f).OnComplete(() => transform.DOLocalMoveY(-360f, 0.3f));
     }
 }

@@ -25,11 +25,6 @@ public class CardUI : MonoBehaviour
     private void Start()
     {
         save = FindObjectOfType<SaveSystem>();
-
-        for (int i = 0; i < cardSlots.Length; ++i)
-        {
-            cardSlots[i].SetRandomCard();
-        }
         UpdateSlot();   
     }
 

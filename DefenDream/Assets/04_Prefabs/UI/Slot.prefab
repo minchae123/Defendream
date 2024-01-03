@@ -66,8 +66,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 250c290948fab6846a18f20413f222a1, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -473,6 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCard: {fileID: 11400000, guid: ace58cdd891301044a571da56264811c, type: 2}
+  next: {fileID: 0}
   iconImage: {fileID: 3777033086851347046}
   manaText: {fileID: 3777033087394201701}
   enoughPanel: {fileID: 1745374599}

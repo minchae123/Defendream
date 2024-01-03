@@ -39,7 +39,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         save = FindObjectOfType<SaveSystem>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         RectTransform StoreContent = StoreScrollRect.content;
         RectTransform InventoryContent = InventoryScrollRect.content;
@@ -62,7 +62,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         UpdateCountText();
         LoadData();
 
-        for (int i = 0; i < MercenaryCount; ++i) 
+        for (int i = 0; i < MercenaryCount; ++i)
         {
             Inventory.Instance.SetInventory(infos[i], numbers[i]); // 인벤토리 set해주기
         }
