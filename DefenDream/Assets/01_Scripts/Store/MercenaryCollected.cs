@@ -15,7 +15,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     [SerializeField] private MercenaryContent collected;
 
-	[SerializeField] private SaveSystem save;
+    [SerializeField] private SaveSystem save;
     private GameData data;
 
     public int MercenaryCount = 0;
@@ -37,6 +37,8 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     {
         MercenaryCount = infos.Length;
         save = FindObjectOfType<SaveSystem>();
+        storePanel.SetActive(false);
+        inventoryPanel.SetActive(false);
     }
 
     private void OnEnable()
@@ -66,19 +68,25 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         {
             Inventory.Instance.SetInventory(infos[i], numbers[i]); // 인벤토리 set해주기
         }
+
+        collected.info = null;
     }
 
     public void Purchase()
     {
         MercenaryInfo info = collected.info;
-        numbers[info.number - 1]++;
-        totalCount++;
-        SaveData();
+        if (info != null)
+        {
+            numbers[info.number - 1]++;
+            totalCount++;
+            SaveData();
+        }
     }
 
-    public void NextDay(MercenaryInfo info)
+    public void NextDay()
     {
         print("다음날 레츠고다민");
+        WeekManager.Instance.ResetTimer();
     }
 
     public void ShowChange(MercenaryInfo info)
@@ -102,6 +110,12 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         inventoryPanel.SetActive(false);
     }
 
+    public void InactiveStoreAndInventory()
+    {
+        storePanel.SetActive(false);
+        inventoryPanel.SetActive(false);
+    }
+
     public void UpdateCountText()
     {
         for (int i = 0; i < MercenaryCount; i++)
@@ -111,17 +125,17 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     }
 
     public void SaveData()
-	{
-		for (int i = 0; i < numbers.Count; i++)
-		{
-			data.cards[i] = numbers[i];
-		}
+    {
+        for (int i = 0; i < numbers.Count; i++)
+        {
+            data.cards[i] = numbers[i];
+        }
 
         save.Save(data);
-	}
+    }
 
     public void LoadData()
-	{
+    {
         data = save.Load();
 
         for (int i = 0; i < numbers.Count; i++)
