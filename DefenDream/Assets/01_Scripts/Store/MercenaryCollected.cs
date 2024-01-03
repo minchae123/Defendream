@@ -15,7 +15,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     [SerializeField] private MercenaryContent collected;
 
-    [SerializeField] private SaveSystem save;
+    private SaveSystem save;
     private GameData data;
 
     public int MercenaryCount = 0;

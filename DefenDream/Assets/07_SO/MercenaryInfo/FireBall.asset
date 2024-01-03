@@ -17,5 +17,5 @@ MonoBehaviour:
   MercenaryExplain: "\uB098\uB294 5\uBC88\uC774\uB2E4"
   Price: 100000
   MercenaryPrice: "100000\uC6D0"
-  number: 5
+  number: 4
   card: {fileID: 11400000, guid: 152feb9b64014594694bc79142591121, type: 2}

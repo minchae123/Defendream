@@ -15,7 +15,7 @@ MonoBehaviour:
   MercenaryName: "2\uBC88\uC784"
   MercenarySprite: {fileID: 21300000, guid: 6c6e0dd2777cbdb43b3ee933d2959d4c, type: 3}
   MercenaryExplain: "\uB098\uB294 2\uBC88\uC774\uB2E4"
-  Price: 2000
+  Price: 1000
   MercenaryPrice: "2000\uC6D0"
-  number: 2
+  number: 1
   card: {fileID: 11400000, guid: 0e319806d6597bc46ab26c75cbdfafee, type: 2}
