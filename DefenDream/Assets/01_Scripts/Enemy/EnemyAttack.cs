@@ -132,7 +132,8 @@ public class EnemyAttack : MonoBehaviour
 
     private void InstBullet()
     {
-        Bullet b = Instantiate(_bulletPrefabs);
+        Bullet b = PoolManager.Instance.Pop("Bullet") as Bullet;
+
         print(b);
         b.transform.position = transform.position;
 

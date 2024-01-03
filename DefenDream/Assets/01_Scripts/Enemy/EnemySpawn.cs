@@ -20,7 +20,7 @@ public class EnemySpawn : MonoBehaviour
             float rTime = Random.Range(spawnMin, spawnMax);
             yield return new WaitForSeconds(rTime);
 
-            GameObject obj = Instantiate(_enemy, _parent);
+            Enemy obj = PoolManager.Instance.Pop("Enemy") as Enemy;
 
             float posZ = Random.Range(-10f, 5.5f);
             Vector3 pos = new Vector3(transform.position.x, 0, posZ);

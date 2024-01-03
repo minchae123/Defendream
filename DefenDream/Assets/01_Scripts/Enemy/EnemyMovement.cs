@@ -53,7 +53,7 @@ public class EnemyMovement : MonoBehaviour
     {
         Collider[] colliders;
 
-        colliders = Physics.OverlapBox(transform.position, boxSize / 2f);
+        colliders = Physics.OverlapBox(transform.position, boxSize);
         foreach (var item in colliders)
         {
             if (!item.CompareTag("Team") && !item.CompareTag("Player")) continue;
