@@ -38,7 +38,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         MercenaryCount = infos.Length;
         save = FindObjectOfType<SaveSystem>();
     }
-
+    
     private void OnEnable()
     {
         RectTransform StoreContent = StoreScrollRect.content;

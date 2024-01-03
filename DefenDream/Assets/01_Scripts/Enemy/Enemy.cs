@@ -11,6 +11,8 @@ public class Enemy : PoolableMono
 
     [Header("visual")]
     [SerializeField] private SkinnedMeshRenderer _meshRen;
+    [SerializeField] private Animator _anim;
+    private bool isDead = false;
 
     public override void Init()
     {
@@ -87,7 +89,13 @@ public class Enemy : PoolableMono
 
     private void DieAnim()
     {
-        if (_eType._EnemyHp <= 0) 
+
+        if (_eType._EnemyHp <= 0 && !isDead)
+        {
+            isDead = true;
+            _anim.SetTrigger("Die");
+            //풀매니저 1초 이따가
             print("죽어"); //죽어
+        }
     }
 }
