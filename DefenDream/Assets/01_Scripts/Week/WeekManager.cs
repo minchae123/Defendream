@@ -1,10 +1,11 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeekManager : MonoBehaviour
+public class WeekManager : MonoSingleton<WeekManager>
 {
     [Header("Time")]
     [SerializeField] private float _dayTime;
@@ -21,6 +22,8 @@ public class WeekManager : MonoBehaviour
 
     //JSON해줘만채야(일월화수목금토)
     private int _weekIndex;
+
+    [SerializeField] private Image _fadeImage;
 
 
     void Start()
@@ -69,9 +72,9 @@ public class WeekManager : MonoBehaviour
     private void EndTimer()
     {
         _curTime = 0;
-       //Debug.Log(_week[_weekIndex].sprite);
-       //Debug.Log("End");
-       //Debug.Log(_curTime);
+        //Debug.Log(_week[_weekIndex].sprite);
+        //Debug.Log("End");
+        //Debug.Log(_curTime);
         _isEnded = true;
         //스트레스 수치 따라 _week바꾸기
         if (_stressValue >= 6)
@@ -80,10 +83,17 @@ public class WeekManager : MonoBehaviour
             _week[_weekIndex].sprite = _OX[1];
         //컷씬
 
-        //다음날 직전(상점창)
         _weekIndex++;
         Debug.Log(_week[_weekIndex].sprite);
         _stressValue = 0;
+
+        //다음날 직전(상점창) +++++++ 여기서 적이랑 우리팀 다 사라지는거 해야함
+        _fadeImage.gameObject.SetActive(true);
+        _fadeImage.DOFade(1, 1).OnComplete(() =>
+        {
+            MercenaryCollected.Instance.ActiveStore();
+        });
+
     }
 
     //다음날 넘어가면
@@ -91,6 +101,12 @@ public class WeekManager : MonoBehaviour
     {
         _curTime = _dayTime;
         _isEnded = false;
+
+        MercenaryCollected.Instance.InactiveStoreAndInventory();
+        _fadeImage.DOFade(0, 1).OnComplete(() =>
+        {
+            _fadeImage.gameObject.SetActive(false);
+        });
     }
 
     public void StressUp()
