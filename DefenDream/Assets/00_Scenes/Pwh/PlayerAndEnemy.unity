@@ -367,7 +367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7730002306853557973, guid: daa123b8f1c5aa04dbbaef784bb243be, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daa123b8f1c5aa04dbbaef784bb243be, type: 3}
@@ -453,7 +453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157777295845043857, guid: 3ab793b5bf71ec946821d5ced8454a4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5539370036480406571, guid: 3ab793b5bf71ec946821d5ced8454a4e, type: 3}
       propertyPath: m_RootOrder
@@ -469,7 +469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5539370036480406571, guid: 3ab793b5bf71ec946821d5ced8454a4e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 5539370036480406571, guid: 3ab793b5bf71ec946821d5ced8454a4e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -530,8 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6baad9a97d52f634fb1d3791fd39b7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnMin: 2
-  spawnMax: 4
+  _spawnEnemyTime: 4
   _enemy: {fileID: 9071841268382860027, guid: 59a07f6ff5b12e647b4e6171d3ad65b0, type: 3}
   _parent: {fileID: 1649423821}
 --- !u!4 &1566959419
@@ -578,8 +577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ab4bd310b3c4046957f82cbe4c0303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolSO: {fileID: 11400000, guid: 360dccf602872d8459df5ea3caf3a023, type: 2}
-  mainCam: {fileID: 1609812727}
   _playerTrm: {fileID: 1767616250}
   _player: {fileID: 1767616251}
 --- !u!4 &1607110523
@@ -871,7 +868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8575082836458127559, guid: 6d3f734f693e9324a909028ace64342a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8956253128589744765, guid: 6d3f734f693e9324a909028ace64342a, type: 3}
       propertyPath: m_RootOrder
@@ -887,7 +884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8956253128589744765, guid: 6d3f734f693e9324a909028ace64342a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5.95
       objectReference: {fileID: 0}
     - target: {fileID: 8956253128589744765, guid: 6d3f734f693e9324a909028ace64342a, type: 3}
       propertyPath: m_LocalRotation.w
