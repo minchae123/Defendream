@@ -23,8 +23,8 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.CompareTag("Player") || collider.CompareTag("Team"))
-            DestroyObj();
+        //if(collider.CompareTag("Player") || collider.CompareTag("Team"))
+        //    DestroyObj();
 
         if (collider.TryGetComponent<OurTeam>(out OurTeam team))
         {
