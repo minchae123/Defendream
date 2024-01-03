@@ -653,7 +653,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 220}
+  m_SizeDelta: {x: 950, y: 180}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &119547177
 MonoBehaviour:
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9ef221bf52597ec44864c65de6527f80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f6cbace94f8f5d42a19cd1dc89a708b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.8
 --- !u!222 &119547178
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4175,10 +4175,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1845992649}
     m_Modifications:
-    - target: {fileID: 3777033087486887064, guid: 2b8f9afd4056f3a41827d1daf66c6d9f, type: 3}
-      propertyPath: CurrentCard
-      value: 
-      objectReference: {fileID: 11400000, guid: ace58cdd891301044a571da56264811c, type: 2}
     - target: {fileID: 3777033087486887067, guid: 2b8f9afd4056f3a41827d1daf66c6d9f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7446,6 +7442,7 @@ GameObject:
   - component: {fileID: 1625834208}
   - component: {fileID: 1625834207}
   - component: {fileID: 1625834206}
+  - component: {fileID: 1625834209}
   m_Layer: 0
   m_Name: Manager (1)
   m_TagString: Untagged
@@ -7479,11 +7476,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b510c7ce16ad31649ad0b10d0a98af6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotparent: {fileID: 1845992649}
-  cardSlots: []
-  ground:
+  whatIsGround:
     serializedVersion: 2
     m_Bits: 2048
+  slotparent: {fileID: 1845992649}
+  cardSlots: []
 --- !u!4 &1625834208
 Transform:
   m_ObjectHideFlags: 0
@@ -7499,6 +7496,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1625834209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625834205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08127a1ab182afa43a7036512b6ce426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1645461123
 GameObject:
   m_ObjectHideFlags: 0
@@ -8359,14 +8368,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40276a9a5eacd5344ac518f15b44400f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Store: {fileID: 1745694814}
-  Inventory: {fileID: 963668976}
+  storePanel: {fileID: 0}
+  inventoryPanel: {fileID: 0}
   infoImage: {fileID: 1717664671}
   mercenaryName: {fileID: 1891068087}
   mercenaryExplain: {fileID: 14893313}
   collected: {fileID: 3760629834031238048, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
   save: {fileID: 0}
   MercenaryCount: 13
+  numbers: 
   StoreContents: []
   InventoryContents: []
   mercenaryContent: {fileID: 8385565367374359181, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
@@ -8378,10 +8388,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 699af67b0f32f4c43bddae6422f5b3a5, type: 2}
   - {fileID: 11400000, guid: 628af25926ffb9a4b9405908a4c4ec1c, type: 2}
   - {fileID: 11400000, guid: f2fff22b571dff24fa48128cea87bfc2, type: 2}
-  - {fileID: 11400000, guid: 25417299b19b74f49995870709ae9b5d, type: 2}
-  - {fileID: 11400000, guid: 25417299b19b74f49995870709ae9b5d, type: 2}
-  - {fileID: 11400000, guid: 25417299b19b74f49995870709ae9b5d, type: 2}
-  - {fileID: 11400000, guid: 25417299b19b74f49995870709ae9b5d, type: 2}
   - {fileID: 11400000, guid: 25417299b19b74f49995870709ae9b5d, type: 2}
 --- !u!4 &1818629841
 Transform:
@@ -8436,7 +8442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -15}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845992650
@@ -8459,7 +8465,7 @@ MonoBehaviour:
   m_ChildAlignment: 7
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 160, y: 160}
+  m_CellSize: {x: 160, y: 200}
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2

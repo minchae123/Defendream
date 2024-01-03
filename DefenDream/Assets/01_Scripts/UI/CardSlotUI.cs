@@ -27,11 +27,11 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     }
     public void AddClickHistroy()
     {
-        transform.DOLocalMoveY(-330f, 0.3f);
+        transform.DOLocalMoveY(-325f, 0.3f);
     }
     public void ClearClickHistory()
     {
-        transform.DOLocalMoveY(-360f, 0.3f);
+        transform.DOLocalMoveY(-340f, 0.3f);
     }
     #endregion
 
