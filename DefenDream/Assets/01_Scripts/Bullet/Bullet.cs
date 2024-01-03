@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : PoolableMono
 {
     public bool _isCol = false;
 
-    [SerializeField] private float _speed;
-
     [HideInInspector] public Rigidbody _rb;
+
+    [SerializeField] private float _speed;
+    [SerializeField] private CapsuleCollider[] _col;
+
     OurTeam _team;
+
+    public override void Init()
+    {
+
+    }
 
     void Start()
     {
@@ -18,13 +25,16 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        Invoke("DestroyObj", 10);
+        Invoke("DestroyObj", 5);
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        //if(collider.CompareTag("Player") || collider.CompareTag("Team"))
-        //    DestroyObj();
+        foreach (var item in _col)
+        {
+            if (collider == item)
+                DestroyObj();
+        }
 
         if (collider.TryGetComponent<OurTeam>(out OurTeam team))
         {
@@ -35,12 +45,14 @@ public class Bullet : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             _isCol = true;
+            DestroyObj();
         }
     }
 
     private void DestroyObj()
     {
         Destroy(gameObject);
+        PoolManager.Instance.Push(this);
     }
 
     public void DecHp(float damage)
