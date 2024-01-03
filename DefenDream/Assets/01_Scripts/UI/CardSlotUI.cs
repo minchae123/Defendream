@@ -1,10 +1,8 @@
-using System.Collections;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using DG.Tweening;
-using TMPro;
-using System.Collections.Generic;
 
 public class CardSlotUI : MonoBehaviour, IPointerClickHandler
 {

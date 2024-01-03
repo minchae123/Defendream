@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using playerType;
 
-public class OurTeam : MonoBehaviour
+public class OurTeam : PoolableMono
 {
     public PlayerTypeSO _playerSO;
 
@@ -11,8 +11,8 @@ public class OurTeam : MonoBehaviour
     [SerializeField] private PlayerAnim _pAnim;
 
     [Header("Bullet")]
-    [SerializeField] private GameObject _magicBullet;
-    [SerializeField] private GameObject _ArcherBullet;
+    [SerializeField] private PlayerBullet _magicBullet;
+    [SerializeField] private PlayerBullet _ArcherBullet;
     [SerializeField] private Transform _FirePos;
     [SerializeField] private float _bulletSpeed;
 
@@ -20,14 +20,13 @@ public class OurTeam : MonoBehaviour
 
     [SerializeField] private float _hp;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public override void Init()
     {
         _hp = _playerSO._Hp;
         _saveSpeed = _move._speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         MoveAnim();
@@ -55,18 +54,18 @@ public class OurTeam : MonoBehaviour
                 
     private void Magic()
     {
-        GameObject obj = Instantiate(_magicBullet, transform);
-        obj.transform.position = _FirePos.position;
+        PlayerBullet bullet = PoolManager.Instance.Pop("MagicBullet") as PlayerBullet;
+        bullet.transform.position = _FirePos.position;
 
-        obj.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
     }
 
     private void Archer()
     {
-        GameObject obj = Instantiate(_ArcherBullet, transform);
-        obj.transform.position = _FirePos.position;
+        PlayerBullet bullet = PoolManager.Instance.Pop("ArcherBullet") as PlayerBullet;
+        bullet.transform.position = _FirePos.position;
 
-        obj.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
     }
 
     public void DecHp(float damage)

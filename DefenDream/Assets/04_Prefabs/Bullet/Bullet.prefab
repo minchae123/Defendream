@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1320470358687191503}
   - component: {fileID: 3184678174516240514}
   - component: {fileID: 4262563790379753580}
-  - component: {fileID: 6014459543385121546}
   - component: {fileID: 3572779552747180556}
   - component: {fileID: 7734987927607375188}
+  - component: {fileID: 218665039121720619}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6014459543385121546
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491032770060758500}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3572779552747180556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +99,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isCol: 0
-  _speed: 15
   _rb: {fileID: 0}
+  _speed: 15
+  _col:
+  - {fileID: 1914096787, guid: 5d624651a81d3f84c8d9eba0c7c34d66, type: 3}
+  - {fileID: 513042008, guid: 3ab793b5bf71ec946821d5ced8454a4e, type: 3}
+  - {fileID: 1229822463, guid: daa123b8f1c5aa04dbbaef784bb243be, type: 3}
+  - {fileID: 7711382, guid: 6d3f734f693e9324a909028ace64342a, type: 3}
 --- !u!54 &7734987927607375188
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -130,3 +122,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &218665039121720619
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491032770060758500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

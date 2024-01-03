@@ -1,7 +1,7 @@
 using EnemyEnum;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : PoolableMono
 {
     [SerializeField] private EnemyTypeSO[] _eTypeSO;
     [SerializeField] private float _spawnTime;
@@ -12,9 +12,14 @@ public class Enemy : MonoBehaviour
     [Header("visual")]
     [SerializeField] private SkinnedMeshRenderer _meshRen;
 
-    private void Awake()
+    public override void Init()
     {
         SelectType();
+    }
+
+    private void Update()
+    {
+        DieAnim();
     }
 
     private int RandomSpawn()
