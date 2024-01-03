@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Mercenary6
   m_EditorClassIdentifier: 
   MercenaryName: "6\uBC88\uC784"
-  MercenarySprite: {fileID: 21300000, guid: 68192b0c28c02804ab342343c0d15336, type: 3}
+  MercenarySprite: {fileID: 21300000, guid: d25445b74de1f934181190e7ae7252f8, type: 3}
   MercenaryExplain: "\uB098\uB294 6\uBC88\uC774\uB2E4"
   Price: 2147483647
   MercenaryPrice: "2147483647\uC6D0"
   number: 6
-  card: {fileID: 11400000, guid: 04ad1dd45efc7f84b8c07324bff88c60, type: 2}
+  card: {fileID: 11400000, guid: ff445cf165c784740ac4aadc4bf36924, type: 2}
