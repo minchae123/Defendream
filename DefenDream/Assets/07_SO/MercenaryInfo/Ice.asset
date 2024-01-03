@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   MercenaryName: "5\uBC88\uC784"
-  MercenarySprite: {fileID: 21300000, guid: 4858f870ef3ba354d9f4c08c8e2b6a1c, type: 3}
+  MercenarySprite: {fileID: 21300000, guid: 8c345772359cfd241b3a9ba6cfc4da36, type: 3}
   MercenaryExplain: "\uB098\uB294 5\uBC88\uC774\uB2E4"
   Price: 100000
   MercenaryPrice: "100000\uC6D0"

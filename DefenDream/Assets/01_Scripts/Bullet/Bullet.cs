@@ -52,7 +52,7 @@ public class Bullet : PoolableMono
     private void DestroyObj()
     {
         Destroy(gameObject);
-        PoolManager.Instance.Push(this);
+        //PoolManager.Instance.Push(this);
     }
 
     public void DecHp(float damage)

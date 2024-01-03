@@ -731,6 +731,7 @@ MonoBehaviour:
   _min: 3.4028235e+38
   _direction: {x: 0, y: 0, z: 0}
   _nealEnemy: {fileID: 0}
+  maxRotationAngle: 10
 --- !u!114 &1229822464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,7 +759,8 @@ MonoBehaviour:
   _playerSO: {fileID: 11400000, guid: dc8b715123112ea4399c55f36a180de9, type: 2}
   _move: {fileID: 1229822461}
   _pAnim: {fileID: 1229822464}
-  _magicBullet: {fileID: 3321121079508793677, guid: f70c6da378c9efd4aa588cfd8fd89284, type: 3}
-  _ArcherBullet: {fileID: 189547769556920799, guid: 914309a81d848b44db7d431fb978bae4, type: 3}
+  _magicBullet: {fileID: 4560384623750476643, guid: f70c6da378c9efd4aa588cfd8fd89284, type: 3}
+  _ArcherBullet: {fileID: -8480510282794816201, guid: 914309a81d848b44db7d431fb978bae4, type: 3}
   _FirePos: {fileID: 1851906148}
   _bulletSpeed: 15
+  _hp: 0
