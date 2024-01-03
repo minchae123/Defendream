@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    Rigidbody _rb;
+    public bool _isCol = false;
+
     [SerializeField] private float _speed;
-    // Start is called before the first frame update
+
+    [HideInInspector] public Rigidbody _rb;
+    OurTeam _team;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 dir = GameManager.instance._playerTrm.position - transform.position;
-        _rb.velocity = dir.normalized * _speed;
-    }
-
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.CompareTag("Player"))
-        {
+        if (!collider.CompareTag("Enemy"))
             Destroy(gameObject);
+
+        if (collider.TryGetComponent<OurTeam>(out OurTeam team))
+        {
+            _isCol = true;
+            _team = team;
         }
+
+        if (collider.CompareTag("Player"))
+        {
+            _isCol = true;
+        }
+    }
+
+    public void DecHp(float damage)
+    {
+        _team.DecHp(damage);
     }
 }

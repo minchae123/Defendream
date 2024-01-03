@@ -17,4 +17,4 @@ MonoBehaviour:
   _EnemyName: "\uADFC\uC811"
   _EnemyHp: 10
   _AttackDamage: 10
-  _AttackDistance: 7
+  _AttackDistance: 3

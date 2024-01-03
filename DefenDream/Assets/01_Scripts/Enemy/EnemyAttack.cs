@@ -26,17 +26,19 @@ public class EnemyAttack : MonoBehaviour
 
     private void Distance()
     {
-        float dis = Vector3.Distance(GameManager.instance._playerTrm.position, transform.position);
-
-        if (_eType._AttackDistance >= dis && !_isAtt)
+        if (_eType._AttackDistance >= _enemyMove._dis && !_isAtt && _enemyMove._dis != 0)
         {
             _enemyMove._speed = 0;
+
             Att();
             _isAtt = true;
         }
 
-        if(_eType._AttackDistance < dis)
+        if (_eType._AttackDistance < _enemyMove._dis)
+        {
+            _enemyMove._isStop = false;
             _enemyMove._speed = _saveSpeed;
+        }
     }
 
     private void Att()
@@ -67,12 +69,11 @@ public class EnemyAttack : MonoBehaviour
     {
         while (true)
         {
+            _enemyMove._isStop = true;
             //애니메이션 하고~
             //playerHp 깎기
 
-            float damage = _enemy._eType._AttackDamage;
-
-            GameManager.instance._player._hp -= damage;
+            Damage();
 
             yield return new WaitForSeconds(1f);
         }
@@ -82,10 +83,16 @@ public class EnemyAttack : MonoBehaviour
     {
         while (true)
         {
+            _enemyMove._isStop = true;
             //애니메이션 하고~
             //playerHp 깎기, 총알 발사
-            Instantiate(_bulletPrefabs);
-            _bulletPrefabs.transform.position = transform.position;
+
+            InstBullet();
+
+            if (_bulletPrefabs._isCol)
+            {
+                Damage();
+            }
 
             yield return new WaitForSeconds(3f);
         }
@@ -95,12 +102,43 @@ public class EnemyAttack : MonoBehaviour
     {
         while (true)
         {
+            _enemyMove._isStop = true;
             //애니메이션 하고~
             //playerHp 깎기
-            Instantiate(_bulletPrefabs);
-            _bulletPrefabs.transform.position = transform.position;
+
+            InstBullet();
+
+            if (_bulletPrefabs._isCol)
+            {
+                Damage();
+            }
 
             yield return new WaitForSeconds(3f);
         }
+    }
+
+    private void Damage()
+    {
+        float damage = _enemy._eType._AttackDamage;
+
+        if (_enemyMove._col.CompareTag("Player"))
+            GameManager.instance._player._hp -= damage;
+        else
+        {
+            print(_enemyMove._col.name);
+            _enemyMove._col.GetComponent<OurTeam>().DecHp(damage);
+        }
+    }
+
+    private void InstBullet()
+    {
+        Bullet b = Instantiate(_bulletPrefabs);
+
+        b.transform.position = transform.position;
+
+        Vector3 dir = _enemyMove._col.transform.position - b.transform.position;
+        dir.y = transform.position.y;
+
+        b.GetComponent<Rigidbody>().velocity = dir.normalized * 10;
     }
 }
