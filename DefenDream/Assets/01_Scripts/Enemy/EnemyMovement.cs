@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -17,19 +19,25 @@ public class EnemyMovement : MonoBehaviour
 
     Vector3 boxSize = new Vector3(100f, 100f, 100f);
 
+    private EnemyAttack _enemyAttack;
+    public Action freeze;
+
     private void Awake()
     {
         _dis = float.MaxValue;
         _rb = GetComponent<Rigidbody>();
 
         _playerDis = Vector3.Distance(transform.position, GameManager.instance._playerTrm.position);
+
+        _enemyAttack = GetComponent<EnemyAttack>();
+        freeze += Freeze;
     }
 
     void Update()
     {
-        Move();
-
         if (!_isStop)
+            Move();
+
         OverlapBox();
     }
 
@@ -75,5 +83,17 @@ public class EnemyMovement : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, boxSize);
+    }
+
+    public void Freeze() => StartCoroutine(UnFreeze());
+
+    private IEnumerator UnFreeze()
+    {
+        _enemyAttack.enabled = false;
+        _rb.velocity = Vector3.zero;
+        _isStop = true;
+        yield return new WaitForSeconds(4.5f);
+        _isStop = false;
+        _enemyAttack.enabled = true;
     }
 }
