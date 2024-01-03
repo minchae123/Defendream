@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Poison
   m_EditorClassIdentifier: 
   MercenaryName: "6\uBC88\uC784"
-  MercenarySprite: {fileID: 21300000, guid: d25445b74de1f934181190e7ae7252f8, type: 3}
+  MercenarySprite: {fileID: 21300000, guid: 8b6b92904d7f2a34fbe45198249ee0ef, type: 3}
   MercenaryExplain: "\uB098\uB294 6\uBC88\uC774\uB2E4"
   Price: 2147483647
   MercenaryPrice: "2147483647\uC6D0"
