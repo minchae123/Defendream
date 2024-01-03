@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ae9391b05c3e9a4790c2304944932ad, type: 3}
-  m_Name: FireTest
+  m_Name: Tornado
   m_EditorClassIdentifier: 
-  mana: 4
-  icon: {fileID: 21300000, guid: 764b30f7c21d2c046bab7fa36b62042a, type: 3}
-  prefab: {fileID: 2782861483224444456, guid: 67970343bf53663419c59804894a7d80, type: 3}
+  mana: 3
+  icon: {fileID: 21300000, guid: 4858f870ef3ba354d9f4c08c8e2b6a1c, type: 3}
+  prefab: {fileID: 4696360351869474206, guid: c5fa2e08d8d98204d95507bdabe43e81, type: 3}

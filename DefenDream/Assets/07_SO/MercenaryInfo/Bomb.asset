@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8044270ee64f345a456ef1a094a210, type: 3}
+  m_Name: Bomb
+  m_EditorClassIdentifier: 
+  MercenaryName: "5\uBC88\uC784"
+  MercenarySprite: {fileID: 21300000, guid: 4858f870ef3ba354d9f4c08c8e2b6a1c, type: 3}
+  MercenaryExplain: "\uB098\uB294 5\uBC88\uC774\uB2E4"
+  Price: 100000
+  MercenaryPrice: "100000\uC6D0"
+  number: 5
+  card: {fileID: 11400000, guid: e06a2aea667554843bdadd767372c61b, type: 2}
