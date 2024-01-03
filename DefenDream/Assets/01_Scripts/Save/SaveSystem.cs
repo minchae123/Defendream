@@ -13,7 +13,8 @@ public class SaveSystem : MonoBehaviour
 	private void Awake()
 	{
 		gameData = new GameData();
-		savePath = Application.dataPath + "/SaveData/";;
+		savePath = Application.dataPath + "/SaveData/";
+
 
 		if(!Directory.Exists(savePath))
 		{

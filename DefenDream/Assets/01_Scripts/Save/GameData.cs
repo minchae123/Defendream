@@ -6,11 +6,6 @@ using UnityEngine;
 public class GameData 
 {
 	public int gold;
-	
-	public int card1;
-	public int card2;
-	public int card3;
-	public int card4;
-	public int card5;
-	public int card6;
+
+	public List<int> cards = new List<int>();
 }
