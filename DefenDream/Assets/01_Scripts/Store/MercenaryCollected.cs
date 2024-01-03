@@ -15,7 +15,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     [SerializeField] private MercenaryContent collected;
 
-	[SerializeField] private SaveSystem save;
+    private SaveSystem save;
     private GameData data;
 
     public int MercenaryCount = 0;
@@ -28,8 +28,8 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     [SerializeField] private GameObject mercenaryContent;
 
-    public ScrollRect StoreScrollRect; // ScrollRect ÂüÁ¶
-    public ScrollRect InventoryScrollRect; // ScrollRect ÂüÁ¶
+    public ScrollRect StoreScrollRect; // ScrollRect ï¿½ï¿½ï¿½ï¿½
+    public ScrollRect InventoryScrollRect; // ScrollRect ï¿½ï¿½ï¿½ï¿½
 
     public MercenaryInfo[] infos;
 
@@ -37,8 +37,10 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     {
         MercenaryCount = infos.Length;
         save = FindObjectOfType<SaveSystem>();
+        storePanel.SetActive(false);
+        inventoryPanel.SetActive(false);
     }
-
+    
     private void OnEnable()
     {
         RectTransform StoreContent = StoreScrollRect.content;
@@ -64,23 +66,34 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
         for (int i = 0; i < MercenaryCount; ++i)
         {
-            Inventory.Instance.SetInventory(infos[i], numbers[i]); // ÀÎº¥Åä¸® setÇØÁÖ±â
+            Inventory.Instance.SetInventory(infos[i], numbers[i]); // ï¿½Îºï¿½ï¿½ä¸® setï¿½ï¿½ï¿½Ö±ï¿½
         }
 
         Inventory.Instance.InventoryIndex();
+        collected.info = null;
     }
 
     public void Purchase()
     {
         MercenaryInfo info = collected.info;
-        numbers[info.number - 1]++;
-        totalCount++;
-        SaveData();
+        if (info != null && info.Price <= CashManager.Instance.Cash)
+        {
+            CashManager.Instance.SpendMoney(info.Price);
+            numbers[info.number - 1]++;
+            totalCount++;
+            SaveData();
+        }
+        else
+        {
+            print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ or infoï¿½ï¿½ï¿½ï¿½");
+            print(CashManager.Instance.Cash);
+        }
     }
 
-    public void NextDay(MercenaryInfo info)
+    public void NextDay()
     {
-        print("´ÙÀ½³¯ ·¹Ã÷°í´Ù¹Î");
+        print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¹ï¿½");
+        WeekManager.Instance.ResetTimer();
     }
 
     public void ShowChange(MercenaryInfo info)
@@ -104,6 +117,12 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         inventoryPanel.SetActive(false);
     }
 
+    public void InactiveStoreAndInventory()
+    {
+        storePanel.SetActive(false);
+        inventoryPanel.SetActive(false);
+    }
+
     public void UpdateCountText()
     {
         for (int i = 0; i < MercenaryCount; i++)
@@ -113,17 +132,17 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     }
 
     public void SaveData()
-	{
-		for (int i = 0; i < numbers.Count; i++)
-		{
-			data.cards[i] = numbers[i];
-		}
+    {
+        for (int i = 0; i < numbers.Count; i++)
+        {
+            data.cards[i] = numbers[i];
+        }
 
         save.Save(data);
-	}
+    }
 
     public void LoadData()
-	{
+    {
         data = save.Load();
 
         for (int i = 0; i < numbers.Count; i++)

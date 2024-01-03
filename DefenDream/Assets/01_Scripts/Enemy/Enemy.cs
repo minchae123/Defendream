@@ -1,7 +1,7 @@
 using EnemyEnum;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : PoolableMono
 {
     [SerializeField] private EnemyTypeSO[] _eTypeSO;
     [SerializeField] private float _spawnTime;
@@ -11,10 +11,17 @@ public class Enemy : MonoBehaviour
 
     [Header("visual")]
     [SerializeField] private SkinnedMeshRenderer _meshRen;
+    [SerializeField] private Animator _anim;
+    private bool isDead = false;
 
-    private void Awake()
+    public override void Init()
     {
         SelectType();
+    }
+
+    private void Update()
+    {
+        DieAnim();
     }
 
     private int RandomSpawn()
@@ -82,7 +89,13 @@ public class Enemy : MonoBehaviour
 
     private void DieAnim()
     {
-        if (_eType._EnemyHp <= 0) 
+
+        if (_eType._EnemyHp <= 0 && !isDead)
+        {
+            isDead = true;
+            _anim.SetTrigger("Die");
+            //풀매니저 1초 이따가
             print("죽어"); //죽어
+        }
     }
 }

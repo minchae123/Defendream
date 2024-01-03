@@ -7,6 +7,7 @@ public class BombSkill : MonoBehaviour
     private Animator anim;
     private Rigidbody rb;
 
+    [SerializeField] private GameObject bombTex;
     [SerializeField] private GameObject bomb;
 
     void Start()
@@ -26,7 +27,9 @@ public class BombSkill : MonoBehaviour
 
     void Bomb()
     {
-        Instantiate(bomb, null);
-        Destroy(gameObject);
+        bombTex.SetActive(false);
+        Instantiate(bomb, transform);
+        Destroy(gameObject, 1f);
     }
+
 }

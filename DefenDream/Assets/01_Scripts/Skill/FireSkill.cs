@@ -17,11 +17,13 @@ public class FireSkill : MonoBehaviour
         _rb.AddForce(new Vector3(4,0,0), ForceMode.Impulse);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Enemy"))
-    //    {
-    //        Debug.Log("Hurt");
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<Enemy>().DecHp(4);
+            Debug.Log("4");
+
+        }
+    }
 }

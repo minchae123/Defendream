@@ -70,8 +70,6 @@ public class EnemyAttack : MonoBehaviour
         while (true)
         {
             _enemyMove._isStop = true;
-            //애니메이션 하고~
-            //playerHp 깎기
 
             Damage();
 
@@ -84,15 +82,11 @@ public class EnemyAttack : MonoBehaviour
         while (true)
         {
             _enemyMove._isStop = true;
-            //애니메이션 하고~
-            //playerHp 깎기, 총알 발사
 
             InstBullet();
 
             if (_bulletPrefabs._isCol)
-            {
                 Damage();
-            }
 
             yield return new WaitForSeconds(3f);
         }
@@ -103,15 +97,11 @@ public class EnemyAttack : MonoBehaviour
         while (true)
         {
             _enemyMove._isStop = true;
-            //애니메이션 하고~
-            //playerHp 깎기
 
             InstBullet();
 
             if (_bulletPrefabs._isCol)
-            {
                 Damage();
-            }
 
             yield return new WaitForSeconds(3f);
         }
@@ -119,10 +109,19 @@ public class EnemyAttack : MonoBehaviour
 
     private void Damage()
     {
+        if (_enemyMove._col == null)
+        {
+            _enemyMove._isStop = true;
+            _enemyMove._speed = _saveSpeed;
+            return;
+        }
+
         float damage = _enemy._eType._AttackDamage;
 
         if (_enemyMove._col.CompareTag("Player"))
+        {
             GameManager.instance._player._hp -= damage;
+        }
         else
         {
             print(_enemyMove._col.name);
@@ -132,8 +131,15 @@ public class EnemyAttack : MonoBehaviour
 
     private void InstBullet()
     {
+        if (_enemyMove._col == null)
+        {
+            _enemyMove._isStop = true;
+            _enemyMove._speed = _saveSpeed;
+            return;
+        }
+
         Bullet b = Instantiate(_bulletPrefabs);
-        print(b);
+
         b.transform.position = transform.position;
 
         Vector3 dir = _enemyMove._col.transform.position - b.transform.position;

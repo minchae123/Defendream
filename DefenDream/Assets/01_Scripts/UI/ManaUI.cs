@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class ManaUI : MonoBehaviour
 {
     public static ManaUI Instance;
 
+    [SerializeField] private Transform manaImage;
     [SerializeField] private Transform manaParent;
     [SerializeField] private ManaSlotUI[] manaSlots;
 
@@ -50,8 +51,9 @@ public class ManaUI : MonoBehaviour
         currentMana = Mathf.Clamp(currentMana, 0, maxMana);
 
         UpdateManaSlot();
-        manaSlots[currentMana - 1].FinishUpdating(currentMana); 
+        manaSlots[currentMana - 1].FinishUpdating(currentMana);
 
+        manaImage.DOScale(1.1f, 0.2f).OnComplete(() => manaImage.DOScale(1f, 0.1f));
         yield return null;
         StartCoroutine(UpdateCoroutine());
     }

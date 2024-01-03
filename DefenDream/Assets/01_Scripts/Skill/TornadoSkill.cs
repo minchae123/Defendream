@@ -14,11 +14,11 @@ public class TornadoSkill : MonoBehaviour
         transform.rotation = Quaternion.Euler(-90, 0, transform.rotation.z);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Enemy")) 
-    //    {
-    //        other.gameObject.GetComponent<Rigidbody>().AddForce(transform.position - other.transform.position);
-    //    }
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<Rigidbody>().AddForce((transform.position - other.transform.position).normalized, ForceMode.Impulse);
+        }
+    }
 }

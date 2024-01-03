@@ -21,4 +21,9 @@ public class PlayerAnim : MonoBehaviour
     {
         _anim.SetBool("walk", isWalk);
     }
+
+    public void DieAnim()
+    {
+        _anim.SetTrigger("die");
+    }
 }

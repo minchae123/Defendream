@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour
+public class PlayerBullet : PoolableMono
 {
+    public override void Init()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +27,6 @@ public class PlayerBullet : MonoBehaviour
 
         print(other.name);
         Destroy(gameObject);
+        //PoolManager.Instance.Push(this);
     }
 }

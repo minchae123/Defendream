@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af129e7bb3634774a9512f115b8de1fa, type: 3}
+  m_Name: Wednesday
+  m_EditorClassIdentifier: 
+  goodDayList:
+  - dayType: 1
+    painting: {fileID: 21300000, guid: 764b30f7c21d2c046bab7fa36b62042a, type: 3}
+    text: "\u3145\u3147\u3147\u3148\u3147"
+  - dayType: 1
+    painting: {fileID: 21300000, guid: d25445b74de1f934181190e7ae7252f8, type: 3}
+    text: "\u3145\u3147\u3147\u3148\u31472"
+  badDayList:
+  - dayType: 0
+    painting: {fileID: 21300000, guid: b205f4b28f59dda49af458b35d8a3ff3, type: 3}
+    text: "\u3145\u3147\u3147\u3145\u3139"
+  - dayType: 0
+    painting: {fileID: 1997515541, guid: 2836190b5c70b00438c01cda28814611, type: 3}
+    text: "\u3145\u3147\u3147\u3145\u31392"

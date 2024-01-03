@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using playerType;
 
-public class OurTeam : MonoBehaviour
+public class OurTeam : PoolableMono
 {
     public PlayerTypeSO _playerSO;
 
@@ -11,8 +11,8 @@ public class OurTeam : MonoBehaviour
     [SerializeField] private PlayerAnim _pAnim;
 
     [Header("Bullet")]
-    [SerializeField] private GameObject _magicBullet;
-    [SerializeField] private GameObject _ArcherBullet;
+    [SerializeField] private PlayerBullet _magicBullet;
+    [SerializeField] private PlayerBullet _ArcherBullet;
     [SerializeField] private Transform _FirePos;
     [SerializeField] private float _bulletSpeed;
 
@@ -20,14 +20,19 @@ public class OurTeam : MonoBehaviour
 
     [SerializeField] private float _hp;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public override void Init()
     {
         _hp = _playerSO._Hp;
         _saveSpeed = _move._speed;
     }
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        _hp = _playerSO._Hp;
+        _saveSpeed = _move._speed;
+    }
+
     void Update()
     {
         MoveAnim();
@@ -36,7 +41,7 @@ public class OurTeam : MonoBehaviour
     private void MoveAnim()
     {
         bool isWalk = _move._min > _playerSO._AttackDistance;
-
+        print(isWalk);
         _pAnim.WalkAnim(isWalk);
 
         if(isWalk) _move._speed = _saveSpeed;
@@ -55,22 +60,39 @@ public class OurTeam : MonoBehaviour
                 
     private void Magic()
     {
-        GameObject obj = Instantiate(_magicBullet, transform);
-        obj.transform.position = _FirePos.position;
+        PlayerBullet bullet = Instantiate(_magicBullet, transform);
+        bullet.transform.position = _FirePos.position;
 
-        obj.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
     }
 
     private void Archer()
     {
-        GameObject obj = Instantiate(_ArcherBullet, transform);
-        obj.transform.position = _FirePos.position;
+        PlayerBullet bullet = Instantiate(_ArcherBullet, transform);
+        bullet.transform.position = _FirePos.position;
 
-        obj.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
     }
 
     public void DecHp(float damage)
     {
         _hp -= damage;
+
+        DieAnim();
+    }
+
+    private void DieAnim()
+    {
+        if(_hp <= 0)
+        {
+            _pAnim.DieAnim();
+
+            Invoke("DestroyObj", 1);
+        }
+    }
+
+    private void DestroyObj()
+    {
+        Destroy(gameObject);
     }
 }
