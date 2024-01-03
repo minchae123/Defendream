@@ -51,4 +51,12 @@ public class SaveSystem : MonoBehaviour
 			return null;
 		}
 	}
+
+	public void ResetData()
+	{
+		gameData.gold = 0;
+		gameData.cards.Clear();
+
+		Save(gameData);
+	}
 }
