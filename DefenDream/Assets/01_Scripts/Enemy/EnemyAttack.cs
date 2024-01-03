@@ -133,11 +133,11 @@ public class EnemyAttack : MonoBehaviour
     private void InstBullet()
     {
         Bullet b = Instantiate(_bulletPrefabs);
-
+        print(b);
         b.transform.position = transform.position;
 
         Vector3 dir = _enemyMove._col.transform.position - b.transform.position;
-        dir.y = transform.position.y;
+        dir.y = transform.position.y + 1;
 
         b.GetComponent<Rigidbody>().velocity = dir.normalized * 10;
     }

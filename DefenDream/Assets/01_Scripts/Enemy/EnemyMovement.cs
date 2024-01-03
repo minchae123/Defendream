@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 _playerDir;
     private Vector3 _WarriorDir;
 
-    Vector3 boxSize = new Vector3(10f, 10f, 10f);
+    Vector3 boxSize = new Vector3(100f, 100f, 100f);
 
     private void Awake()
     {
@@ -41,6 +41,12 @@ public class EnemyMovement : MonoBehaviour
         _rb.velocity = _WarriorDir.normalized * _speed;
 
         _bulletDir = _rb.velocity;
+
+        if (_WarriorDir != Vector3.zero)
+        {
+            Quaternion warriorRotation = Quaternion.LookRotation(new Vector3(_WarriorDir.x, 0f, _WarriorDir.z), Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, warriorRotation, Time.deltaTime * 5f);
+        }
     }
 
     private void OverlapBox()
