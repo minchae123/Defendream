@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SO/Test")]
-public class TestSO : ScriptableObject
+[CreateAssetMenu(menuName = "SO/Card")]
+public class CardSO : ScriptableObject
 {
     //needed
     //public string name;
