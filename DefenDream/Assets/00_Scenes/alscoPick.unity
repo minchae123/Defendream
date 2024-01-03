@@ -722,7 +722,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198215850068877260, guid: d53b3618f7c3afd49be56cb6dd058c61, type: 3}
+      propertyPath: lengthInSec
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 198215850068877260, guid: d53b3618f7c3afd49be56cb6dd058c61, type: 3}
+      propertyPath: scalingMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198215850068877260, guid: d53b3618f7c3afd49be56cb6dd058c61, type: 3}
       propertyPath: simulationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198215850068877260, guid: d53b3618f7c3afd49be56cb6dd058c61, type: 3}
+      propertyPath: CollisionModule.type
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198215850068877260, guid: d53b3618f7c3afd49be56cb6dd058c61, type: 3}
@@ -730,8 +742,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198215850068877260, guid: d53b3618f7c3afd49be56cb6dd058c61, type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198215850068877260, guid: d53b3618f7c3afd49be56cb6dd058c61, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 198215850068877260, guid: d53b3618f7c3afd49be56cb6dd058c61, type: 3}
       propertyPath: InitialModule.startSize.minScalar
