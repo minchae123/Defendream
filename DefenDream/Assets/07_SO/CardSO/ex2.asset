@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ae9391b05c3e9a4790c2304944932ad, type: 3}
-  m_Name: Test1
+  m_Name: ex2
   m_EditorClassIdentifier: 
   mana: 1
-  icon: {fileID: 21300000, guid: 8a6cca56e2b63344eb4769cd92d93ffb, type: 3}
+  icon: {fileID: 21300000, guid: 636d03a8834e3ed4cac3a1cb4b82deaf, type: 3}
   prefab: {fileID: 25901200661331521, guid: aaf0bae1b4fe202469a91f418e19fa04, type: 3}

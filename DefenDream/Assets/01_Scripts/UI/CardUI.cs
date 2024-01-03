@@ -6,11 +6,13 @@ using UnityEngine.EventSystems;
 public class CardUI : MonoBehaviour
 {
     public static CardUI Instance;
+    private SaveSystem save;
+
+	[SerializeField] private LayerMask whatIsGround;
 
     [SerializeField] private Transform slotparent;
     [SerializeField] private CardSlotUI[] cardSlots;
-	[SerializeField] private LayerMask ground;
-
+        
     private CardSlotUI selectedSlot;
 
     private void Awake()
@@ -22,15 +24,13 @@ public class CardUI : MonoBehaviour
 
     private void Start()
     {
-        UpdateSlot();
-    }
+        save = FindObjectOfType<SaveSystem>();
 
-    private void OnMouseDown()
-    {
-        if(!EventSystem.current.IsPointerOverGameObject())
+        for (int i = 0; i < cardSlots.Length; ++i)
         {
-
+            cardSlots[i].SetRandomCard();
         }
+        UpdateSlot();   
     }
 
     private void Update()
@@ -39,19 +39,16 @@ public class CardUI : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            //&& hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")
-            if (Physics.Raycast(ray, out hit, 100, ground))
+            if (Physics.Raycast(ray, out hit, 100, whatIsGround))
             {
-                //print(hit.collider.gameObject.layer);
-                if (selectedSlot != null && selectedSlot.CurrentCard != null)
+                if (selectedSlot != null && selectedSlot.currentCard != null)
                 {
-                    Instantiate(selectedSlot.CurrentCard.prefab, new Vector3(hit.point.x, hit.point.y + 1, hit.point.z), Quaternion.identity);
-                    ManaUI.Instance.UseMana(selectedSlot.RequiredMana);
+                    selectedSlot.CreateArmy(hit.point); // »ý¼º!]
+                    UpdateSlot(); // ¾÷µ«
                 }
             }
         }
     }
-
 
     public void ResetSelectSlot(CardSlotUI slot)
     {
@@ -61,7 +58,10 @@ public class CardUI : MonoBehaviour
             selectedSlot = null;
         }
     }
-
+    public void ResetSelectSlot()
+    {
+        selectedSlot = null;
+    }
     public void UpdateSelectSlot(CardSlotUI slot)
     {
         slot.AddClickHistroy();
