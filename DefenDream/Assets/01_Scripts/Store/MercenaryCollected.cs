@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 {
-
-
-    [SerializeField] private GameObject Store;
-    [SerializeField] private GameObject Inventory;
+    [SerializeField] private GameObject storePanel;
+    [SerializeField] private GameObject inventoryPanel;
 
     [SerializeField] private Image infoImage;
     [SerializeField] private TextMeshProUGUI mercenaryName;
@@ -23,7 +21,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     public int MercenaryCount = 0;
 
     //public int[] numbers = { 0, 0, 0, 0, 0, 0 };
-    List<int> numbers = new List<int>();
+    public List<int> numbers = new List<int>();
     int totalCount = 0;
     public List<GameObject> StoreContents = new List<GameObject>();
     public List<GameObject> InventoryContents = new List<GameObject>();
@@ -46,7 +44,6 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         RectTransform StoreContent = StoreScrollRect.content;
         RectTransform InventoryContent = InventoryScrollRect.content;
 
-
         for (int i = 0; i < MercenaryCount; i++)
         {
             StoreContents.Add(Instantiate(mercenaryContent, StoreScrollRect.content));
@@ -57,7 +54,6 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
             InventoryContents[i].GetComponent<MercenaryContent>().info = infos[i];
         }
 
-
         for (int i = 0; i < MercenaryCount; i++)
         {
             numbers.Add(0);
@@ -65,6 +61,11 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
         UpdateCountText();
         LoadData();
+
+        for (int i = 0; i < MercenaryCount; ++i) 
+        {
+            Inventory.Instance.SetInventory(infos[i], numbers[i]); // 인벤토리 set해주기
+        }
     }
 
     public void Purchase()
@@ -90,15 +91,15 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     public void ActiveInventory()
     {
-        Store.SetActive(false);
-        Inventory.SetActive(true);
+        storePanel.SetActive(false);
+        inventoryPanel.SetActive(true);
         UpdateCountText();
     }
 
     public void ActiveStore()
     {
-        Store.SetActive(true);
-        Inventory.SetActive(false);
+        storePanel.SetActive(true);
+        inventoryPanel.SetActive(false);
     }
 
     public void UpdateCountText()

@@ -13,4 +13,6 @@ public class MercenaryInfo : ScriptableObject
     public string MercenaryPrice;
 
     public int number;
+
+    public CardSO card;
 }

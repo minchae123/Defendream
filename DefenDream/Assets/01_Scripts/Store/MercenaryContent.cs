@@ -12,7 +12,6 @@ public class MercenaryContent : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         mercenaryCollected = FindObjectOfType<MercenaryCollected>();
-
     }
 
     private void Start()

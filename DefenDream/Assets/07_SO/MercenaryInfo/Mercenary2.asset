@@ -18,3 +18,4 @@ MonoBehaviour:
   Price: 2000
   MercenaryPrice: "2000\uC6D0"
   number: 2
+  card: {fileID: 11400000, guid: 917d3e53a4b5f1a49bb4f1b9a44f8801, type: 2}
