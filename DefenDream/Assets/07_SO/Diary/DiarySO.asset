@@ -12,3 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983619491610c544fbfc956ae3c8d880, type: 3}
   m_Name: DiarySO
   m_EditorClassIdentifier: 
+  mainDiary:
+  - today: 0
+    diarySO: {fileID: 11400000, guid: 984c1f2d1ba6cea468e111cfddc4b21c, type: 2}
+  - today: 1
+    diarySO: {fileID: 11400000, guid: bc5a922fb5f0da04d9c5470728063121, type: 2}
+  - today: 2
+    diarySO: {fileID: 11400000, guid: 45dd9ad9c6d607c43b66edd818ac99ef, type: 2}
+  - today: 3
+    diarySO: {fileID: 11400000, guid: 8bddbc18e93f375428a6025462fcfd1c, type: 2}
+  - today: 4
+    diarySO: {fileID: 11400000, guid: f2759414ef54db9489ed7dd239297dbb, type: 2}
+  - today: 5
+    diarySO: {fileID: 11400000, guid: 535492e144f1c01438844235292fdc1d, type: 2}
+  - today: 6
+    diarySO: {fileID: 11400000, guid: 5d795ae61b0ae8a439dfbf652fe19931, type: 2}
