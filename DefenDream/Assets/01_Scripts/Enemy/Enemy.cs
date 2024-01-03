@@ -74,4 +74,15 @@ public class Enemy : MonoBehaviour
         TypeEnum = EnemyType.Magic;
         _meshRen.material = _eType._material;
     }
+
+    public void DecHp(float damage)
+    {
+        _eType._EnemyHp -= damage;
+    }
+
+    private void DieAnim()
+    {
+        if (_eType._EnemyHp <= 0) 
+            print("ав╬Н"); //ав╬Н
+    }
 }
