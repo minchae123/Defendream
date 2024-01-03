@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 3777033087486887065}
   - component: {fileID: 3777033087486887066}
   - component: {fileID: 3777033087486887064}
+  - component: {fileID: 1821918484}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -472,7 +473,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7024c8aa48ea35468e905326c269ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCard: {fileID: 11400000, guid: ace58cdd891301044a571da56264811c, type: 2}
+  currentCard: {fileID: 0}
+  next: {fileID: 0}
+  outline: {fileID: 1821918484}
   iconImage: {fileID: 3777033086851347046}
   manaText: {fileID: 3777033087394201701}
   enoughPanel: {fileID: 1745374599}
+--- !u!114 &1821918484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777033087486887068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.4392157}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 1

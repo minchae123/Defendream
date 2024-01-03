@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class CardUI : MonoBehaviour
 {
     public static CardUI Instance;
-    private SaveSystem save;
+    //private SaveSystem save;
 
 	[SerializeField] private LayerMask whatIsGround;
 
@@ -24,12 +24,7 @@ public class CardUI : MonoBehaviour
 
     private void Start()
     {
-        save = FindObjectOfType<SaveSystem>();
-
-        for (int i = 0; i < cardSlots.Length; ++i)
-        {
-            cardSlots[i].SetRandomCard();
-        }
+        //save = FindObjectOfType<SaveSystem>();
         UpdateSlot();   
     }
 
@@ -37,7 +32,7 @@ public class CardUI : MonoBehaviour
     {   
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = GameManager.instance.mainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100, whatIsGround))
             {
