@@ -30,30 +30,6 @@ public class ManaSlotUI : MonoBehaviour
             return;
         }
         transform.localScale = Vector3.one;
-
-        // »ö±òÁöÁ¤
-        switch (slotNum)
-        {
-            case 0:
-            case 1:
-            case 2:
-                manaImage.color = Color.green;
-                break;
-            case 3:
-            case 4:
-            case 5:
-                manaImage.color = Color.yellow;
-                break;
-            case 6:
-            case 7:
-                manaImage.color = new Vector4(255f / 255f, 150f / 255f, 0f, 255f / 255f);
-                break;
-            case 8:
-            case 9:
-                manaImage.color = Color.red;
-                break;
-            default:
-                break;
-        }
+        manaImage.color = new Color(0f, 1f - ((slotNum + 1f) * 0.1f), 1f); // 0~9
     }
 }
