@@ -27,6 +27,12 @@ public class OurTeam : PoolableMono
         _saveSpeed = _move._speed;
     }
 
+    private void Awake()
+    {
+        _hp = _playerSO._Hp;
+        _saveSpeed = _move._speed;
+    }
+
     void Update()
     {
         MoveAnim();
@@ -35,7 +41,7 @@ public class OurTeam : PoolableMono
     private void MoveAnim()
     {
         bool isWalk = _move._min > _playerSO._AttackDistance;
-
+        print(isWalk);
         _pAnim.WalkAnim(isWalk);
 
         if(isWalk) _move._speed = _saveSpeed;
@@ -54,7 +60,7 @@ public class OurTeam : PoolableMono
                 
     private void Magic()
     {
-        PlayerBullet bullet = PoolManager.Instance.Pop("MagicBullet") as PlayerBullet;
+        PlayerBullet bullet = Instantiate(_magicBullet, transform);
         bullet.transform.position = _FirePos.position;
 
         bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
@@ -62,7 +68,7 @@ public class OurTeam : PoolableMono
 
     private void Archer()
     {
-        PlayerBullet bullet = PoolManager.Instance.Pop("ArcherBullet") as PlayerBullet;
+        PlayerBullet bullet = Instantiate(_ArcherBullet, transform);
         bullet.transform.position = _FirePos.position;
 
         bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
@@ -71,5 +77,22 @@ public class OurTeam : PoolableMono
     public void DecHp(float damage)
     {
         _hp -= damage;
+
+        DieAnim();
+    }
+
+    private void DieAnim()
+    {
+        if(_hp <= 0)
+        {
+            _pAnim.DieAnim();
+
+            Invoke("DestroyObj", 1);
+        }
+    }
+
+    private void DestroyObj()
+    {
+        Destroy(gameObject);
     }
 }

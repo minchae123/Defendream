@@ -27,6 +27,6 @@ public class PlayerBullet : PoolableMono
 
         print(other.name);
         Destroy(gameObject);
-        PoolManager.Instance.Push(this);
+        //PoolManager.Instance.Push(this);
     }
 }
