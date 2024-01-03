@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af8044270ee64f345a456ef1a094a210, type: 3}
-  m_Name: Mercenary2
+  m_Name: Tornado
   m_EditorClassIdentifier: 
-  MercenaryName: "2\uBC88\uC784"
-  MercenarySprite: {fileID: 21300000, guid: 5572160a3c0ea964f945fb95c3b8438e, type: 3}
-  MercenaryExplain: "\uB098\uB294 2\uBC88\uC774\uB2E4"
-  Price: 2000
-  MercenaryPrice: "2000\uC6D0"
-  number: 2
-  card: {fileID: 11400000, guid: 917d3e53a4b5f1a49bb4f1b9a44f8801, type: 2}
+  MercenaryName: "5\uBC88\uC784"
+  MercenarySprite: {fileID: 21300000, guid: 4858f870ef3ba354d9f4c08c8e2b6a1c, type: 3}
+  MercenaryExplain: "\uB098\uB294 5\uBC88\uC774\uB2E4"
+  Price: 100000
+  MercenaryPrice: "100000\uC6D0"
+  number: 5
+  card: {fileID: 11400000, guid: b4e984b3176519d4aa6f603f37bb8214, type: 2}

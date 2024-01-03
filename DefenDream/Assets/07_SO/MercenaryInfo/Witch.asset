@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af8044270ee64f345a456ef1a094a210, type: 3}
-  m_Name: Mercenary6
+  m_Name: Witch
   m_EditorClassIdentifier: 
-  MercenaryName: "6\uBC88\uC784"
-  MercenarySprite: {fileID: 21300000, guid: d25445b74de1f934181190e7ae7252f8, type: 3}
-  MercenaryExplain: "\uB098\uB294 6\uBC88\uC774\uB2E4"
-  Price: 2147483647
-  MercenaryPrice: "2147483647\uC6D0"
-  number: 6
-  card: {fileID: 11400000, guid: ff445cf165c784740ac4aadc4bf36924, type: 2}
+  MercenaryName: "5\uBC88\uC784"
+  MercenarySprite: {fileID: 21300000, guid: 4858f870ef3ba354d9f4c08c8e2b6a1c, type: 3}
+  MercenaryExplain: "\uB098\uB294 5\uBC88\uC774\uB2E4"
+  Price: 100000
+  MercenaryPrice: "100000\uC6D0"
+  number: 5
+  card: {fileID: 11400000, guid: 04ad1dd45efc7f84b8c07324bff88c60, type: 2}
