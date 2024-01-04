@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingUI : MonoSingleton<SettingUI>
@@ -34,20 +35,23 @@ public class SettingUI : MonoSingleton<SettingUI>
         {
             if (isSetting)
             {
-                settingPanel.SetActive(false);
-                Time.timeScale = 0;
-                isSetting = false;  
+                Off();
             }
             else
             {
-                Off();
+                On();
             }
         }
     }
-
     public void Off()
-	{
+    {
         Time.timeScale = 1;
+        settingPanel.SetActive(false);
+        isSetting = false;
+    }
+    public void On()
+	{
+        Time.timeScale = 0;
         settingPanel.SetActive(true);
         isSetting = true;
     }
@@ -70,20 +74,18 @@ public class SettingUI : MonoSingleton<SettingUI>
 
     public void OnClickSettingButton()
     {
-        isSetting = true;
-        settingPanel.SetActive(isSetting);
+        On();    
     }
     public void OnClickContinueButton()
     {
-        isSetting = false;
-        settingPanel.SetActive(isSetting);
+        Off();
     }
     public void OnClickRestartButton()
     {
-        print("다시시작");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void OnClickTitleSceneButton()
     {
-        print("시작으로");
+        SceneManager.LoadScene(0); // 첫번째
     }
 }
