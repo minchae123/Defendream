@@ -6,6 +6,8 @@ public class FireSkill : PoolableMono
 {
     private Rigidbody _rb;
 
+   [SerializeField]  private Transform target;
+
     [SerializeField] private float DMG;
 
     public override void Init()
@@ -30,7 +32,7 @@ public class FireSkill : PoolableMono
 
     void Update()
     {
-        _rb.AddForce(new Vector3(4,0,0), ForceMode.Impulse);
+        _rb.AddForce(target.transform.position - transform.position, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)
