@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class Diary : MonoSingleton<Diary>
 {
-    [SerializeField] private List<bool> goodOrBad;
-
+    //[SerializeField] private List<bool> goodOrBad;
+    [SerializeField] private CheckWeekSO checkWeekSO;
     [Header("Main")]
     public DiarySO mainDiarySO;
 
@@ -29,11 +29,6 @@ public class Diary : MonoSingleton<Diary>
 
     private void Start()
     {
-        for(int i = 0; i < 7; ++i)
-        {
-            goodOrBad.Add(true);
-        }
-
         OnClickButton();
         UpdatePage();
     }
@@ -63,15 +58,15 @@ public class Diary : MonoSingleton<Diary>
         int pageIndex = currentPage;
         // ÃÊ±âÈ­
         pages[0].ClearPage();
-        pages[0].UpdatePage(pageIndex, goodOrBad[pageIndex]);
+        pages[0].UpdatePage(pageIndex, checkWeekSO.goodOrBad[pageIndex]);
         pages[1].ClearPage();
 
-        if (++pageIndex > (int)WhatDay.Sunday)
+        if (++pageIndex > (int)WhatDay.Saturday)
         {
             pages[1].LoadGameOverPanel();
             return;
         }
-        pages[1].UpdatePage(pageIndex, goodOrBad[pageIndex]);
+        pages[1].UpdatePage(pageIndex, checkWeekSO.goodOrBad[pageIndex]);
     }
 
     public void GoStart()

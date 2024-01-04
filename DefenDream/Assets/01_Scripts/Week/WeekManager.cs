@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WeekManager : MonoSingleton<WeekManager>
@@ -26,6 +27,7 @@ public class WeekManager : MonoSingleton<WeekManager>
 	[SerializeField] private Sprite[] _stress;
 	[Header("Week")]
 	public List<bool> _goodNights;
+	public CheckWeekSO goodNightsSO;
 
 	[SerializeField] private TextMeshProUGUI _dayText;
 	private readonly string[] weeks = { "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일" };
@@ -39,6 +41,8 @@ public class WeekManager : MonoSingleton<WeekManager>
 
 	void Start()
 	{
+		goodNightsSO.ResetList();
+
 		//디버깅용 나중에 씬 체인지하고는 어떻게 할지 모름
 		Time.timeScale = 0;
 		_isEnded = true;
@@ -92,12 +96,28 @@ public class WeekManager : MonoSingleton<WeekManager>
 		_isEnded = true;
 		//스트레스 수치 따라 _week바꾸기
 		if (_stressValue >= 6)
-            _goodNights.Add(false);
+        {
+			_goodNights.Add(false);
+			goodNightsSO.goodOrBad.Add(false);
+		}
 		else
-            _goodNights.Add(true);
+        {
+			_goodNights.Add(true);
+			goodNightsSO.goodOrBad.Add(true);
+		}
 
 		_weekIndex++;
 		_stressValue = 0;
+
+		if(_weekIndex >= 7) // 7일 넘어가면
+        {
+			_fadeImage.DOFade(0, 1).OnComplete(() =>
+			{
+				_fadeImage.gameObject.SetActive(false);
+				SceneManager.LoadScene(2);
+			});
+			return;
+		}
 
 		//다음날 직전(상점창) +++++++ 여기서 적이랑 우리팀 다 사라지는거 해야함
 		for (int i = activeObjects.Count - 1; i >= 0; i--)

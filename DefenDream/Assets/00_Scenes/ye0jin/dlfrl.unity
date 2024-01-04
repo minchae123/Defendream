@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0a00c452e6383468ed94009e03f3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodOrBad: 
+  checkWeekSO: {fileID: 11400000, guid: 4ac7dac725058b74989da6f4f07b08c6, type: 2}
   mainDiarySO: {fileID: 11400000, guid: a990b7540856bd249b37ae6612db9392, type: 2}
   pageParent: {fileID: 1404063265}
   pages: []
