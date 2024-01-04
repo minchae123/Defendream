@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
     {
         --cardInventory[currentCard]; // »ç¿ë
         int index = currentCard.index;
-        SaveData(index, cardInventory[currentCard]);
+        //SaveData(index, cardInventory[currentCard]);
     }
 
     public void SaveData(int index, int num)
