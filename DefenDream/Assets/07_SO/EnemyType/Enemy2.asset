@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy2
   m_EditorClassIdentifier: 
   _eType: 1
-  _material: {fileID: 2100000, guid: 78b1d58f8931b82478961e4ed94b1825, type: 2}
+  _material: {fileID: 2100000, guid: ee26b62b816f8d34cae7a2cd3ffeaf8f, type: 2}
   _EnemyName: "\uC6D0\uAC70\uB9AC"
   _EnemyHp: 10
   _AttackDamage: 10
