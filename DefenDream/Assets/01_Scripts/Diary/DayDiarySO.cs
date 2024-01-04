@@ -9,6 +9,7 @@ public class DayDiaryClass
 
     public Sprite painting; // 그림
     [TextArea] public string text; // 일기
+    public bool IsUsed = false;
 }
 
 [CreateAssetMenu(menuName ="SO/Diary/Day")]
@@ -23,11 +24,13 @@ public class DayDiarySO : ScriptableObject
         foreach(var list in goodDayList)
         {
             list.dayType = DayType.GoodDay;
+            list.IsUsed = false;
         }
 
         foreach (var list in goodDayList)
         {
             list.dayType = DayType.BadDay;
+            list.IsUsed = false;
         }
     }
 }
