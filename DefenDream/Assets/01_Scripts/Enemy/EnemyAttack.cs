@@ -109,7 +109,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Damage()
     {
-        if (_enemyMove._col == null)
+        if (_enemyMove._target == null)
         {
             _enemyMove._isStop = true;
             _enemyMove._speed = _saveSpeed;
@@ -118,20 +118,20 @@ public class EnemyAttack : MonoBehaviour
 
         float damage = _enemy._eType._AttackDamage;
 
-        if (_enemyMove._col.CompareTag("Player"))
+        if (_enemyMove._target.CompareTag("Player"))
         {
             GameManager.instance._player._hp -= damage;
         }
         else
         {
-            print(_enemyMove._col.name);
-            _enemyMove._col.GetComponent<OurTeam>().DecHp(damage);
+            print(_enemyMove._target.name);
+            _enemyMove._target.GetComponent<OurTeam>().DecHp(damage);
         }
     }
 
     private void InstBullet()
     {
-        if (_enemyMove._col == null)
+        if (_enemyMove._target == null)
         {
             _enemyMove._isStop = true;
             _enemyMove._speed = _saveSpeed;
@@ -142,7 +142,7 @@ public class EnemyAttack : MonoBehaviour
 
         b.transform.position = transform.position;
 
-        Vector3 dir = _enemyMove._col.transform.position - b.transform.position;
+        Vector3 dir = _enemyMove._target.transform.position - b.transform.position;
         dir.y = transform.position.y + 1;
 
         b.GetComponent<Rigidbody>().velocity = dir.normalized * 10;

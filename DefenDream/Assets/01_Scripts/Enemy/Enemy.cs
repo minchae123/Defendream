@@ -9,13 +9,17 @@ public class Enemy : PoolableMono
     [HideInInspector] public EnemyTypeSO _eType;
     [HideInInspector] public EnemyType TypeEnum;
 
-    [Header("visual")]
+    [Header("Visual")]
     [SerializeField] private SkinnedMeshRenderer _meshRen;
     [SerializeField] private Animator _anim;
+
+    [SerializeField] private float _hp;
+
     private bool isDead = false;
 
     public override void Init()
     {
+        _hp = _eType._EnemyHp;
         SelectType();
     }
 
@@ -84,13 +88,13 @@ public class Enemy : PoolableMono
 
     public void DecHp(float damage)
     {
-        _eType._EnemyHp -= damage;
+        _hp -= damage;
     }
 
     private void DieAnim()
     {
 
-        if (_eType._EnemyHp <= 0 && !isDead)
+        if (_hp <= 0 && !isDead)
         {
             isDead = true;
             _anim.SetTrigger("Die");
