@@ -53,8 +53,19 @@ public class SaveSystem : MonoBehaviour
 	public void ResetData()
 	{
 		gameData.gold = 0;
-		gameData.cards.Clear();
+		//gameData.cards.Clear();
 
+		Save(gameData);
+	}
+
+	public void ReGame()
+	{
+		gameData.gold = 100000000;
+		for (int i = 0; i < 10; i++)
+		{
+			gameData.cards[i] = 1000;
+		}
+		
 		Save(gameData);
 	}
 }
