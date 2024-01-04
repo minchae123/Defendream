@@ -148,7 +148,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
         for (int i = 0; i < numbers.Count; i++)
         {
-            numbers[i] = data.cards[i];
+            numbers[i] = data.cards[i]; 
         }
     }
 }

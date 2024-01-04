@@ -90,7 +90,10 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
 
     public void CreateArmy(Vector3 hit)
     {
-        Instantiate(currentCard.prefab, new Vector3(hit.x, hit.y + 1, hit.z), Quaternion.identity);
+        //Instantiate(currentCard.prefab, new Vector3(hit.x, hit.y + 1, hit.z), Quaternion.identity);
+        PoolableMono curCard = PoolManager.Instance.Pop(currentCard.name) as PoolableMono;
+        Vector3 pos = new Vector3(hit.x, hit.y + 1, hit.z);
+        curCard.transform.position = pos;
         UseItem();
         SetCard();
         ClearClickHistory();
