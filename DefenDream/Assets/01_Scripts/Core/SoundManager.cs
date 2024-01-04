@@ -8,7 +8,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     private AudioSource bgmAudioSource;
 
     private string bgmKey = "BGMVolume";
-    private string effectKey = "EffectVolume";
+    private string sfxKey = "SFXVolume";
 
     [Header("Player")]
     [Header("Enemy")]
@@ -19,17 +19,18 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     private void Awake()
     {
-        bgmAudioSource = GameManager.instance.mainCam.GetComponent<AudioSource>();
+        bgmAudioSource = Camera.main.GetComponent<AudioSource>();
         audioSource = GetComponent<AudioSource>();
+
+        float bgmVolume = PlayerPrefs.GetFloat(bgmKey, 0.1f);
+        float sfxVolume = PlayerPrefs.GetFloat(sfxKey, 0.4f);
+        bgmAudioSource.volume = bgmVolume;
+        audioSource.volume = sfxVolume;
     }
     private void Start()
     {
-        float bgmVolume = PlayerPrefs.GetFloat(bgmKey, 0.1f); // 있으면 해당 키값으로 없으면 기본값 (0.1)
-        float effectVolume = PlayerPrefs.GetFloat(effectKey, 0.4f);
-
+        bgmAudioSource.Play();
         bgmAudioSource.loop = true;
-        bgmAudioSource.volume = bgmVolume;
-        audioSource.volume = effectVolume;
     }
 
     // 볼륨 조절 호출 함수
@@ -38,10 +39,10 @@ public class SoundManager : MonoSingleton<SoundManager>
         bgmAudioSource.volume = value;
         PlayerPrefs.SetFloat(bgmKey, value);
     }
-    public void SetEffectVolume(float value)
+    public void SetSFXVolume(float value)
     {
         audioSource.volume = value;
-        PlayerPrefs.SetFloat(effectKey, value);
+        PlayerPrefs.SetFloat(sfxKey, value);
     }
 
     public void PlayCardSelectSound()
