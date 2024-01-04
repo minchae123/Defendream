@@ -27,6 +27,7 @@ public class Enemy : PoolableMono
         enemyMovement = GetComponent<EnemyMovement>();
         hpbar = GetComponent<EntityHP>();
     }
+
     public override void Init()
     {
         for (int i = 0; i < _meshRens.Length; i++)
@@ -36,12 +37,12 @@ public class Enemy : PoolableMono
         SelectType();
         _hp = _eType._EnemyHp;
         enemyMovement.enabled = true;
+        hpbar.ResetHP();
         hpbar.SetHP(_hp);
     }
 
     private void Update()
     {
-        print(_hp);
         DieAnim();
     }
 
@@ -109,6 +110,7 @@ public class Enemy : PoolableMono
     public void DecHp(float damage)
     {
         _hp -= damage;
+        _hp = Mathf.Clamp(_hp, 0, _eType._EnemyHp);
         hpbar.OnDamage(damage);
     }
 
