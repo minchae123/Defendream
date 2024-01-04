@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,4 +30,20 @@ public class GameManager : MonoBehaviour
         PoolManager.Instance = new PoolManager(transform);
         poolSO.poolingList.ForEach(p => PoolManager.Instance.CreatePool(p.prefab, p.poolCount));
     }
+
+    public void GoBack()
+	{
+        SettingUI.Instance.Off();
+	}
+
+    public void GoStart()
+	{
+        SceneManager.LoadScene(0);
+	}
+
+    public void GoReStarT()
+	{
+        SceneManager.LoadScene(1);
+	}
+		
 }
