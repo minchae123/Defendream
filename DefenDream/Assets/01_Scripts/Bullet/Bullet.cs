@@ -21,7 +21,7 @@ public class Bullet : PoolableMono
 
     private void Update()
     {
-        Invoke("DestroyObj", 5);
+        Invoke("DestroyObj", 10);
     }
 
     private void OnTriggerEnter(Collider collider)

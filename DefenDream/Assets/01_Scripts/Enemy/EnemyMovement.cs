@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
             Focusing();
         }
 
-        if (_target == null)
+        if (_target == null || !_target.activeSelf)
         {
             _isStop = false;
 
@@ -60,6 +60,13 @@ public class EnemyMovement : MonoBehaviour
 
             _dis = dis;
         }
+
+        //if(_target != null && !_target.activeSelf)
+        //{
+        //    _target = null;
+        //    _isStop = false;
+        //    _dis = float.MaxValue;
+        //}
     }
 
     private void Move()

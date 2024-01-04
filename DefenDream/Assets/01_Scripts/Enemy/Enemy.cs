@@ -41,7 +41,6 @@ public class Enemy : PoolableMono
 
     private void Update()
     {
-        print(_hp);
         DieAnim();
     }
 
@@ -125,8 +124,9 @@ public class Enemy : PoolableMono
         isDead = true;
         enemyMovement.freeze();
         _anim.SetTrigger("Die");
-        print("ав╬Н"); //ав╬Н
+
         yield return new WaitForSeconds(2);
+
         PoolManager.Instance.Push(this);
     }
 }
