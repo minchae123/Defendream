@@ -18,6 +18,7 @@ public class ManaSlotUI : MonoBehaviour
         int slotNum = currentMana - 1;
         manaImage.transform.DOScale(1.1f, 0.12f).SetEase(Ease.OutBounce)
             .OnComplete(() => manaImage.transform.DOScale(1f, 0.1f).SetEase(Ease.OutBounce)).OnComplete(() => UpdateSlot(currentMana, slotNum));
+        UpdateSlot(currentMana, slotNum);
     }
     public void CleanUpSlot()
     {

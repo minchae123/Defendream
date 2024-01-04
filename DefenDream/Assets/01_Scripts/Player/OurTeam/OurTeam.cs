@@ -81,6 +81,7 @@ public class OurTeam : PoolableMono
     public void DecHp(float damage)
     {
         _hp -= damage;
+        _hp = Mathf.Clamp(_hp, 0, _playerSO._Hp);
         hpbar.OnDamage(damage);
         DieAnim();
 

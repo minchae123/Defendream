@@ -25,7 +25,10 @@ public class EntityHP : MonoBehaviour
     public void OnDamage(float damage) // 데미지 받을 때 같이 호출
     {
         currentHP -= damage;
+        currentHP = Mathf.Clamp01(currentHP);
+        
         healthBar.DamageCheck(damage / maxHP);
+
         if(currentHP<=0) { print("Die"); }
     }
 
