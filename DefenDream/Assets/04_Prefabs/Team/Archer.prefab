@@ -84,6 +84,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8956253128589744765}
     m_Modifications:
+    - target: {fileID: 5435912132273483925, guid: 487cec6b7ae410d46a0351096511a4d3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435912132273483925, guid: 487cec6b7ae410d46a0351096511a4d3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.17614937
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435912132273483925, guid: 487cec6b7ae410d46a0351096511a4d3, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5435912133463256900, guid: 487cec6b7ae410d46a0351096511a4d3, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -866,6 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417d416e8b4de7f4b92ab88c321f28aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthBar: {fileID: 0}
 --- !u!4 &8956253128589744765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 76dc7c22f5884de489ef9fc8a9b78358, type: 3}
