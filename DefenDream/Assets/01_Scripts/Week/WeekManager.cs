@@ -53,6 +53,11 @@ public class WeekManager : MonoSingleton<WeekManager>
 		if (_isEnded)
 			return;
 
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+			_curTime -= 10;
+        }
+
 		CheckTimer();
 		StressCheck();
 		SetTimerText();
@@ -108,29 +113,29 @@ public class WeekManager : MonoSingleton<WeekManager>
 
 		_weekIndex++;
 		_stressValue = 0;
-
-		if(_weekIndex >= 7) // 7일 넘어가면
-        {
-			_fadeImage.DOFade(0, 1).OnComplete(() =>
-			{
-				_fadeImage.gameObject.SetActive(false);
-				SceneManager.LoadScene(2);
-			});
-			return;
-		}
-
-		//다음날 직전(상점창) +++++++ 여기서 적이랑 우리팀 다 사라지는거 해야함
-		for (int i = activeObjects.Count - 1; i >= 0; i--)
-			PoolManager.Instance.Push(activeObjects[i]);
-
-		activeObjects.Clear();
 		_fadeImage.gameObject.SetActive(true);
-		_fadeImage.DOFade(1, 1).OnComplete(() =>
-		{
-			MercenaryCollected.Instance.ActiveStore();
-			Time.timeScale = 0;
-		});
 
+		if (_weekIndex >= 7) // 7일 넘어가면
+        {
+			_fadeImage.DOFade(1, 1).OnComplete(() =>
+			{
+				SceneManager.LoadScene(2);
+				_fadeImage.gameObject.SetActive(false);
+			});
+		}
+        else
+		{
+			//다음날 직전(상점창) +++++++ 여기서 적이랑 우리팀 다 사라지는거 해야함
+			for (int i = activeObjects.Count - 1; i >= 0; i--)
+				PoolManager.Instance.Push(activeObjects[i]);
+
+			activeObjects.Clear();
+			_fadeImage.DOFade(1, 1).OnComplete(() =>
+			{
+				MercenaryCollected.Instance.ActiveStore();
+				Time.timeScale = 0;
+			});
+		}
 	}
 
 	//다음날 넘어가면
