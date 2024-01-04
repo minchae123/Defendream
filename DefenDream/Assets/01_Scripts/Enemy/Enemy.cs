@@ -10,18 +10,30 @@ public class Enemy : PoolableMono
     [HideInInspector] public EnemyTypeSO _eType;
     [HideInInspector] public EnemyType TypeEnum;
 
+    private EnemyMovement enemyMovement;
+
     [Header("Visual")]
-    [SerializeField] private SkinnedMeshRenderer _meshRen;
+    [SerializeField] private SkinnedMeshRenderer[] _meshRens;
     [SerializeField] private Animator _anim;
 
     [SerializeField] private float _hp;
 
     public bool isDead = false;
 
+    private void Awake()
+    {
+        enemyMovement = GetComponent<EnemyMovement>();
+    }
     public override void Init()
     {
         SelectType();
         _hp = _eType._EnemyHp;
+        enemyMovement.enabled = true;
+
+        for (int i = 0; i < _meshRens.Length; i++)
+        {
+            _meshRens[i].transform.parent.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -43,24 +55,27 @@ public class Enemy : PoolableMono
             case EnemyType.Melee:
                 {
                     //print("근거리");
-
                     _eType = _eTypeSO[(int)EnemyType.Melee];
+                    _meshRens[(int)EnemyType.Melee].transform.parent.gameObject.SetActive(true);
+                    _anim = _meshRens[(int)EnemyType.Melee].transform.parent.GetComponent<Animator>();
                     Melee();
                 }
                 break;
             case EnemyType.Range:
                 {
                     //print("원거리");
-
+                    _meshRens[(int)EnemyType.Range].transform.parent.gameObject.SetActive(true);
                     _eType = _eTypeSO[(int)EnemyType.Range];
+                    _anim = _meshRens[(int)EnemyType.Range].transform.parent.GetComponent<Animator>();
                     Range();
                 }
                 break;
             case EnemyType.Magic:
                 {
                     //print("마법");
-
+                    _meshRens[(int)EnemyType.Magic].transform.parent.gameObject.SetActive(true);
                     _eType = _eTypeSO[(int)EnemyType.Magic];
+                    _anim = _meshRens[(int)EnemyType.Magic].transform.parent.GetComponent<Animator>();
                     Magic();
                 }
                 break;
@@ -72,19 +87,22 @@ public class Enemy : PoolableMono
     private void Melee()
     {
         TypeEnum = EnemyType.Melee;
-        _meshRen.material = _eType._material;
+        _meshRens[(int)EnemyType.Melee].material = _eType._material;
+        print(_meshRens[(int)EnemyType.Melee].material);
     }
 
     private void Range()
     {
         TypeEnum = EnemyType.Range;
-        _meshRen.material = _eType._material;
+        _meshRens[(int)EnemyType.Range].material = _eType._material;
+        print(_meshRens[(int)EnemyType.Range].material);
     }
 
     private void Magic()
     {
         TypeEnum = EnemyType.Magic;
-        _meshRen.material = _eType._material;
+        _meshRens[(int)EnemyType.Magic].material = _eType._material;
+        print(_meshRens[(int)EnemyType.Magic].material);
     }
 
     public void DecHp(float damage)
@@ -103,6 +121,7 @@ public class Enemy : PoolableMono
     private IEnumerator Die()
     {
         isDead = true;
+        enemyMovement.freeze();
         _anim.SetTrigger("Die");
         print("죽어"); //죽어
         yield return new WaitForSeconds(2);
