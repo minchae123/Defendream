@@ -9,12 +9,12 @@ public class CashManager : MonoSingleton<CashManager>
     private GameData data;
     private SaveSystem save;
 
-	private void Awake()
-	{
-		save = FindObjectOfType<SaveSystem>();
-	}
+    private void Awake()
+    {
+        save = FindObjectOfType<SaveSystem>();
+    }
 
-	private void Start()
+    private void Start()
     {
         //제이슨으로 불러 올까요구르트
         LoadData();
@@ -30,6 +30,7 @@ public class CashManager : MonoSingleton<CashManager>
     public void EarnMoney(int amount)
     {
         cash += amount;
+        MercenaryCollected.Instance.UpdateCashText();
         //제이슨 이것저것
     }
 
@@ -37,11 +38,12 @@ public class CashManager : MonoSingleton<CashManager>
     public void SpendMoney(int amount)
     {
         cash -= amount;
+        MercenaryCollected.Instance.UpdateCashText();
         //제이슨 이것저것
     }
 
     public void LoadData()
-	{
+    {
         data = save.Load();
-	}
+    }
 }
