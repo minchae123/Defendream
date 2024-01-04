@@ -50,6 +50,17 @@ public class Enemy : PoolableMono
     private void Update()
     {
         DieAnim();
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            print("vvv");
+            _anim.SetTrigger("Die");
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            print("bbb");
+            _anim.SetTrigger("Init");
+            _anim.SetTrigger("Move");
+        }
     }
 
     private int RandomSpawn()
@@ -139,6 +150,8 @@ public class Enemy : PoolableMono
         _anim.SetTrigger("Die");
 
         yield return new WaitForSeconds(2);
+        _anim.SetTrigger("Init");
+        _anim.SetTrigger("Move");
         PoolManager.Instance.Push(this);
     }
 }
