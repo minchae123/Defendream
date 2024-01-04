@@ -33,28 +33,33 @@ public class Inventory : MonoBehaviour
 
 	public void InventoryIndex()
 	{
-        lists = cardInventory.OrderBy(kvp => kvp.Key).ToList();
+        //lists = cardInventory.OrderBy(kvp => kvp.Key).ToList();
     }
 
     public void SetInventory(MercenaryInfo infos, int numbers)
     {
         cardInventory.Add(infos.card, numbers);
+
         //print($"{infos.MercenaryName}, {infos.card}, {numbers}");
     }
 
     public void UseInventory(CardSO currentCard)
     {
         --cardInventory[currentCard]; // 사용
-        int index = lists.FindIndex(kvp => kvp.Key == currentCard);
-        print(index);
+        int index = currentCard.index;
         SaveData(index, cardInventory[currentCard]);
-        // N번째 카드 데이터 삭제 -> data.cards[n]--; <- 이렇게 대충 해주면 될듯?
-        //print($"{currentCard}: {cardInventory[currentCard]}개");
+        //SaveData(index, cardInventory[index]);
+        //N번째 카드 데이터 삭제 -> data.cards[n]--; <- 이렇게 대충 해주면 될듯?
+        //print($"{index}: {cardInventory[index]}개");
     }
 
-    public void SaveData(int currentCard, int num)
+    public void SaveData(int index, int num)
 	{
-		data.cards[currentCard] = num;
+		data.cards[index] = num;
+        print(index);
+        print(data.cards[index]);
+
+        save.Save(data);
     }
 
     public void LoadData()
