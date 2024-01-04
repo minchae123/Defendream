@@ -62,6 +62,11 @@ public class WeekManager : MonoSingleton<WeekManager>
         {
             StressDown();
         }
+
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            Cheat();
+        }
     }
 
     private void StressCheck()
@@ -148,6 +153,11 @@ public class WeekManager : MonoSingleton<WeekManager>
         bedLight.SetActive(true);
         StartCoroutine(Off());
         _lateUpdateTime = 0;
+    }
+
+    public void Cheat()
+    {
+        _curTime -= 30;
     }
 
     private IEnumerator Off()
