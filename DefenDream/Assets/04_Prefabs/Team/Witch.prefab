@@ -852,7 +852,7 @@ MonoBehaviour:
   _ArcherBullet: {fileID: -8480510282794816201, guid: 914309a81d848b44db7d431fb978bae4, type: 3}
   _FirePos: {fileID: 1851906148}
   _bulletSpeed: 15
-  _hp: 0
+  _hp: 15
 --- !u!114 &7059347532714247557
 MonoBehaviour:
   m_ObjectHideFlags: 0
