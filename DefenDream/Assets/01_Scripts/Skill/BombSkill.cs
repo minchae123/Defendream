@@ -39,6 +39,7 @@ public class BombSkill : PoolableMono
         anim.enabled = false;
         Explosion explosion = PoolManager.Instance.Pop("Explosion") as Explosion;
         explosion.transform.position = transform.position;
+        SoundManager.Instance.Bomb();
         yield return new WaitForSeconds(1.5f);
         PoolManager.Instance.Push(this);
     }

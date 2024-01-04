@@ -32,18 +32,18 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        OverlapBox();
-        Focusing();
     }
 
     void Update()
     {
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+
         if (!_isMoveStop)
             Move();
 
+        OverlapBox();
         if (!_isStop)
         {
-            OverlapBox();
             Focusing();
         }
 
@@ -51,12 +51,12 @@ public class EnemyMovement : MonoBehaviour
         {
             _isStop = false;
 
-            _target = GameManager.instance._player.gameObject;
+            _target = GameManager.instance._playerTrm.gameObject;
 
-            _WarriorDir = _target.transform.position - transform.position;
-            _WarriorDir.y = transform.position.y;
+            _WarriorDir = GameManager.instance._playerTrm.gameObject.transform.position - transform.position;
+            _WarriorDir.y = 0;
 
-            float dis = Vector3.Distance(_target.transform.position, transform.position);
+            float dis = Vector3.Distance(GameManager.instance._playerTrm.gameObject.transform.position, transform.position);
 
             _dis = dis;
         }
@@ -71,10 +71,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void Move()
     {
-        if (_target != null)
+        if (_target != null && (_target.activeSelf == true))
         {
             _WarriorDir = _target.transform.position - transform.position;
-            _WarriorDir.y = transform.position.y;
+            _WarriorDir.y = 0;
 
             _dis = Vector3.Distance(_target.transform.position, transform.position);
         }

@@ -6,7 +6,12 @@ public class LightningSkill : PoolableMono
 {
     [SerializeField] private float DMG;
 
-    public override void Init()
+
+	private void Awake()
+	{
+		gameObject.SetActive(false);
+	}
+	public override void Init()
     {
     }
 
@@ -17,6 +22,7 @@ public class LightningSkill : PoolableMono
 
     private IEnumerator WaitPool()
     {
+        SoundManager.Instance.Lightning();
         yield return new WaitForSeconds(1f);
         PoolManager.Instance.Push(this);
     }

@@ -29,16 +29,14 @@ public class EnemyAttack : MonoBehaviour
     {
         Distance();
 
-        if (_enemyMove._target == null) StopAllCoroutines();
+        if (_enemyMove._target == null || !_enemyMove._target.activeSelf) StopAllCoroutines();
     }
 
     private void Distance()
     {
         float attDis = _eType._AttackDistance;
-
         if (_enemyMove._target != null && _enemyMove._target.CompareTag("Player"))
             attDis += 3f;
-
 
         if (attDis >= _enemyMove._dis && !_isAtt)
         {
@@ -109,13 +107,14 @@ public class EnemyAttack : MonoBehaviour
         {
             InstBullet();
 
+            SoundManager.Instance.Magic();
             yield return new WaitForSeconds(3f);
         }
     }
 
     private void Damage()
     {
-        if (_enemyMove._target == null)
+        if (_enemyMove._target == null || !_enemyMove._target.activeSelf)
         {
             _enemyMove._speed = _saveSpeed;
             return;
@@ -134,7 +133,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void InstBullet()
     {
-        if (_enemyMove._target == null)
+        if (_enemyMove._target == null || !_enemyMove._target.activeSelf)
         {
             _enemyMove._speed = _saveSpeed;
             return;

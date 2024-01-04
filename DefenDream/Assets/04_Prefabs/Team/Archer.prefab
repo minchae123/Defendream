@@ -195,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76dc7c22f5884de489ef9fc8a9b78358, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76dc7c22f5884de489ef9fc8a9b78358, type: 3}
       propertyPath: m_LocalPosition.y
@@ -851,8 +851,6 @@ MonoBehaviour:
   _playerSO: {fileID: 11400000, guid: e17e2d9d1dd47b342880e3d342dde463, type: 2}
   _move: {fileID: 7711380}
   _pAnim: {fileID: 7711383}
-  _magicBullet: {fileID: 4560384623750476643, guid: f70c6da378c9efd4aa588cfd8fd89284, type: 3}
-  _ArcherBullet: {fileID: -8480510282794816201, guid: 914309a81d848b44db7d431fb978bae4, type: 3}
   _FirePos: {fileID: 675843977}
   _bulletSpeed: 15
   _hp: 0

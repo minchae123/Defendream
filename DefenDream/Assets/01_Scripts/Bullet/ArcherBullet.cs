@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet : PoolableMono
+public class ArcherBullet : PoolableMono
 {
     private float _damage;
 
