@@ -6,12 +6,11 @@ public class FireSkill : PoolableMono
 {
     private Rigidbody _rb;
 
-   [SerializeField]  private Transform target;
-
     [SerializeField] private float DMG;
 
     public override void Init()
     {
+        _rb.velocity = Vector3.zero;
     }
 
     private void OnEnable()
@@ -21,7 +20,7 @@ public class FireSkill : PoolableMono
 
     private IEnumerator WaitPool()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         PoolManager.Instance.Push(this);
     }
 
@@ -32,7 +31,7 @@ public class FireSkill : PoolableMono
 
     void Update()
     {
-        _rb.AddForce(target.transform.position - transform.position, ForceMode.Impulse);
+        _rb.AddForce(new Vector3(300,0,0) * Time.deltaTime, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)

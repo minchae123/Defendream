@@ -28,7 +28,11 @@ public class PlayerBullet : PoolableMono
         if (other.CompareTag("Team") || other.CompareTag("Col")) return;
 
         if (other.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            ShotParticle shotParticle = PoolManager.Instance.Pop("ShotParticle") as ShotParticle;
+            shotParticle.transform.position = transform.position;
             enemy.DecHp(_damage);
+        }
 
         DestroyObj();
     }
