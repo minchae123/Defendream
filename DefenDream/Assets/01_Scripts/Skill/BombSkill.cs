@@ -30,8 +30,8 @@ public class BombSkill : PoolableMono
 
     private IEnumerator Bomb()
     {
-        rb.AddForce(new Vector3(0, 7, 0), ForceMode.Impulse);
-        yield return new WaitForSeconds(1.5f);
+        rb.AddForce(new Vector3(0, 4, 0), ForceMode.Impulse);
+        yield return new WaitForSeconds(1.1f);
         anim.enabled = true;
         yield return new WaitForSeconds(1.5f);
         transform.rotation = Quaternion.Euler(Vector3.zero);

@@ -134,7 +134,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     public void UpdateCashText()
     {
-        cashText.text = CashManager.Instance.Cash.ToString() + "원";
+        cashText.text = CashManager.Instance.Cash.ToString() + "코인";
     }
 
     public void SaveData()

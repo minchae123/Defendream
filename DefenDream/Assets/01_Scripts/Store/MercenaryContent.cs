@@ -17,7 +17,7 @@ public class MercenaryContent : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         mercenaryImage.sprite = info.MercenarySprite;
-        info.MercenaryPrice = info.Price.ToString() + "¿ø";
+        info.MercenaryPrice = info.Price.ToString() + "ÄÚÀÎ";
     }
 
     public void OnPointerClick(PointerEventData eventData)

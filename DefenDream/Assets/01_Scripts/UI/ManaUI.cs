@@ -13,7 +13,7 @@ public class ManaUI : MonoBehaviour
     private int currentMana = 10;
     public int CurrentMana => currentMana;
     private int maxMana = 10;
-    private float delayTime = 2f;
+    [SerializeField] private float delayTime = 2f;
 
     private void Awake()
     {

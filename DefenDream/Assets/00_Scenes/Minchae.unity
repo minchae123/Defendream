@@ -169,7 +169,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1471519559}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &14893310
 GameObject:
@@ -471,7 +471,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1471519559}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &77495761
 MonoBehaviour:
@@ -1287,7 +1287,7 @@ GameObject:
   - component: {fileID: 264395888}
   m_Layer: 0
   m_Name: Bed
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3841,6 +3841,7 @@ GameObject:
   - component: {fileID: 747068937}
   - component: {fileID: 747068936}
   - component: {fileID: 747068935}
+  - component: {fileID: 747068938}
   m_Layer: 0
   m_Name: wall_019 (2)
   m_TagString: Untagged
@@ -3915,6 +3916,20 @@ Transform:
   m_Father: {fileID: 1116547034}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!64 &747068938
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747068934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3589557356842235323, guid: 02ad78cca7f19f843b49a2e580791919, type: 3}
 --- !u!1 &775689331
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,7 +4042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c1e8de3289dc4a945f8730bce6703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayTime: 3
+  _dayTime: 100
   _stressUI: {fileID: 224534181}
   _stress:
   - {fileID: 21300000, guid: 309eab93704de5043ad83b9ee0c4f672, type: 3}
@@ -4439,6 +4454,7 @@ GameObject:
   - component: {fileID: 933848452}
   - component: {fileID: 933848451}
   - component: {fileID: 933848450}
+  - component: {fileID: 933848453}
   m_Layer: 0
   m_Name: wall_019
   m_TagString: Untagged
@@ -4513,6 +4529,20 @@ Transform:
   m_Father: {fileID: 1116547034}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &933848453
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933848449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3589557356842235323, guid: 02ad78cca7f19f843b49a2e580791919, type: 3}
 --- !u!1 &963668976
 GameObject:
   m_ObjectHideFlags: 0
@@ -5068,37 +5098,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103943487}
   m_CullTransparentMesh: 1
---- !u!1 &1107332930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1107332931}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1107332931
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1107332930}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.88, y: 2.2616386, z: -0.35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1471519559}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1114664934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6096,6 +6095,7 @@ GameObject:
   - component: {fileID: 1409141290}
   - component: {fileID: 1409141289}
   - component: {fileID: 1409141288}
+  - component: {fileID: 1409141291}
   m_Layer: 0
   m_Name: wall_007
   m_TagString: Untagged
@@ -6172,6 +6172,20 @@ Transform:
   m_Father: {fileID: 1116547034}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1409141291
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409141287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2215070338277497267, guid: 02ad78cca7f19f843b49a2e580791919, type: 3}
 --- !u!1001 &1446351324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6352,7 +6366,6 @@ Transform:
   - {fileID: 788022433}
   - {fileID: 1625834208}
   - {fileID: 1974923359}
-  - {fileID: 1107332931}
   - {fileID: 7181279}
   - {fileID: 1818629841}
   - {fileID: 77495760}
@@ -7803,6 +7816,7 @@ MonoBehaviour:
   manaImage: {fileID: 0}
   manaParent: {fileID: 1493301773}
   manaSlots: []
+  delayTime: 1
 --- !u!114 &1625834207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8773,7 +8787,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1471519559}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1845992648
 GameObject:
@@ -9215,7 +9229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1974923358
 MonoBehaviour:
   m_ObjectHideFlags: 0
