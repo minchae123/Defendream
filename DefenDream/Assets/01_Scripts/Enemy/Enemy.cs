@@ -21,6 +21,8 @@ public class Enemy : PoolableMono
     private EntityHP hpbar;
     private EnemyMovement _eMove;
 
+    private GameObject healthGauge;
+
     public bool isDead = false;
 
     [SerializeField] private GameObject coin;
@@ -30,6 +32,7 @@ public class Enemy : PoolableMono
         _eMove = GetComponent<EnemyMovement>();
         enemyMovement = GetComponent<EnemyMovement>();
         hpbar = GetComponent<EntityHP>();
+        healthGauge = hpbar.HealthBar.gameObject;
     }
 
     public override void Init()
@@ -42,6 +45,7 @@ public class Enemy : PoolableMono
         _hp = _eType._EnemyHp;
         enemyMovement.enabled = true;
         isDead = false;
+        healthGauge.SetActive(true);
 
         hpbar.SetHP(_hp);
         hpbar.ResetHP();
@@ -151,6 +155,7 @@ public class Enemy : PoolableMono
         isDead = true;
         enemyMovement.freeze();
         _anim.SetTrigger("Die");
+        healthGauge.SetActive(false);
 
         yield return new WaitForSeconds(2);
         _anim.SetTrigger("Init");
