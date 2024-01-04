@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Team
   - Enemy
+  - Bullet
+  - Col
   layers:
   - Default
   - TransparentFX

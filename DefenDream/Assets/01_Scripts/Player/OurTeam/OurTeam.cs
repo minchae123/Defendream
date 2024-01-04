@@ -80,10 +80,10 @@ public class OurTeam : PoolableMono
     public void DecHp(float damage)
     {
         _hp -= damage;
-        print(damage);
-        print(_hp);
         hpbar.OnDamage(damage);
         DieAnim();
+
+        print(_hp);
     }
 
     private void DieAnim()
@@ -98,6 +98,6 @@ public class OurTeam : PoolableMono
 
     private void DestroyObj()
     {
-        Destroy(gameObject);
+        PoolManager.Instance.Push(this);
     }
 }
