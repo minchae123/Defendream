@@ -61,7 +61,6 @@ public class Enemy : PoolableMono
                     _eType = _eTypeSO[(int)EnemyType.Melee];
                     _meshRens[(int)EnemyType.Melee].transform.parent.gameObject.SetActive(true);
                     _anim = _meshRens[(int)EnemyType.Melee].transform.parent.GetComponent<Animator>();
-                    print(_anim);
                     Melee();
                 }
                 break;
@@ -71,7 +70,6 @@ public class Enemy : PoolableMono
                     _meshRens[(int)EnemyType.Range].transform.parent.gameObject.SetActive(true);
                     _eType = _eTypeSO[(int)EnemyType.Range];
                     _anim = _meshRens[(int)EnemyType.Range].transform.parent.GetComponent<Animator>();
-                    print(_anim);
                     Range();
                 }
                 break;
@@ -81,7 +79,6 @@ public class Enemy : PoolableMono
                     _meshRens[(int)EnemyType.Magic].transform.parent.gameObject.SetActive(true);
                     _eType = _eTypeSO[(int)EnemyType.Magic];
                     _anim = _meshRens[(int)EnemyType.Magic].transform.parent.GetComponent<Animator>();
-                    print(_anim);
                     Magic();
                 }
                 break;
