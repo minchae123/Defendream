@@ -91,6 +91,7 @@ public class WeekManager : MonoSingleton<WeekManager>
         _fadeImage.gameObject.SetActive(true);
         _fadeImage.DOFade(1, 1).OnComplete(() =>
         {
+            print("dulrllllllllllll");
             MercenaryCollected.Instance.ActiveStore();
         });
 

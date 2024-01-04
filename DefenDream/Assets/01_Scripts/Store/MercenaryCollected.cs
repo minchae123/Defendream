@@ -115,6 +115,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     {
         storePanel.SetActive(true);
         inventoryPanel.SetActive(false);
+        UpdateCashText();
     }
 
     public void InactiveStoreAndInventory()
@@ -133,7 +134,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     public void UpdateCashText()
     {
-        cashText.text = CashManager.Instance.Cash.ToString()+"원";
+        cashText.text = CashManager.Instance.Cash.ToString() + "원";
     }
 
     public void SaveData()
