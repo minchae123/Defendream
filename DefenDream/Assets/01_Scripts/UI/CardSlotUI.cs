@@ -90,7 +90,10 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
 
     public void CreateArmy(Vector3 hit)
     {
-        Instantiate(currentCard.prefab, new Vector3(hit.x, hit.y + 1, hit.z), Quaternion.identity);
+        //Instantiate(currentCard.prefab, new Vector3(hit.x, hit.y + 1, hit.z), Quaternion.identity);
+        PoolableMono curCard = PoolManager.Instance.Pop(currentCard.name) as PoolableMono;
+        Vector3 pos = new Vector3(hit.x, hit.y + 1, hit.z);
+        curCard.transform.position = pos;
         UseItem();
         SetCard();
         ClearClickHistory();
@@ -99,7 +102,6 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
     public void UseItem()
     {
         ManaUI.Instance.UseMana(requiredMana);
-        Inventory.Instance.UseInventory(currentCard);
     }
     public void SetCard()
     {
@@ -113,5 +115,14 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
                 ClearSlot();
                 UpdateSlot();
             });
+    }
+
+    // 이거 게임 끝나면 호출해서 사용하지 않은 카드 인벤토리 다시 넣어주기
+    public void UnuseCardToInventory()
+    {
+        if (currentCard != null) // + 쫄병이 아니라면
+        {
+            Inventory.Instance.SetInventory(currentCard);
+        }
     }
 }

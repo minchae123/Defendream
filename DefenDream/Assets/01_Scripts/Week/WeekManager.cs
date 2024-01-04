@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class WeekManager : MonoSingleton<WeekManager>
     [SerializeField] private float _dayTime;
     private float _curTime;
     private bool _isEnded;
+    [SerializeField] private TMP_Text _timerText;
 
     [Header("Stress")]
     private int _stressValue = 0;
@@ -38,6 +40,8 @@ public class WeekManager : MonoSingleton<WeekManager>
         CheckTimer();
 
         StressCheck();
+
+        SetTimerText();
     }
 
     private void StressCheck()
@@ -84,7 +88,7 @@ public class WeekManager : MonoSingleton<WeekManager>
         //컷씬
 
         _weekIndex++;
-        Debug.Log(_week[_weekIndex].sprite);
+        //Debug.Log(_week[_weekIndex].sprite);
         _stressValue = 0;
 
         //다음날 직전(상점창) +++++++ 여기서 적이랑 우리팀 다 사라지는거 해야함
@@ -112,5 +116,13 @@ public class WeekManager : MonoSingleton<WeekManager>
     public void StressUp()
     {
         _stressValue++;
+    }
+
+    private void SetTimerText()
+    {
+        int minute = (int)_curTime / 60;
+        int second = (int)_curTime % 60;
+
+        _timerText.text = minute + ":" + second;
     }
 }

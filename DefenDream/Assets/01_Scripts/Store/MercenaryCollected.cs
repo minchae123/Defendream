@@ -15,6 +15,8 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     [SerializeField] private MercenaryContent collected;
 
+    [SerializeField] private TMP_Text cashText;
+
     private SaveSystem save;
     private GameData data;
 
@@ -40,7 +42,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         storePanel.SetActive(false);
         inventoryPanel.SetActive(false);
     }
-    
+
     private void OnEnable()
     {
         RectTransform StoreContent = StoreScrollRect.content;
@@ -69,7 +71,6 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
             Inventory.Instance.SetInventory(infos[i], numbers[i]); // �κ��丮 set���ֱ�
         }
 
-        Inventory.Instance.InventoryIndex();
         collected.info = null;
     }
 
@@ -92,7 +93,6 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     public void NextDay()
     {
-        print("������ �������ٹ�");
         WeekManager.Instance.ResetTimer();
     }
 
@@ -115,6 +115,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     {
         storePanel.SetActive(true);
         inventoryPanel.SetActive(false);
+        UpdateCashText();
     }
 
     public void InactiveStoreAndInventory()
@@ -131,8 +132,14 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
         }
     }
 
+    public void UpdateCashText()
+    {
+        cashText.text = CashManager.Instance.Cash.ToString() + "원";
+    }
+
     public void SaveData()
     {
+        data.gold = CashManager.Instance.Cash;
         for (int i = 0; i < numbers.Count; i++)
         {
             data.cards[i] = numbers[i];
@@ -144,6 +151,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     public void LoadData()
     {
         data = save.Load();
+        data.gold = CashManager.Instance.Cash;
 
         for (int i = 0; i < numbers.Count; i++)
         {

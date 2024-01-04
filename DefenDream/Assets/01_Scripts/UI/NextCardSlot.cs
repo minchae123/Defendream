@@ -33,20 +33,24 @@ public class NextCardSlot : MonoBehaviour
 
         foreach (var card in cardInven) // 인벤토리에있는 카드
         {
-            if (card.Value > 0) // 만약 카드 개수가 0보다 큼
+            if (card.Value > 0) // 만약 카드 개수가 0개보다 많음
             {
                 randomCards.Add(card.Key); // 사용 가능
             }
         }
+
         // 사용 가능한 카드가 없다면 쫄병 생성(나중에)
-        if (randomCards.Count == 0)
+        if (randomCards.Count <= 0)
         {
+            nextCard = null; // 여기에 쫄병을 집어넣어
+            //print("dd");
             return;
         }
 
         int randomIndex = Random.Range(0, randomCards.Count);
         CardSO selectCard = randomCards[randomIndex];
         nextCard = selectCard;
+        Inventory.Instance.UseInventory(nextCard); // 선택된다면 빼주기
     }
     public void ClearSlot()
     {

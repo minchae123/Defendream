@@ -1,8 +1,7 @@
 using DayEnum;
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.UI;
 
 public class Diary : MonoSingleton<Diary>
@@ -35,7 +34,7 @@ public class Diary : MonoSingleton<Diary>
         }
 
         OnClickButton();
-        UpdatePage((WhatDay)currentPage);
+        UpdatePage();
     }
 
     #region 버튼 클릭
@@ -48,20 +47,22 @@ public class Diary : MonoSingleton<Diary>
     {
         currentPage -= 2;
         currentPage = Mathf.Clamp(currentPage, 0, 6);
-
-        UpdatePage((WhatDay)currentPage);
+        UpdatePage();
     }
     public void OnClickRightButton()
     {
         currentPage += 2;
         currentPage = Mathf.Clamp(currentPage, 0, 6);
-
-        UpdatePage((WhatDay)currentPage);
+        UpdatePage();
     }
     #endregion
 
+    public WhatDay CurrentPageDay()
+    {
+        return (WhatDay)currentPage;
+    }
 
-    public void UpdatePage(WhatDay today) // 오늘언제인지 // 월 (0) 화 (1) 수 (2)
+    public void UpdatePage() // 오늘언제인지 // 월 (0) 화 (1) 수 (2)
     {
         for(int i = 0; i < pages.Length; ++i)
         {

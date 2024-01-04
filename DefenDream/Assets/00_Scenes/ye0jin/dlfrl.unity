@@ -399,7 +399,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1498136690115843070, guid: d7c9337d95be1c64986bab864d8a37d3, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1498136690115843070, guid: d7c9337d95be1c64986bab864d8a37d3, type: 3}
       propertyPath: m_Pivot.y
@@ -501,7 +501,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1498136690115843070, guid: d7c9337d95be1c64986bab864d8a37d3, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1498136690115843070, guid: d7c9337d95be1c64986bab864d8a37d3, type: 3}
       propertyPath: m_Pivot.y
@@ -1094,6 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0a00c452e6383468ed94009e03f3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goodOrBad: 
   mainDiarySO: {fileID: 11400000, guid: 8172fa91df02fe04ba8366d3b4e027f7, type: 2}
   pageParent: {fileID: 1404063265}
   pages: []

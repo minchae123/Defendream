@@ -871,7 +871,6 @@ GameObject:
   - component: {fileID: 119547176}
   - component: {fileID: 119547178}
   - component: {fileID: 119547177}
-  - component: {fileID: 119547179}
   m_Layer: 5
   m_Name: BackGroundImage
   m_TagString: Untagged
@@ -896,8 +895,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -40, y: -30}
-  m_SizeDelta: {x: 970, y: 300}
+  m_AnchoredPosition: {x: -40, y: -90}
+  m_SizeDelta: {x: 970, y: 370}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &119547177
 MonoBehaviour:
@@ -919,7 +918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 548b583ff04c70b48b30e4316c5b65b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ef221bf52597ec44864c65de6527f80, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -937,21 +936,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119547175}
   m_CullTransparentMesh: 1
---- !u!114 &119547179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119547175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 4, y: -4}
-  m_UseGraphicAlpha: 1
 --- !u!1001 &179271111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4082,6 +4066,7 @@ MonoBehaviour:
   _OX:
   - {fileID: 21300000, guid: 250c290948fab6846a18f20413f222a1, type: 3}
   - {fileID: 21300000, guid: 1550c60fa87b51e43a919b344fb656c4, type: 3}
+  _fadeImage: {fileID: 0}
 --- !u!4 &788022433
 Transform:
   m_ObjectHideFlags: 0
@@ -4533,7 +4518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 7, y: -7}
+  m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
 --- !u!1 &933631729
 GameObject:
@@ -9059,7 +9044,6 @@ MonoBehaviour:
   mercenaryName: {fileID: 1891068087}
   mercenaryExplain: {fileID: 14893313}
   collected: {fileID: 3760629834031238048, guid: e52b5464cb5ea8f4586ff8a662ce0628, type: 3}
-  save: {fileID: 0}
   MercenaryCount: 13
   numbers: 
   StoreContents: []
@@ -9150,11 +9134,11 @@ MonoBehaviour:
     m_Left: 100
     m_Right: 100
     m_Top: 100
-    m_Bottom: 100
+    m_Bottom: 110
   m_ChildAlignment: 7
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 160, y: 200}
+  m_CellSize: {x: 165, y: 200}
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2

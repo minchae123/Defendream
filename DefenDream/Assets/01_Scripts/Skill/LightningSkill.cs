@@ -2,18 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightningSkill : MonoBehaviour
+public class LightningSkill : PoolableMono
 {
-    void Start()
+    [SerializeField] private float DMG;
+
+    public override void Init()
     {
-        Destroy(gameObject, 1f);
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(WaitPool());
+    }
+
+    private IEnumerator WaitPool()
+    {
+        yield return new WaitForSeconds(1f);
+        PoolManager.Instance.Push(this);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Enemy>().DecHp(5);
+            other.gameObject.GetComponent<Enemy>().DecHp(DMG);
         }
     }
 }

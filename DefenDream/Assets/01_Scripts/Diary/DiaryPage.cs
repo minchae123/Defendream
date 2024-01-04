@@ -11,6 +11,7 @@ public class DiaryPage : MonoBehaviour
     //int 형식에 [today] 번째 저장된 게 있다면 그거 로드해주기
     private Dictionary<int, DayDiaryClass> currentDiary = new Dictionary<int, DayDiaryClass>();
 
+    [SerializeField] private Image thisImage;
     [SerializeField] private Image diaryPainting;
     [SerializeField] private TextMeshProUGUI diaryText;
 
@@ -18,6 +19,7 @@ public class DiaryPage : MonoBehaviour
     {
         diaryPainting.sprite = null;
         diaryText.text = string.Empty;
+        thisImage.color = Color.black;
     }
     public void UpdatePage(int today, bool value)
     {
@@ -27,6 +29,8 @@ public class DiaryPage : MonoBehaviour
         {
             return;
         }
+
+        thisImage.color = Color.white;
 
         if (currentDiary.ContainsKey(today))// 존재여부 판단
         {     

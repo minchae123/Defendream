@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class BombSkill : MonoBehaviour
+public class BombSkill : PoolableMono
 {
     private Animator anim;
     private Rigidbody rb;
@@ -10,26 +11,35 @@ public class BombSkill : MonoBehaviour
     [SerializeField] private GameObject bombTex;
     [SerializeField] private GameObject bomb;
 
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-
-        Invoke(nameof(Shaking), 1.5f);
-        rb.AddForce(new Vector3(0,7,0), ForceMode.Impulse);
     }
 
-    void Shaking()
+    public override void Init()
     {
+        transform.rotation = Quaternion.Euler(Vector3.zero);
+        bombTex.SetActive(true);
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(Bomb());
+    }
+
+    private IEnumerator Bomb()
+    {
+        rb.AddForce(new Vector3(0, 7, 0), ForceMode.Impulse);
+        yield return new WaitForSeconds(1.5f);
         anim.enabled = true;
-        Invoke(nameof(Bomb), 1.5f);
-    }
-
-    void Bomb()
-    {
+        yield return new WaitForSeconds(1.5f);
+        transform.rotation = Quaternion.Euler(Vector3.zero);
         bombTex.SetActive(false);
-        Instantiate(bomb, transform);
-        Destroy(gameObject, 1f);
+        anim.enabled = false;
+        Explosion explosion = PoolManager.Instance.Pop("Explosion") as Explosion;
+        explosion.transform.position = transform.position;
+        yield return new WaitForSeconds(1.5f);
+        PoolManager.Instance.Push(this);
     }
-
 }

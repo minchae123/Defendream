@@ -15,7 +15,7 @@ MonoBehaviour:
   goodDayList:
   - dayType: 1
     painting: {fileID: 21300000, guid: 764b30f7c21d2c046bab7fa36b62042a, type: 3}
-    text: "\u3145\u3147\u3147\u3148\u3147"
+    text: "\u3145\u3147\u3147\u3148\u3147dddddddd\ndddd"
   - dayType: 1
     painting: {fileID: 21300000, guid: d25445b74de1f934181190e7ae7252f8, type: 3}
     text: "\u3145\u3147\u3147\u3148\u31472"
