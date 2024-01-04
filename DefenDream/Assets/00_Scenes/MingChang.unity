@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ee0257c48c1e8644692d69f00a5417eb, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -5220,7 +5220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayTime: 100
-  _decreaseCycle: 0
+  _decreaseCycle: 15
   timeText: {fileID: 1703289781}
   timeFillImage: {fileID: 548388152}
   _stressUI: {fileID: 224534181}

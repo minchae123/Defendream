@@ -53,6 +53,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5539370036480406571}
     m_Modifications:
+    - target: {fileID: 5435912132273483925, guid: 487cec6b7ae410d46a0351096511a4d3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435912132273483925, guid: 487cec6b7ae410d46a0351096511a4d3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435912132273483925, guid: 487cec6b7ae410d46a0351096511a4d3, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5435912133463256900, guid: 487cec6b7ae410d46a0351096511a4d3, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -823,6 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417d416e8b4de7f4b92ab88c321f28aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthBar: {fileID: 0}
 --- !u!114 &513042006
 MonoBehaviour:
   m_ObjectHideFlags: 0
