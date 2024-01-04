@@ -19,13 +19,11 @@ public class EnemyMovement : MonoBehaviour
 
     Vector3 boxSize = new Vector3(100f, 100f, 100f);
 
-    private EnemyAttack _enemyAttack;
     public Action freeze;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        _enemyAttack = GetComponent<EnemyAttack>();
 
         freeze += Freeze;
     }
@@ -36,16 +34,11 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-
         if (!_isMoveStop)
             Move();
 
-        OverlapBox();
         if (!_isStop)
-        {
-            Focusing();
-        }
+            OverlapBox();
 
         if (_target == null || !_target.activeSelf)
         {
@@ -60,13 +53,6 @@ public class EnemyMovement : MonoBehaviour
 
             _dis = dis;
         }
-
-        //if(_target != null && !_target.activeSelf)
-        //{
-        //    _target = null;
-        //    _isStop = false;
-        //    _dis = float.MaxValue;
-        //}
     }
 
     private void Move()
@@ -102,9 +88,6 @@ public class EnemyMovement : MonoBehaviour
 
         foreach (var item in colliders)
         {
-            if (GameManager.instance._focusTarget.ContainsKey(item.gameObject))
-                if (GameManager.instance._focusTarget[item.gameObject] >= 3) continue;
-
             if (!item.CompareTag("Team") && !item.CompareTag("Player")) continue;
 
             float dis = Vector3.Distance(item.transform.position, transform.position);
@@ -114,17 +97,6 @@ public class EnemyMovement : MonoBehaviour
                 _dis = dis;
                 _target = item.gameObject;
             }
-        }
-    }
-
-    public void Focusing()
-    {
-        //Æ÷Ä¿½Ì
-        if (GameManager.instance._focusTarget.ContainsKey(_target))
-            GameManager.instance._focusTarget[_target]++;
-        else
-        {
-            GameManager.instance._focusTarget.Add(_target, 1);
         }
     }
 
@@ -138,11 +110,9 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator UnFreeze()
     {
-        _enemyAttack.enabled = false;
         _rb.velocity = Vector3.zero;
         _isMoveStop = true;
         yield return new WaitForSeconds(4.5f);
         _isMoveStop = false;
-        _enemyAttack.enabled = true;
     }
 }

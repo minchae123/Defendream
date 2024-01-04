@@ -20,7 +20,7 @@ public class MagicBullet : PoolableMono
     // Update is called once per frame
     void Update()
     {
-        //Invoke("DestroyObj", 5);
+        Invoke("DestroyObj", 5);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,9 +32,7 @@ public class MagicBullet : PoolableMono
             ShotParticle shotParticle = PoolManager.Instance.Pop("ShotParticle") as ShotParticle;
             shotParticle.transform.position = transform.position;
             enemy.DecHp(_damage);
-        DestroyObj();
         }
-
     }
 
     private void DestroyObj()

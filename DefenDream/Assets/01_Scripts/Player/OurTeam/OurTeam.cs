@@ -104,12 +104,6 @@ public class OurTeam : PoolableMono
     {
         if (_hp <= 0)
         {
-            //if (GameManager.instance._focusTarget.ContainsKey(gameObject))
-            //{
-            //    GameManager.instance._focusTarget.Remove(gameObject);
-            //    print(GameManager.instance._focusTarget[gameObject]);
-            //}
-
             _pAnim.DieAnim();
 
             Invoke("DestroyObj", 1);
