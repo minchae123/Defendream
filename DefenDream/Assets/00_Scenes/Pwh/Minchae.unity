@@ -4142,7 +4142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c1e8de3289dc4a945f8730bce6703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayTime: 4
+  _dayTime: 100
   timeText: {fileID: 1797567291}
   timeFillImage: {fileID: 863790940}
   _stressUI: {fileID: 224534181}
