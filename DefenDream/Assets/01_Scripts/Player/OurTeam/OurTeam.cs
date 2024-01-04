@@ -27,6 +27,7 @@ public class OurTeam : PoolableMono
         _hp = _playerSO._Hp;
         _saveSpeed = _move._speed;
         hpbar.SetHP(_hp);
+        hpbar.ResetHP();
     }
 
     private void Awake()

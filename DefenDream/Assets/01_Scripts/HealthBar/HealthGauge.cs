@@ -17,4 +17,9 @@ public class HealthGauge : MonoBehaviour
     {
         HealthCheckGauge(damage);
     }
+
+    public void ResetHealth()
+	{
+        currentScale = 1;
+	}
 }

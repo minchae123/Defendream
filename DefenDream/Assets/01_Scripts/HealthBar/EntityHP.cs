@@ -11,7 +11,7 @@ public class EntityHP : MonoBehaviour
 
     private HealthGauge healthBar;
 
-    private void Start()
+    private void Awake()
     {
         // 모든 엔티티에 달아주고 Start에서 SetHP() 호출하기
         healthBar = transform.GetComponentInChildren<HealthGauge>(); // 자식에 HealthBar 달려있을 예정
@@ -28,4 +28,9 @@ public class EntityHP : MonoBehaviour
         healthBar.DamageCheck(damage / maxHP);
         if(currentHP<=0) { print("Die"); }
     }
+
+    public void ResetHP()
+	{
+        healthBar.ResetHealth();
+	}
 }
