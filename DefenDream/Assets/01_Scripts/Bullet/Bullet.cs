@@ -8,7 +8,6 @@ public class Bullet : PoolableMono
     [HideInInspector] public float _damage;
 
     [SerializeField] private float _speed;
-    [SerializeField] private Collider[] _col;
 
     public override void Init()
     {
@@ -27,15 +26,6 @@ public class Bullet : PoolableMono
 
     private void OnTriggerEnter(Collider collider)
     {
-        foreach (Collider item in _col)
-        {
-            if (collider.GetComponent<CapsuleCollider>() == item)
-            {
-                print(item);
-                DestroyObj();
-            }
-        }
-
         if (collider.CompareTag("Col"))
         {
             OurTeam team = collider.GetComponentInParent<OurTeam>();
@@ -52,7 +42,6 @@ public class Bullet : PoolableMono
 
     private void DestroyObj()
     {
-        Destroy(gameObject);
-        //PoolManager.Instance.Push(this);
+        PoolManager.Instance.Push(this);
     }
 }
