@@ -9,7 +9,7 @@ public class Diary : MonoSingleton<Diary>
     [SerializeField] private List<bool> goodOrBad;
 
     [Header("Main")]
-    public DayDiarySO mainDiarySO;
+    public DiarySO mainDiarySO;
 
     [SerializeField] private Transform pageParent;
     [SerializeField] private DiaryPage[] pages;

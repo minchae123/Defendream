@@ -12,8 +12,8 @@ public class DayDiaryClass
     public bool IsUsed = false;
 }
 
-[CreateAssetMenu(menuName ="SO/Diary/Day")]
-public class DayDiarySO : ScriptableObject
+[CreateAssetMenu(menuName ="SO/Diary")]
+public class DiarySO : ScriptableObject
 {
     public List<DayDiaryClass> goodDayList;
     public List<DayDiaryClass> badDayList;
