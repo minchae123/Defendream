@@ -97,8 +97,6 @@ public class OurTeam : PoolableMono
         _hp -= damage;
         hpbar.OnDamage(damage);
         DieAnim();
-
-        print(_hp);
     }
 
     private void DieAnim()
