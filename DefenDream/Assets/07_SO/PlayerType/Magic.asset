@@ -15,5 +15,5 @@ MonoBehaviour:
   _pType: 0
   _name: "\uB9C8\uBC95\uC0AC"
   _Hp: 10
-  _AttackDamage: 10
+  _AttackDamage: 3
   _AttackDistance: 10

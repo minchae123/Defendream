@@ -9,9 +9,7 @@ public class Bullet : PoolableMono
     [HideInInspector] public Rigidbody _rb;
 
     [SerializeField] private float _speed;
-    [SerializeField] private CapsuleCollider[] _col;
-
-    OurTeam _team;
+    [SerializeField] private Collider[] _col;
 
     public override void Init()
     {
@@ -30,17 +28,23 @@ public class Bullet : PoolableMono
 
     private void OnTriggerEnter(Collider collider)
     {
-        foreach (var item in _col)
+        foreach (Collider item in _col)
         {
-            if (collider == item)
+            if (collider.GetComponent<CapsuleCollider>() == item)
+            {
+                print(item);
                 DestroyObj();
+            }
         }
 
-        if (collider.TryGetComponent<OurTeam>(out OurTeam team))
-        {
-            _isCol = true;
-            _team = team;
-        }
+        //if (collider.CompareTag("Team") && collider.GetComponent<CapsuleCollider>() != null)
+        //{
+        //    Debug.Log("Hit");
+        //    _isCol = true;
+        //    DestroyObj();
+        //}
+        //else return;
+
 
         if (collider.CompareTag("Player"))
         {
@@ -52,11 +56,7 @@ public class Bullet : PoolableMono
     private void DestroyObj()
     {
         Destroy(gameObject);
+        //Destroy(this);
         //PoolManager.Instance.Push(this);
-    }
-
-    public void DecHp(float damage)
-    {
-        _team.DecHp(damage);
     }
 }

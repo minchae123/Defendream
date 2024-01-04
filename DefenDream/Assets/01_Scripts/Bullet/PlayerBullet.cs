@@ -25,7 +25,6 @@ public class PlayerBullet : PoolableMono
     {
         if (other.CompareTag("Team")) return;
 
-        print(other.name);
         Destroy(gameObject);
         //PoolManager.Instance.Push(this);
     }

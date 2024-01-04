@@ -6,12 +6,18 @@ using EnemyEnum;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
-    [SerializeField] private EnemyMovement _enemyMove;
     [SerializeField] private Bullet _bulletPrefabs;
 
+    private EnemyMovement _enemyMove;
     private EnemyTypeSO _eType = null;
+
     private float _saveSpeed;
     private bool _isAtt = false;
+
+    private void Awake()
+    {
+        _enemyMove = transform.GetComponent<EnemyMovement>();
+    }
 
     private void Start()
     {
@@ -22,22 +28,34 @@ public class EnemyAttack : MonoBehaviour
     private void Update()
     {
         Distance();
+
+        if (_enemyMove._target == null) StopAllCoroutines();
     }
 
     private void Distance()
     {
-        if (_eType._AttackDistance >= _enemyMove._dis && !_isAtt && _enemyMove._dis != 0)
+        float attDis = _eType._AttackDistance;
+
+        if (_enemyMove._target != null && _enemyMove._target.CompareTag("Player"))
+            attDis += 3f;
+
+
+        if (attDis >= _enemyMove._dis && !_isAtt)
         {
+            _enemyMove._isStop = true;
             _enemyMove._speed = 0;
 
             Att();
+
             _isAtt = true;
         }
 
-        if (_eType._AttackDistance < _enemyMove._dis)
+        else if (attDis < _enemyMove._dis)
         {
-            _enemyMove._isStop = false;
             _enemyMove._speed = _saveSpeed;
+            _enemyMove._isStop = false;
+
+            _isAtt = false;
         }
     }
 
@@ -69,8 +87,6 @@ public class EnemyAttack : MonoBehaviour
     {
         while (true)
         {
-            _enemyMove._isStop = true;
-
             Damage();
 
             yield return new WaitForSeconds(1f);
@@ -81,8 +97,6 @@ public class EnemyAttack : MonoBehaviour
     {
         while (true)
         {
-            _enemyMove._isStop = true;
-
             InstBullet();
 
             if (_bulletPrefabs._isCol)
@@ -96,8 +110,6 @@ public class EnemyAttack : MonoBehaviour
     {
         while (true)
         {
-            _enemyMove._isStop = true;
-
             InstBullet();
 
             if (_bulletPrefabs._isCol)
@@ -111,20 +123,16 @@ public class EnemyAttack : MonoBehaviour
     {
         if (_enemyMove._target == null)
         {
-            _enemyMove._isStop = true;
             _enemyMove._speed = _saveSpeed;
             return;
         }
 
         float damage = _enemy._eType._AttackDamage;
 
-        if (_enemyMove._target.CompareTag("Player"))
-        {
-            GameManager.instance._player._hp -= damage;
-        }
+        if (_enemyMove._target.CompareTag("Player")) GameManager.instance._player._hp -= damage;
         else
         {
-            print(_enemyMove._target.name);
+            Debug.Log("ourhit");
             _enemyMove._target.GetComponent<OurTeam>().DecHp(damage);
         }
     }
@@ -133,11 +141,9 @@ public class EnemyAttack : MonoBehaviour
     {
         if (_enemyMove._target == null)
         {
-            _enemyMove._isStop = true;
             _enemyMove._speed = _saveSpeed;
             return;
         }
-
         Bullet b = Instantiate(_bulletPrefabs);
 
         b.transform.position = transform.position;

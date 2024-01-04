@@ -14,11 +14,8 @@ public class EnemyMovement : MonoBehaviour
     public bool _isStop = false;
     public float _speed;
 
-    private float _playerDis;
-    private Vector3 _playerDir;
+    private bool _isMoveStop = false;
     private Vector3 _WarriorDir;
-
-    private List<GameObject> _exceptObj = new List<GameObject>();
 
     Vector3 boxSize = new Vector3(100f, 100f, 100f);
 
@@ -27,32 +24,62 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
-        _dis = float.MaxValue;
         _rb = GetComponent<Rigidbody>();
-
-        _playerDis = Vector3.Distance(transform.position, GameManager.instance._playerTrm.position);
-
         _enemyAttack = GetComponent<EnemyAttack>();
+
         freeze += Freeze;
+    }
+
+    private void Start()
+    {
+        OverlapBox();
+        Focusing();
     }
 
     void Update()
     {
-        if (!_isStop)
+        if (!_isMoveStop)
             Move();
 
-        OverlapBox();
+        if (!_isStop)
+        {
+            OverlapBox();
+            Focusing();
+        }
+
+        if (_target == null)
+        {
+            _isStop = false;
+
+            _target = GameManager.instance._player.gameObject;
+
+            _WarriorDir = _target.transform.position - transform.position;
+            _WarriorDir.y = transform.position.y;
+
+            float dis = Vector3.Distance(_target.transform.position, transform.position);
+
+            _dis = dis;
+        }
     }
 
     private void Move()
     {
-        _playerDir = GameManager.instance._playerTrm.position - transform.position;
-        _playerDis = Vector3.Distance(GameManager.instance._playerTrm.position, transform.position);
+        if (_target != null)
+        {
+            _WarriorDir = _target.transform.position - transform.position;
+            _WarriorDir.y = transform.position.y;
 
+            _dis = Vector3.Distance(_target.transform.position, transform.position);
+        }
         _rb.velocity = _WarriorDir.normalized * _speed;
 
         _bulletDir = _rb.velocity;
 
+        RotDir();
+    }
+
+    private void RotDir()
+    {
         if (_WarriorDir != Vector3.zero)
         {
             Quaternion warriorRotation = Quaternion.LookRotation(new Vector3(_WarriorDir.x, 0f, _WarriorDir.z), Vector3.up);
@@ -65,9 +92,12 @@ public class EnemyMovement : MonoBehaviour
         Collider[] colliders;
 
         colliders = Physics.OverlapBox(transform.position, boxSize);
+
         foreach (var item in colliders)
         {
-            if (GameManager.instance._focusTarget[item.gameObject] == 2) continue;
+            if (GameManager.instance._focusTarget.ContainsKey(item.gameObject))
+                if (GameManager.instance._focusTarget[item.gameObject] >= 3) continue;
+
             if (!item.CompareTag("Team") && !item.CompareTag("Player")) continue;
 
             float dis = Vector3.Distance(item.transform.position, transform.position);
@@ -76,15 +106,18 @@ public class EnemyMovement : MonoBehaviour
             {
                 _dis = dis;
                 _target = item.gameObject;
-
-                int i = GameManager.instance._focusTarget[_target]++;
-
-                //if (i == 2)
-                //    _exceptObj = new List<GameObject>(GameManager.instance._focusTarget.Keys);
-
-                _WarriorDir = item.transform.position - transform.position;
-                _WarriorDir.y = transform.position.y;
             }
+        }
+    }
+
+    public void Focusing()
+    {
+        //Æ÷Ä¿½Ì
+        if (GameManager.instance._focusTarget.ContainsKey(_target))
+            GameManager.instance._focusTarget[_target]++;
+        else
+        {
+            GameManager.instance._focusTarget.Add(_target, 1);
         }
     }
 
@@ -100,9 +133,9 @@ public class EnemyMovement : MonoBehaviour
     {
         _enemyAttack.enabled = false;
         _rb.velocity = Vector3.zero;
-        _isStop = true;
+        _isMoveStop = true;
         yield return new WaitForSeconds(4.5f);
-        _isStop = false;
+        _isMoveStop = false;
         _enemyAttack.enabled = true;
     }
 }

@@ -16,7 +16,7 @@ public class Enemy : PoolableMono
 
     [SerializeField] private float _hp;
 
-    private bool isDead = false;
+    public bool isDead = false;
 
     public override void Init()
     {

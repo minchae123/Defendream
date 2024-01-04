@@ -20,7 +20,6 @@ public class OurTeam : PoolableMono
 
     [SerializeField] private float _hp;
 
-
     public override void Init()
     {
         _hp = _playerSO._Hp;
@@ -41,10 +40,9 @@ public class OurTeam : PoolableMono
     private void MoveAnim()
     {
         bool isWalk = _move._min > _playerSO._AttackDistance;
-        print(isWalk);
         _pAnim.WalkAnim(isWalk);
 
-        if(isWalk) _move._speed = _saveSpeed;
+        if (isWalk) _move._speed = _saveSpeed;
         else _move._speed = 0;
     }
 
@@ -57,7 +55,7 @@ public class OurTeam : PoolableMono
     {
         //¹æ¾î effect¸¸
     }
-                
+
     private void Magic()
     {
         PlayerBullet bullet = Instantiate(_magicBullet, transform);
@@ -83,7 +81,7 @@ public class OurTeam : PoolableMono
 
     private void DieAnim()
     {
-        if(_hp <= 0)
+        if (_hp <= 0)
         {
             _pAnim.DieAnim();
 

@@ -56,8 +56,6 @@ public class Inventory : MonoBehaviour
     public void SaveData(int index, int num)
 	{
 		data.cards[index] = num;
-        print(index);
-        print(data.cards[index]);
 
         save.Save(data);
     }
