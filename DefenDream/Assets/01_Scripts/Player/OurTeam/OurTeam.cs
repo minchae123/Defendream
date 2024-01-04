@@ -55,6 +55,9 @@ public class OurTeam : PoolableMono
     private void Melee()
     {
         _move._nealEnemy.DecHp(_playerSO._AttackDamage);
+
+        Fighting fight = PoolManager.Instance.Pop("FightParticle") as Fighting;
+        fight.transform.position = transform.position + transform.forward * 2;
     }
 
     private void Tanker()
