@@ -29,6 +29,7 @@ public class PoolManager
             return null;
         }
         PoolableMono item = _pools[prefabName].Pop();
+        WeekManager.Instance.activeObjects.Add(item);
         item.Init();
         return item;
     }
@@ -36,5 +37,6 @@ public class PoolManager
     public void Push(PoolableMono obj)
     {
         _pools[obj.name].Push(obj);
+        WeekManager.Instance.activeObjects.Remove(obj);
     }
 }

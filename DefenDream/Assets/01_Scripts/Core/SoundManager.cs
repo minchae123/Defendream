@@ -11,8 +11,18 @@ public class SoundManager : MonoSingleton<SoundManager>
     private string sfxKey = "SFXVolume";
 
     [Header("Player")]
+	[SerializeField] private AudioClip magic;
+
     [Header("Enemy")]
+
     [Header("Skill")]
+	[SerializeField] private AudioClip bomb;
+	[SerializeField] private AudioClip freeze;
+	[SerializeField] private AudioClip fire;
+	[SerializeField] private AudioClip lightning;
+	[SerializeField] private AudioClip wind;
+	[SerializeField] private AudioClip poision;
+
     [Header("UI")]
     [SerializeField] private AudioClip cardSelectSound;
     //[Header("ETC")]
@@ -49,4 +59,39 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         audioSource.PlayOneShot(cardSelectSound);
     }
+
+    public void Bomb()
+	{
+        audioSource.PlayOneShot(bomb);
+	}
+
+    public void Freeze()
+    {
+        audioSource.PlayOneShot(freeze);
+    }
+
+    public void Magic()
+	{
+        audioSource.PlayOneShot(magic);
+	}
+
+    public void Fire()
+	{
+        audioSource.PlayOneShot(fire);
+	}
+
+    public void Lightning()
+	{
+        audioSource.PlayOneShot(lightning);
+	}
+
+    public void Wind()
+	{
+        audioSource.PlayOneShot(wind);
+	}
+
+    public void Poision()
+	{
+        audioSource.PlayOneShot(poision);
+	}
 }

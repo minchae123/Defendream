@@ -107,6 +107,7 @@ public class EnemyAttack : MonoBehaviour
         {
             InstBullet();
 
+            SoundManager.Instance.Magic();
             yield return new WaitForSeconds(3f);
         }
     }

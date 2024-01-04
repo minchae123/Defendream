@@ -35,10 +35,12 @@ public class SettingUI : MonoBehaviour
             if (isSetting)
             {
                 settingPanel.SetActive(false);
+                Time.timeScale = 0;
                 isSetting = false;  
             }
             else
             {
+                Time.timeScale = 1;
                 settingPanel.SetActive(true);
                 isSetting = true;
             }
