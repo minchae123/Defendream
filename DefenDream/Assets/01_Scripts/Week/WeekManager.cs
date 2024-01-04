@@ -39,6 +39,8 @@ public class WeekManager : MonoSingleton<WeekManager>
 
 	[SerializeField] private GameObject bedLight;
 
+	private bool isDown = false;
+
 	void Start()
 	{
 		goodNightsSO.ResetList();
@@ -62,9 +64,12 @@ public class WeekManager : MonoSingleton<WeekManager>
 		StressCheck();
 		SetTimerText();
 		_lateUpdateTime += Time.deltaTime;
-		if (_lateUpdateTime > _decreaseCycle)
+		if (_lateUpdateTime > _decreaseCycle && isDown == false)
 		{
+			isDown = true;
 			StressDown();
+			isDown = false;
+			_lateUpdateTime = 0;
 		}
 	}
 
@@ -164,6 +169,7 @@ public class WeekManager : MonoSingleton<WeekManager>
 	public void StressUp()
 	{
 		_stressValue++;
+		_stressValue = Mathf.Clamp(_stressValue, 0, 10);
 		bedLight.SetActive(true);
 		StartCoroutine(Off()); 
 		_lateUpdateTime = 0;
@@ -178,6 +184,7 @@ public class WeekManager : MonoSingleton<WeekManager>
 	public void StressDown()
 	{
 		_stressValue--;
+		_stressValue = Mathf.Clamp(_stressValue, 0, 10);
 	}
 
 	private void SetTimerText()

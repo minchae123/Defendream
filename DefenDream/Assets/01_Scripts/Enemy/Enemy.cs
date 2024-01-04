@@ -37,6 +37,8 @@ public class Enemy : PoolableMono
 
     public override void Init()
     {
+        enemyMovement.enabled = true;
+
         for (int i = 0; i < _meshRens.Length; i++)
         {
             _meshRens[i].transform.parent.gameObject.SetActive(false);
@@ -149,7 +151,8 @@ public class Enemy : PoolableMono
     {
         Instantiate(coin, transform.position, Quaternion.identity);
         isDead = true;
-        enemyMovement.freeze();
+        enemyMovement._speed = 0;
+        enemyMovement.enabled = false;
         _anim.SetTrigger("Die");
         healthGauge.SetActive(false);
 

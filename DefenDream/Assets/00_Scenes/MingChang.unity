@@ -5219,7 +5219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c1e8de3289dc4a945f8730bce6703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayTime: 100
+  _dayTime: 60
   _decreaseCycle: 15
   timeText: {fileID: 1703289781}
   timeFillImage: {fileID: 548388152}

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    Rigidbody _rb;
+    [HideInInspector] public Rigidbody _rb;
 
     [HideInInspector] public GameObject _target = null;
     [HideInInspector] public Vector3 _bulletDir;
