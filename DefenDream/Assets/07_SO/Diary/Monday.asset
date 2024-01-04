@@ -15,8 +15,14 @@ MonoBehaviour:
   goodDayList:
   - dayType: 1
     painting: {fileID: 21300000, guid: 640498d0d239d194b97e5eee549f302a, type: 3}
-    text: "\uC6D4\uC694\uC77C \uC870\uC740\uB0A0"
+    text: "\uC6D4\uB3C4\uC77C\uC778\uB370 \uC7A0\uC744 \uB108\uBB34 \uC798\uC7A4\uB2E4
+      ~!!!\n\uAE30\uBD84\uC774\uAC00 \uB108\uBB34\uB108\uBB34 \uC88B\uC544\uC6A9
+      ~~!!\n\uC774\uBC88\uC8FC\uB3C4 \uC0C1\uCF8C\uD55C \uD558\uB8E8\uD558\uB8E8\uAC00
+      \uB420\uAC70 \uAC19\uB2E4 "
   badDayList:
   - dayType: 0
     painting: {fileID: 21300000, guid: e25436ad0c05031468e993b2c4602d2a, type: 3}
-    text: "\uC6D4\uC694\uC77C \uC2EB\uC5B4"
+    text: "\uC624\uB298\uC740 \uB108\uBB34 \uD53C\uACE4\uD55C \uD558\uB8E8\uB2E4
+      ..\n\uADF8\uB798\uC11C \uADF8\uB7F0\uC9C0 \uAC11\uC790\uAE30 \uBA38\uB9AC\uC5D0
+      \uBB34\uC5B8\uAC00 \uB5A8\uC5B4\uC84C\uB2E4..\n\uC544.. \uC0C8\uB625\uC774\uC5C8\uB2E4..\n\uC624\uB298\uC740
+      \uC815\uB9D0 \uB098\uC05C \uD558\uB8E8\uB2E4"
