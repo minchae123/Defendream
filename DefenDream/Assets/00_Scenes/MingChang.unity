@@ -4162,16 +4162,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c1e8de3289dc4a945f8730bce6703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayTime: 5
+  _dayTime: 100
   _timerText: {fileID: 385494172}
   _stressUI: {fileID: 224534181}
   _stress:
-  - {fileID: 21300000, guid: 417691605c0e747439477424a652b418, type: 3}
-  - {fileID: 21300000, guid: 233204705d91fbb4c80ce245b58e6817, type: 3}
-  - {fileID: 21300000, guid: 21c2550f96a07644dba6f75728566190, type: 3}
-  - {fileID: 21300000, guid: 71a67a993d5eb3c45b45147e9b3c5b12, type: 3}
-  - {fileID: 21300000, guid: 69f86ad935fc69247b60c0c6515cefb5, type: 3}
   - {fileID: 21300000, guid: 346ba97150d89ba4a97d7174ddbe5d56, type: 3}
+  - {fileID: 21300000, guid: 69f86ad935fc69247b60c0c6515cefb5, type: 3}
+  - {fileID: 21300000, guid: 71a67a993d5eb3c45b45147e9b3c5b12, type: 3}
+  - {fileID: 21300000, guid: 21c2550f96a07644dba6f75728566190, type: 3}
+  - {fileID: 21300000, guid: 233204705d91fbb4c80ce245b58e6817, type: 3}
+  - {fileID: 21300000, guid: 417691605c0e747439477424a652b418, type: 3}
   _week:
   - {fileID: 614195550}
   - {fileID: 1533659601}
