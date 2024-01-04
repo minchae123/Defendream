@@ -29,7 +29,7 @@ public class EntityHP : MonoBehaviour
         
         healthBar.DamageCheck(damage / maxHP);
 
-        if(currentHP<=0) { print("Die"); }
+        if(currentHP<=0) { /*die*/ }
     }
 
     public void ResetHP()
