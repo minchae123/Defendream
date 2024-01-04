@@ -123,6 +123,9 @@ public class EnemyAttack : MonoBehaviour
 
         float damage = _enemy._eType._AttackDamage;
 
+        Fighting fight = PoolManager.Instance.Pop("FightParticle") as Fighting;
+        fight.transform.position = transform.position + transform.forward * 2;
+
         if (_enemyMove._target.CompareTag("Player"))
             WeekManager.Instance.StressUp();
         else
