@@ -4592,6 +4592,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e64fff15c54164dbb77c0f521794c4, type: 3}
+--- !u!1 &708244054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1693518093, guid: 85e64fff15c54164dbb77c0f521794c4, type: 3}
+  m_PrefabInstance: {fileID: 708244053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &715920487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5230,7 +5235,7 @@ MonoBehaviour:
   _dayText: {fileID: 1766330188}
   _fadeImage: {fileID: 734237354}
   activeObjects: []
-  bedLight: {fileID: 0}
+  bedLight: {fileID: 708244054}
 --- !u!4 &788022433
 Transform:
   m_ObjectHideFlags: 0
