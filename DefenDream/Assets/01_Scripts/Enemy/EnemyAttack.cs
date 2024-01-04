@@ -99,9 +99,6 @@ public class EnemyAttack : MonoBehaviour
         {
             InstBullet();
 
-            if (_bulletPrefabs._isCol)
-                Damage();
-
             yield return new WaitForSeconds(3f);
         }
     }
@@ -111,9 +108,6 @@ public class EnemyAttack : MonoBehaviour
         while (true)
         {
             InstBullet();
-
-            if (_bulletPrefabs._isCol)
-                Damage();
 
             yield return new WaitForSeconds(3f);
         }
@@ -129,12 +123,10 @@ public class EnemyAttack : MonoBehaviour
 
         float damage = _enemy._eType._AttackDamage;
 
-        if (_enemyMove._target.CompareTag("Player")) WeekManager.Instance.StressUp();
+        if (_enemyMove._target.CompareTag("Player"))
+            WeekManager.Instance.StressUp();
         else
-        {
-            Debug.Log("ourhit");
             _enemyMove._target.GetComponent<OurTeam>().DecHp(damage);
-        }
     }
 
     private void InstBullet()
@@ -144,7 +136,10 @@ public class EnemyAttack : MonoBehaviour
             _enemyMove._speed = _saveSpeed;
             return;
         }
+
         Bullet b = Instantiate(_bulletPrefabs);
+
+        b._damage = _enemy._eType._AttackDamage;
 
         b.transform.position = transform.position;
 

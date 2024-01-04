@@ -7948,6 +7948,7 @@ MonoBehaviour:
   manaImage: {fileID: 0}
   manaParent: {fileID: 1493301773}
   manaSlots: []
+  delayTime: 2
 --- !u!114 &1625834207
 MonoBehaviour:
   m_ObjectHideFlags: 0
