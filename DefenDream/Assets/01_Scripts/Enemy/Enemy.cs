@@ -1,5 +1,6 @@
 using EnemyEnum;
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : PoolableMono
 {
@@ -93,13 +94,18 @@ public class Enemy : PoolableMono
 
     private void DieAnim()
     {
-
         if (_hp <= 0 && !isDead)
         {
-            isDead = true;
-            _anim.SetTrigger("Die");
-            //Ç®¸Å´ÏÀú 1ÃÊ ÀÌµû°¡
-            print("Á×¾î"); //Á×¾î
+            StartCoroutine(Die());
         }
+    }
+
+    private IEnumerator Die()
+    {
+        isDead = true;
+        _anim.SetTrigger("Die");
+        print("Á×¾î"); //Á×¾î
+        yield return new WaitForSeconds(1);
+        PoolManager.Instance.Push(this);
     }
 }
