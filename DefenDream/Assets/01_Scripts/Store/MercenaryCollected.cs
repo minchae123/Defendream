@@ -69,7 +69,6 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
             Inventory.Instance.SetInventory(infos[i], numbers[i]); // �κ��丮 set���ֱ�
         }
 
-        Inventory.Instance.InventoryIndex();
         collected.info = null;
     }
 
@@ -92,7 +91,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     public void NextDay()
     {
-        print("������ �������ٹ�");
+        //print("������ �������ٹ�");
         WeekManager.Instance.ResetTimer();
     }
 
@@ -133,6 +132,7 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
 
     public void SaveData()
     {
+        data.gold = CashManager.Instance.Cash;
         for (int i = 0; i < numbers.Count; i++)
         {
             data.cards[i] = numbers[i];
@@ -144,10 +144,11 @@ public class MercenaryCollected : MonoSingleton<MercenaryCollected>
     public void LoadData()
     {
         data = save.Load();
+        data.gold = CashManager.Instance.Cash;
 
         for (int i = 0; i < numbers.Count; i++)
         {
-            numbers[i] = data.cards[i];
+            numbers[i] = data.cards[i]; 
         }
     }
 }
