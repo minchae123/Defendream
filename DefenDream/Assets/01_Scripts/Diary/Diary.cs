@@ -1,6 +1,7 @@
 using DayEnum;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class Diary : MonoSingleton<Diary>
     [SerializeField] private List<bool> goodOrBad;
 
     [Header("Main")]
-    public MainDiarySO mainDiarySO;
+    public DayDiarySO mainDiarySO;
 
     [SerializeField] private Transform pageParent;
     [SerializeField] private DiaryPage[] pages;
@@ -30,7 +31,7 @@ public class Diary : MonoSingleton<Diary>
     {
         for(int i = 0; i < 7; ++i)
         {
-            goodOrBad.Add(Random.Range(0, 2) == 0);
+            goodOrBad.Add(true);
         }
 
         OnClickButton();
@@ -57,23 +58,29 @@ public class Diary : MonoSingleton<Diary>
     }
     #endregion
 
-    public WhatDay CurrentPageDay()
-    {
-        return (WhatDay)currentPage;
-    }
-
     public void UpdatePage() // 오늘언제인지 // 월 (0) 화 (1) 수 (2)
     {
-        for(int i = 0; i < pages.Length; ++i)
-        {
-            pages[i].ClearPage();
-        }
-        for(int i = 0; i < pages.Length; ++i)
-        {
-            if (goodOrBad.Count <= currentPage + i) return;
+        int pageIndex = currentPage;
+        // 초기화
+        pages[0].ClearPage();
+        pages[0].UpdatePage(pageIndex, goodOrBad[pageIndex]);
+        pages[1].ClearPage();
 
-            pages[i].UpdatePage(i % 2 == 0 ? currentPage : currentPage + 1,
-                i % 2 == 0 ? goodOrBad[currentPage] : goodOrBad[currentPage + 1]);
+        if (++pageIndex > (int)WhatDay.Sunday)
+        {
+            pages[1].LoadGameOverPanel();
+            return;
         }
+        pages[1].UpdatePage(pageIndex, goodOrBad[pageIndex]);
     }
+
+    public void GoStart()
+	{
+        SceneManager.LoadScene(0);
+	}
+
+    public void ReGame()
+	{
+        SceneManager.LoadScene(1);
+	}
 }

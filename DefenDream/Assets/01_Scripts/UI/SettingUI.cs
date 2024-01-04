@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingUI : MonoBehaviour
+public class SettingUI : MonoSingleton<SettingUI>
 {
     [Header("SettingPanel")]
     [SerializeField] private GameObject settingPanel;
@@ -40,11 +40,16 @@ public class SettingUI : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1;
-                settingPanel.SetActive(true);
-                isSetting = true;
+                Off();
             }
         }
+    }
+
+    public void Off()
+	{
+        Time.timeScale = 1;
+        settingPanel.SetActive(true);
+        isSetting = true;
     }
 
     public void BGMSliderChangedVolume()

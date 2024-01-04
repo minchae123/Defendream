@@ -25,8 +25,8 @@ public class WeekManager : MonoSingleton<WeekManager>
 	[SerializeField] private Image _stressUI;
 	[SerializeField] private Sprite[] _stress;
 	[Header("Week")]
-	[SerializeField] private Image[] _week;
-	[SerializeField] private Sprite[] _OX;
+	public List<bool> _goodNights;
+
 	[SerializeField] private TextMeshProUGUI _dayText;
 	private readonly string[] weeks = { "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일" };
 	private int _weekIndex = 0;
@@ -92,9 +92,9 @@ public class WeekManager : MonoSingleton<WeekManager>
 		_isEnded = true;
 		//스트레스 수치 따라 _week바꾸기
 		if (_stressValue >= 6)
-			_week[_weekIndex].sprite = _OX[0];
+            _goodNights.Add(false);
 		else
-			_week[_weekIndex].sprite = _OX[1];
+            _goodNights.Add(true);
 
 		_weekIndex++;
 		_stressValue = 0;
