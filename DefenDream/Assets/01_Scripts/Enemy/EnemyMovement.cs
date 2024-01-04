@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
     Rigidbody _rb;
 
-    [HideInInspector] public GameObject _col = null;
+    [HideInInspector] public GameObject _target = null;
     [HideInInspector] public Vector3 _bulletDir;
     [HideInInspector] public float _dis = float.MaxValue;
 
@@ -16,6 +17,8 @@ public class EnemyMovement : MonoBehaviour
     private float _playerDis;
     private Vector3 _playerDir;
     private Vector3 _WarriorDir;
+
+    private List<GameObject> _exceptObj = new List<GameObject>();
 
     Vector3 boxSize = new Vector3(100f, 100f, 100f);
 
@@ -71,7 +74,12 @@ public class EnemyMovement : MonoBehaviour
             if (_dis > dis)
             {
                 _dis = dis;
-                _col = item.gameObject;
+                _target = item.gameObject;
+
+                int i = GameManager.instance._focusTarget[_target]++;
+
+                if (i == 2)
+                    _exceptObj = new List<GameObject>(GameManager.instance._focusTarget.Keys);
 
                 _WarriorDir = item.transform.position - transform.position;
                 _WarriorDir.y = transform.position.y;
