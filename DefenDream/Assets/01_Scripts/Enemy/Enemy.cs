@@ -37,8 +37,10 @@ public class Enemy : PoolableMono
         SelectType();
         _hp = _eType._EnemyHp;
         enemyMovement.enabled = true;
-        hpbar.ResetHP();
+        isDead = false;
+
         hpbar.SetHP(_hp);
+        hpbar.ResetHP();
     }
 
     private void Update()

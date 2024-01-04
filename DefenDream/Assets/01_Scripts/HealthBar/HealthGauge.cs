@@ -9,8 +9,9 @@ public class HealthGauge : MonoBehaviour
 
     private void HealthCheckGauge(float value)
     {
-        healthBar.transform.localScale = new Vector3(currentScale - value, 1, 1);
         currentScale -= value;
+        currentScale = Mathf.Clamp01(currentScale);
+        healthBar.transform.localScale = new Vector3(currentScale, 1, 1);
     }
 
     public void DamageCheck(float damage)
@@ -20,6 +21,7 @@ public class HealthGauge : MonoBehaviour
 
     public void ResetHealth()
 	{
+        // √ ±‚»≠
         currentScale = 1;
         healthBar.localScale = Vector3.one;
 	}
