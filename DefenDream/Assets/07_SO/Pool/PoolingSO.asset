@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PoolingSO
   m_EditorClassIdentifier: 
   poolingList:
-  - prefab: {fileID: -8480510282794816201, guid: 914309a81d848b44db7d431fb978bae4, type: 3}
+  - prefab: {fileID: 2186612449812367244, guid: efab43ee0a485da4d8ebd091e35a2353, type: 3}
     poolCount: 20
   - prefab: {fileID: 3572779552747180556, guid: b58634c40e0e2b344be0cda0c0b7306c, type: 3}
     poolCount: 20
-  - prefab: {fileID: 4560384623750476643, guid: f70c6da378c9efd4aa588cfd8fd89284, type: 3}
+  - prefab: {fileID: -4550113987024183845, guid: 131856ac22648244baf64475a98760aa, type: 3}
     poolCount: 20
   - prefab: {fileID: 1914096789, guid: 5d624651a81d3f84c8d9eba0c7c34d66, type: 3}
     poolCount: 20
@@ -43,3 +43,7 @@ MonoBehaviour:
     poolCount: 5
   - prefab: {fileID: 1756996364663020820, guid: c5fa2e08d8d98204d95507bdabe43e81, type: 3}
     poolCount: 5
+  - prefab: {fileID: 7215359300196352554, guid: b0e3d0f57629270479b66ef7b429421e, type: 3}
+    poolCount: 20
+  - prefab: {fileID: 6490808819514602241, guid: 64ad1181d4e768f43b04718012ea25b6, type: 3}
+    poolCount: 20

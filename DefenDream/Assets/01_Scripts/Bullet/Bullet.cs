@@ -29,6 +29,8 @@ public class Bullet : PoolableMono
         if (collider.CompareTag("Col"))
         {
             OurTeam team = collider.GetComponentInParent<OurTeam>();
+            ShotParticle shotParticle = PoolManager.Instance.Pop("ShotParticle") as ShotParticle;
+            shotParticle.transform.position = transform.position;
             team.DecHp(_damage);
             DestroyObj();
         }

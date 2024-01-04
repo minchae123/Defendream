@@ -27,7 +27,6 @@ public class OurTeam : PoolableMono
         _hp = _playerSO._Hp;
         _saveSpeed = _move._speed;
         hpbar.SetHP(_hp);
-        hpbar.ResetHP();
     }
 
     private void Awake()
@@ -55,6 +54,9 @@ public class OurTeam : PoolableMono
     private void Melee()
     {
         _move._nealEnemy.DecHp(_playerSO._AttackDamage);
+
+        Fighting fight = PoolManager.Instance.Pop("FightParticle") as Fighting;
+        fight.transform.position = transform.position + transform.forward * 2;
     }
 
     private void Tanker()
@@ -64,24 +66,35 @@ public class OurTeam : PoolableMono
 
     private void Magic()
     {
-        PlayerBullet MagicBullet = PoolManager.Instance.Pop("MagicBullet") as PlayerBullet;
-        MagicBullet.transform.position = _FirePos.position;
+        PlayerBullet bullet = PoolManager.Instance.Pop("Magic") as PlayerBullet;
+        bullet.transform.position = _FirePos.position;
+        bullet.Damage(_playerSO._AttackDamage);
 
-        MagicBullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
     }
 
     private void Archer()
     {
-        PlayerBullet ArcherBullet = PoolManager.Instance.Pop("ArcherBullet") as PlayerBullet;
+        PlayerBullet ArcherBullet = PoolManager.Instance.Pop("Arrow") as PlayerBullet;
         ArcherBullet.transform.position = _FirePos.position;
+        ArcherBullet.Damage(_playerSO._AttackDamage);
 
-        ArcherBullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
+        // 방향 설정
+        Vector3 bulletDirection = _move._direction.normalized;
+        ArcherBullet.GetComponent<Rigidbody>().velocity = bulletDirection * _bulletSpeed;
+
+        // 회전 설정
+        if (bulletDirection != Vector3.zero)
+        {
+            Quaternion bulletRotation = Quaternion.LookRotation(bulletDirection, Vector3.up);
+            bulletRotation *= Quaternion.Euler(90f, 0f, 0f);
+            ArcherBullet.GetComponent<Rigidbody>().rotation = bulletRotation;
+        }
     }
 
     public void DecHp(float damage)
     {
         _hp -= damage;
-        _hp = Mathf.Clamp(_hp, 0, _playerSO._Hp);
         hpbar.OnDamage(damage);
         DieAnim();
 

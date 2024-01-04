@@ -4143,6 +4143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dayTime: 50
+  _cycle: 10
   timeText: {fileID: 1797567291}
   timeFillImage: {fileID: 863790940}
   _stressUI: {fileID: 224534181}
