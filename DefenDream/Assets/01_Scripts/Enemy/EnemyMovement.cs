@@ -67,6 +67,7 @@ public class EnemyMovement : MonoBehaviour
         colliders = Physics.OverlapBox(transform.position, boxSize);
         foreach (var item in colliders)
         {
+            if (GameManager.instance._focusTarget[item.gameObject] == 2) continue;
             if (!item.CompareTag("Team") && !item.CompareTag("Player")) continue;
 
             float dis = Vector3.Distance(item.transform.position, transform.position);
@@ -78,8 +79,8 @@ public class EnemyMovement : MonoBehaviour
 
                 int i = GameManager.instance._focusTarget[_target]++;
 
-                if (i == 2)
-                    _exceptObj = new List<GameObject>(GameManager.instance._focusTarget.Keys);
+                //if (i == 2)
+                //    _exceptObj = new List<GameObject>(GameManager.instance._focusTarget.Keys);
 
                 _WarriorDir = item.transform.position - transform.position;
                 _WarriorDir.y = transform.position.y;
