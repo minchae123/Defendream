@@ -19,6 +19,7 @@ public class Enemy : PoolableMono
     [SerializeField] private float _hp;
 
     private EntityHP hpbar;
+    private EnemyMovement _eMove;
 
     public bool isDead = false;
 
@@ -26,6 +27,7 @@ public class Enemy : PoolableMono
 
     private void Awake()
     {
+        _eMove = GetComponent<EnemyMovement>();
         enemyMovement = GetComponent<EnemyMovement>();
         hpbar = GetComponent<EntityHP>();
     }
@@ -122,6 +124,9 @@ public class Enemy : PoolableMono
     {
         if (_hp <= 0 && !isDead)
         {
+            if (GameManager.instance._focusTarget.ContainsKey(_eMove._target))
+                GameManager.instance._focusTarget[_eMove._target]--;
+
             StartCoroutine(Die());
         }
     }
@@ -134,7 +139,6 @@ public class Enemy : PoolableMono
         _anim.SetTrigger("Die");
 
         yield return new WaitForSeconds(2);
-
         PoolManager.Instance.Push(this);
     }
 }
