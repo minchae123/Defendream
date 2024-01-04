@@ -81,6 +81,7 @@ public class Enemy : PoolableMono
                     _meshRens[(int)EnemyType.Melee].transform.parent.gameObject.SetActive(true);
                     _anim = _meshRens[(int)EnemyType.Melee].transform.parent.GetComponent<Animator>();
                     Melee();
+                    _meshRens[(int)EnemyType.Melee].transform.parent.transform.rotation = Quaternion.Euler(0, -90, 0);
                 }
                 break;
             case EnemyType.Range:
@@ -90,6 +91,7 @@ public class Enemy : PoolableMono
                     _eType = _eTypeSO[(int)EnemyType.Range];
                     _anim = _meshRens[(int)EnemyType.Range].transform.parent.GetComponent<Animator>();
                     Range();
+                    _meshRens[(int)EnemyType.Range].transform.parent.transform.rotation = Quaternion.Euler(90, -90, 0);
                 }
                 break;
             case EnemyType.Magic:
@@ -99,6 +101,7 @@ public class Enemy : PoolableMono
                     _eType = _eTypeSO[(int)EnemyType.Magic];
                     _anim = _meshRens[(int)EnemyType.Magic].transform.parent.GetComponent<Animator>();
                     Magic();
+                    _meshRens[(int)EnemyType.Magic].transform.parent.transform.rotation = Quaternion.Euler(90, -90, 0);
                 }
                 break;
             default:
@@ -152,6 +155,10 @@ public class Enemy : PoolableMono
         yield return new WaitForSeconds(2);
         _anim.SetTrigger("Init");
         _anim.SetTrigger("Move");
+        _meshRens[(int)EnemyType.Melee].transform.parent.transform.rotation = Quaternion.Euler(0, -90, 0);
+        //_meshRens[(int)EnemyType.Magic].transform.parent.transform.rotation = Quaternion.Euler(90, -90, 0);
+        _meshRens[(int)EnemyType.Range].transform.parent.transform.rotation = Quaternion.Euler(0, -90, 0);
+
         PoolManager.Instance.Push(this);
     }
 }
