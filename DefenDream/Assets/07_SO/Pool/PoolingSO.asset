@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: PoolingSO
   m_EditorClassIdentifier: 
   poolingList:
-  - prefab: {fileID: 7239170248008512993, guid: 59a07f6ff5b12e647b4e6171d3ad65b0, type: 3}
-    poolCount: 40
+  - prefab: {fileID: -8480510282794816201, guid: 914309a81d848b44db7d431fb978bae4, type: 3}
+    poolCount: 20
+  - prefab: {fileID: 3572779552747180556, guid: b58634c40e0e2b344be0cda0c0b7306c, type: 3}
+    poolCount: 20
+  - prefab: {fileID: 4560384623750476643, guid: f70c6da378c9efd4aa588cfd8fd89284, type: 3}
+    poolCount: 20
   - prefab: {fileID: 1914096789, guid: 5d624651a81d3f84c8d9eba0c7c34d66, type: 3}
     poolCount: 20
   - prefab: {fileID: 513042010, guid: 3ab793b5bf71ec946821d5ced8454a4e, type: 3}
@@ -23,9 +27,5 @@ MonoBehaviour:
     poolCount: 20
   - prefab: {fileID: 7711384, guid: 6d3f734f693e9324a909028ace64342a, type: 3}
     poolCount: 20
-  - prefab: {fileID: 3572779552747180556, guid: b58634c40e0e2b344be0cda0c0b7306c, type: 3}
-    poolCount: 20
-  - prefab: {fileID: -8480510282794816201, guid: 914309a81d848b44db7d431fb978bae4, type: 3}
-    poolCount: 20
-  - prefab: {fileID: 4560384623750476643, guid: f70c6da378c9efd4aa588cfd8fd89284, type: 3}
+  - prefab: {fileID: 7239170248008512993, guid: 59a07f6ff5b12e647b4e6171d3ad65b0, type: 3}
     poolCount: 20
