@@ -17,6 +17,7 @@ public class LightningSkill : PoolableMono
 
     private IEnumerator WaitPool()
     {
+        SoundManager.Instance.Lightning();
         yield return new WaitForSeconds(1f);
         PoolManager.Instance.Push(this);
     }

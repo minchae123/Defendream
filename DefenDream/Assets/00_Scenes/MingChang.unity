@@ -2202,8 +2202,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magic: {fileID: 8300000, guid: 0c26b4441932f36408b614ffe5a42cbb, type: 3}
   bomb: {fileID: 8300000, guid: 10eef4e5b2a3c8b4b9113001f0f31dce, type: 3}
-  freeze: {fileID: 0}
-  fire: {fileID: 0}
+  freeze: {fileID: 8300000, guid: 97a4425c188273c4d97fa11300abde75, type: 3}
+  fire: {fileID: 8300000, guid: 33aa2201b4225d644a148f1310972b70, type: 3}
+  lightning: {fileID: 8300000, guid: 3d26e26787810e34bbbb290b4f9c5259, type: 3}
+  wind: {fileID: 8300000, guid: 541be5987a1d5ae45b1e124068ae3926, type: 3}
+  poision: {fileID: 8300000, guid: fc3bd6db93af858429f389abb9942dd5, type: 3}
   cardSelectSound: {fileID: 8300000, guid: 3f0a64a0ec040084bbad8d52e0065e3d, type: 3}
 --- !u!82 &436419518
 AudioSource:

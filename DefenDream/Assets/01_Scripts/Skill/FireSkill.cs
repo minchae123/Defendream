@@ -20,6 +20,7 @@ public class FireSkill : PoolableMono
 
     private IEnumerator WaitPool()
     {
+        SoundManager.Instance.Fire();
         yield return new WaitForSeconds(1f);
         PoolManager.Instance.Push(this);
     }

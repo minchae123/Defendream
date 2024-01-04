@@ -97,6 +97,7 @@ public class CardSlotUI : MonoBehaviour, IPointerClickHandler
         UseItem();
         SetCard();
         ClearClickHistory();
+        SoundManager.Instance.PlayCardSelectSound();
         CardUI.Instance.ResetSelectSlot();
     }
     public void UseItem()

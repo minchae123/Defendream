@@ -21,6 +21,7 @@ public class PoisonSkill : PoolableMono
 
     private IEnumerator WaitPool()
     {
+        SoundManager.Instance.Poision();
         yield return new WaitForSeconds(_duration);
         PoolManager.Instance.Push(this);
     }

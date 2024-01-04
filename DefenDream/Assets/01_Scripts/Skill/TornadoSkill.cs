@@ -17,6 +17,7 @@ public class TornadoSkill : PoolableMono
 
     private IEnumerator WaitPool()
     {
+        SoundManager.Instance.Wind();
         yield return new WaitForSeconds(_duration);
         PoolManager.Instance.Push(this);
     }
