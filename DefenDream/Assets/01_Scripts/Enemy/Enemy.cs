@@ -105,7 +105,7 @@ public class Enemy : PoolableMono
         isDead = true;
         _anim.SetTrigger("Die");
         print("ав╬Н"); //ав╬Н
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         PoolManager.Instance.Push(this);
     }
 }
