@@ -41,6 +41,7 @@ public class OurTeam : PoolableMono
     void Update()
     {
         MoveAnim();
+        DieAnim();
     }
 
     private void MoveAnim()
@@ -99,13 +100,17 @@ public class OurTeam : PoolableMono
         // 사잇값으로
         _hp = Mathf.Clamp(_hp, 0, _playerSO._Hp);
         hpbar.OnDamage(damage);
-        DieAnim();
     }
 
     private void DieAnim()
     {
         if (_hp <= 0)
         {
+            if (GameManager.instance._focusTarget.ContainsKey(gameObject))
+            {
+                GameManager.instance._focusTarget.Remove(gameObject);
+            }
+
             _pAnim.DieAnim();
 
             Invoke("DestroyObj", 1);
