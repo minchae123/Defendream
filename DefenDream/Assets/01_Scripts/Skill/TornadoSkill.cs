@@ -2,11 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TornadoSkill : MonoBehaviour
+public class TornadoSkill : PoolableMono
 {
-    void Start()
+    [SerializeField] private float _duration;
+
+    public override void Init()
     {
-        Destroy(gameObject, 2.75f);
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(WaitPool());
+    }
+
+    private IEnumerator WaitPool()
+    {
+        yield return new WaitForSeconds(_duration);
+        PoolManager.Instance.Push(this);
     }
 
     private void Update()

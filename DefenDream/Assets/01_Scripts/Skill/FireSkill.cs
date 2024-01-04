@@ -2,14 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireSkill : MonoBehaviour
+public class FireSkill : PoolableMono
 {
     private Rigidbody _rb;
 
-    void Start()
+    [SerializeField] private float DMG;
+
+    public override void Init()
+    {
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(WaitPool());
+    }
+
+    private IEnumerator WaitPool()
+    {
+        yield return new WaitForSeconds(1.5f);
+        PoolManager.Instance.Push(this);
+    }
+
+    void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        Destroy(gameObject, 3);
     }
 
     void Update()
@@ -21,9 +37,7 @@ public class FireSkill : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Enemy>().DecHp(4);
-            Debug.Log("4");
-
+            other.gameObject.GetComponent<Enemy>().DecHp(DMG);
         }
     }
 }

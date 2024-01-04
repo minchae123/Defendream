@@ -4027,7 +4027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c1e8de3289dc4a945f8730bce6703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayTime: 30
+  _dayTime: 300
   _stressUI: {fileID: 224534181}
   _stress:
   - {fileID: 21300000, guid: 309eab93704de5043ad83b9ee0c4f672, type: 3}
