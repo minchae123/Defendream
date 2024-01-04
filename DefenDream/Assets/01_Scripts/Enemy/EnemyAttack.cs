@@ -38,8 +38,6 @@ public class EnemyAttack : MonoBehaviour
         if (_enemyMove._target != null && _enemyMove._target.CompareTag("Player"))
             attDis += 3f;
 
-        print(attDis);
-
         if (attDis >= _enemyMove._dis && !_isAtt)
         {
             _enemyMove._isStop = true;

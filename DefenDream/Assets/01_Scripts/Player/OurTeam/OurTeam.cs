@@ -11,8 +11,6 @@ public class OurTeam : PoolableMono
     [SerializeField] private PlayerAnim _pAnim;
 
     [Header("Bullet")]
-    [SerializeField] private PlayerBullet _magicBullet;
-    [SerializeField] private PlayerBullet _ArcherBullet;
     [SerializeField] private Transform _FirePos;
     [SerializeField] private float _bulletSpeed;
 
@@ -68,7 +66,7 @@ public class OurTeam : PoolableMono
 
     private void Magic()
     {
-        PlayerBullet bullet = PoolManager.Instance.Pop("Magic") as PlayerBullet;
+        MagicBullet bullet = PoolManager.Instance.Pop("Magic") as MagicBullet;
         bullet.transform.position = _FirePos.position;
         bullet.Damage(_playerSO._AttackDamage);
 
@@ -77,7 +75,7 @@ public class OurTeam : PoolableMono
 
     private void Archer()
     {
-        PlayerBullet ArcherBullet = PoolManager.Instance.Pop("Arrow") as PlayerBullet;
+        ArcherBullet ArcherBullet = PoolManager.Instance.Pop("Arrow") as ArcherBullet;
         ArcherBullet.transform.position = _FirePos.position;
         ArcherBullet.Damage(_playerSO._AttackDamage);
 
@@ -106,10 +104,11 @@ public class OurTeam : PoolableMono
     {
         if (_hp <= 0)
         {
-            if (GameManager.instance._focusTarget.ContainsKey(gameObject))
-            {
-                GameManager.instance._focusTarget.Remove(gameObject);
-            }
+            //if (GameManager.instance._focusTarget.ContainsKey(gameObject))
+            //{
+            //    GameManager.instance._focusTarget.Remove(gameObject);
+            //    print(GameManager.instance._focusTarget[gameObject]);
+            //}
 
             _pAnim.DieAnim();
 
