@@ -2200,6 +2200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b396db2598d282e48bb7a677f3477fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magic: {fileID: 8300000, guid: 0c26b4441932f36408b614ffe5a42cbb, type: 3}
+  bomb: {fileID: 8300000, guid: 10eef4e5b2a3c8b4b9113001f0f31dce, type: 3}
+  freeze: {fileID: 0}
+  fire: {fileID: 0}
   cardSelectSound: {fileID: 8300000, guid: 3f0a64a0ec040084bbad8d52e0065e3d, type: 3}
 --- !u!82 &436419518
 AudioSource:
