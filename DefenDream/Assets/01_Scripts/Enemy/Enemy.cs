@@ -20,8 +20,8 @@ public class Enemy : PoolableMono
 
     public override void Init()
     {
-        _hp = _eType._EnemyHp;
         SelectType();
+        _hp = _eType._EnemyHp;
     }
 
     private void Update()
@@ -105,7 +105,7 @@ public class Enemy : PoolableMono
         isDead = true;
         _anim.SetTrigger("Die");
         print("ав╬Н"); //ав╬Н
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         PoolManager.Instance.Push(this);
     }
 }
