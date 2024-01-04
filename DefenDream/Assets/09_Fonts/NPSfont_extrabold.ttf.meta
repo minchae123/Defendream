@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9d246f6401ed43f449587cbbae77d3df
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - NPS font
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 191b89a7ca410244f92920d2e9b883d2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
