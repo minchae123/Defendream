@@ -32,8 +32,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        OverlapBox();
-        Focusing();
     }
 
     void Update()
@@ -71,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Move()
     {
-        if (_target != null)
+        if (_target != null && (_target.activeSelf == true))
         {
             _WarriorDir = _target.transform.position - transform.position;
             _WarriorDir.y = transform.position.y;

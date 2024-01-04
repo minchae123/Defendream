@@ -27,15 +27,20 @@ public class WeekManager : MonoSingleton<WeekManager>
     [Header("Week")]
     [SerializeField] private Image[] _week;
     [SerializeField] private Sprite[] _OX;
-
-    //JSON해줘만채야(일월화수목금토)
-    private int _weekIndex;
+    [SerializeField] private TextMeshProUGUI _dayText;
+    private readonly string[] weeks = { "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일" };
+    private int _weekIndex = 0;
 
     [SerializeField] private Image _fadeImage;
 
+    public List<PoolableMono> activeObjects = new();
+
     void Start()
     {
-        ResetTimer();
+        //디버깅용 나중에 씬 체인지하고는 어떻게 할지 모름
+        Time.timeScale = 0;
+        _isEnded = true;
+        MercenaryCollected.Instance.ActiveStore();
     }
     void Update()
     {
@@ -82,26 +87,26 @@ public class WeekManager : MonoSingleton<WeekManager>
     private void EndTimer()
     {
         _curTime = 0;
-        //Debug.Log(_week[_weekIndex].sprite);
-        //Debug.Log("End");
-        //Debug.Log(_curTime);
         _isEnded = true;
         //스트레스 수치 따라 _week바꾸기
         if (_stressValue >= 6)
             _week[_weekIndex].sprite = _OX[0];
         else
             _week[_weekIndex].sprite = _OX[1];
-        //컷씬
 
         _weekIndex++;
-        //Debug.Log(_week[_weekIndex].sprite);
         _stressValue = 0;
 
         //다음날 직전(상점창) +++++++ 여기서 적이랑 우리팀 다 사라지는거 해야함
+        for (int i = activeObjects.Count - 1; i >= 0; i--)
+            PoolManager.Instance.Push(activeObjects[i]);
+
+        activeObjects.Clear();
         _fadeImage.gameObject.SetActive(true);
         _fadeImage.DOFade(1, 1).OnComplete(() =>
         {
             MercenaryCollected.Instance.ActiveStore();
+            Time.timeScale = 0;
         });
 
     }
@@ -109,10 +114,20 @@ public class WeekManager : MonoSingleton<WeekManager>
     //다음날 넘어가면
     public void ResetTimer()
     {
+        StartCoroutine(NextDay());
+    }
+
+    private IEnumerator NextDay()
+    {
+        Time.timeScale = 1;
+        MercenaryCollected.Instance.InactiveStoreAndInventory();
+        _dayText.enabled = true;
+        _dayText.text = weeks[_weekIndex];
+        yield return new WaitForSeconds(1.5f);
         _curTime = _dayTime;
         _isEnded = false;
 
-        MercenaryCollected.Instance.InactiveStoreAndInventory();
+        _dayText.enabled = false;
         _fadeImage.DOFade(0, 1).OnComplete(() =>
         {
             _fadeImage.gameObject.SetActive(false);
@@ -131,11 +146,11 @@ public class WeekManager : MonoSingleton<WeekManager>
     }
 
     public void StreeDown()
-	{
+    {
 
     }
 
-	private void SetTimerText()
+    private void SetTimerText()
     {
         timeText.text = $"{(int)_curTime}";
         timeFillImage.fillAmount = _curTime / _dayTime;
