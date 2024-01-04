@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69627b6bb6f10b54ca1dcc6359de3705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombTex: {fileID: 1828176043149791818}
   bomb: {fileID: 7284040559910351433, guid: 163351a701b3109488e3618c80e00e14, type: 3}
 --- !u!54 &1558128635549630282
 Rigidbody:
@@ -179,5 +180,10 @@ PrefabInstance:
 --- !u!4 &1302996871620511984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7af72c8c030042440a3949fbdccd1edb, type: 3}
+  m_PrefabInstance: {fileID: 1558128635928358683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1828176043149791818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7af72c8c030042440a3949fbdccd1edb, type: 3}
   m_PrefabInstance: {fileID: 1558128635928358683}
   m_PrefabAsset: {fileID: 0}

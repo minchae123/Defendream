@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Diary : MonoSingleton<Diary>
 {
+    [SerializeField] private List<bool> goodOrBad;
+
     [Header("Main")]
     public MainDiarySO mainDiarySO;
 
@@ -27,10 +29,13 @@ public class Diary : MonoSingleton<Diary>
 
     private void Start()
     {
-        // true false 받아오기 -> 이건 뭐... JSOn으로 해도 되고 
-        UpdatePage(true);
+        for(int i = 0; i < 7; ++i)
+        {
+            goodOrBad.Add(Random.Range(0, 2) == 0);
+        }
 
         OnClickButton();
+        UpdatePage((WhatDay)currentPage);
     }
 
     #region 버튼 클릭
@@ -44,18 +49,19 @@ public class Diary : MonoSingleton<Diary>
         currentPage -= 2;
         currentPage = Mathf.Clamp(currentPage, 0, 6);
 
-        UpdatePage(true);
+        UpdatePage((WhatDay)currentPage);
     }
     public void OnClickRightButton()
     {
         currentPage += 2;
         currentPage = Mathf.Clamp(currentPage, 0, 6);
 
-        UpdatePage(false);
+        UpdatePage((WhatDay)currentPage);
     }
     #endregion
 
-    public void UpdatePage(bool value)
+
+    public void UpdatePage(WhatDay today) // 오늘언제인지 // 월 (0) 화 (1) 수 (2)
     {
         for(int i = 0; i < pages.Length; ++i)
         {
@@ -63,7 +69,10 @@ public class Diary : MonoSingleton<Diary>
         }
         for(int i = 0; i < pages.Length; ++i)
         {
-            pages[i].UpdatePage(i % 2 == 0 ? currentPage : currentPage+1, value);
+            if (goodOrBad.Count <= currentPage + i) return;
+
+            pages[i].UpdatePage(i % 2 == 0 ? currentPage : currentPage + 1,
+                i % 2 == 0 ? goodOrBad[currentPage] : goodOrBad[currentPage + 1]);
         }
     }
 }
