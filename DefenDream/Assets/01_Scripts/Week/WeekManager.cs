@@ -12,7 +12,10 @@ public class WeekManager : MonoSingleton<WeekManager>
     [SerializeField] private float _dayTime;
     private float _curTime;
     private bool _isEnded;
-    [SerializeField] private TMP_Text _timerText;
+
+    [Header("TimeUI")]
+    [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private Image timeFillImage;
 
     [Header("Stress")]
     private int _stressValue = 0;
@@ -37,9 +40,7 @@ public class WeekManager : MonoSingleton<WeekManager>
             return;
 
         CheckTimer();
-
         StressCheck();
-
         SetTimerText();
     }
 
@@ -58,7 +59,6 @@ public class WeekManager : MonoSingleton<WeekManager>
         else
             _stressUI.sprite = _stress[5];
     }
-
     private void CheckTimer()
     {
         if (0 < _curTime)
@@ -71,7 +71,6 @@ public class WeekManager : MonoSingleton<WeekManager>
             EndTimer();
         }
     }
-
     private void EndTimer()
     {
         _curTime = 0;
@@ -119,9 +118,7 @@ public class WeekManager : MonoSingleton<WeekManager>
 
     private void SetTimerText()
     {
-        int minute = (int)_curTime / 60;
-        int second = (int)_curTime % 60;
-
-        _timerText.text = minute + ":" + second;
+        timeText.text = $"{(int)_curTime}";
+        timeFillImage.fillAmount = _curTime / _dayTime;
     }
 }
