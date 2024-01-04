@@ -15,3 +15,4 @@ MonoBehaviour:
   mana: 3
   icon: {fileID: 21300000, guid: 61fd4452e42613f4db7d5d6f757f708f, type: 3}
   prefab: {fileID: 5157777295845043857, guid: 3ab793b5bf71ec946821d5ced8454a4e, type: 3}
+  index: 7

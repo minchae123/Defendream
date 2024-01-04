@@ -12,4 +12,6 @@ public class CardSO : ScriptableObject
     public Sprite icon;
     // Scene
     public GameObject prefab;
+
+    public int index;
 }
