@@ -26,16 +26,13 @@ public class DiaryPage : MonoBehaviour
         currentDay = WhatDay.None;
 
         gameOverPanel.SetActive(false);
-        diaryPainting.gameObject.SetActive(true);
 
         diaryPainting.sprite = null;
         diaryText.text = todayText.text = string.Empty;
-        thisImage.color = Color.black;
     }
     public void UpdatePage(int today, bool value)
     {
         currentDay = (WhatDay)today;
-        thisImage.color = Color.white;
 
         if (currentDiary.ContainsKey(today)) // 이미 기록이 있는 경우
         {
@@ -108,8 +105,8 @@ public class DiaryPage : MonoBehaviour
     public void LoadGameOverPanel()
     {
         ClearPage();
-        diaryPainting.gameObject.SetActive(false);
         gameOverPanel.SetActive(true);
+        todayText.text = "THANKS FOR PLAYING :D";
     }
 
     private void ReloadPage(int today)
