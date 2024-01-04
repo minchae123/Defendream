@@ -20,9 +20,6 @@ MonoBehaviour:
       \uAFC8\uC790\uB9AC\uB3C4 \uC88B\uACE0 \uAE30\uBD84\uC88B\uAC8C \uBCF5\uAD8C\uC744
       \uC0C0\uB354\uB2C8 !!!\n\uBC14\uB85C 1\uB4F1\uC774 \uB2F9\uCCA8\uB41C\uAC83\uC774\uB2E4
       !!!\n\uC544\uC8FC\uC544\uC8FC \uC2E0\uB098\uB294 \uD558\uB8E8\uAC00 \uB418\uC5C8\uB2E4."
-  - dayType: 1
-    painting: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
-    text: "\u314E\u3147\u3147\u3148\u3147 2"
   badDayList:
   - dayType: 0
     painting: {fileID: 21300000, guid: c2668e29e84a01540a80e5effb02b50f, type: 3}
