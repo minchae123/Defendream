@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PoolingSO poolSO;
     public Camera mainCam;
 
-    public Dictionary<GameObject, int> _focusTarget = new Dictionary<GameObject, int>();
-
     public Transform _playerTrm;
     public Player _player;
 

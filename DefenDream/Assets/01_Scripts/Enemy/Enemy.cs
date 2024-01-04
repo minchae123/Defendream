@@ -43,7 +43,6 @@ public class Enemy : PoolableMono
         }
         SelectType();
         _hp = _eType._EnemyHp;
-        enemyMovement.enabled = true;
         isDead = false;
         healthGauge.SetActive(true);
 
@@ -142,9 +141,6 @@ public class Enemy : PoolableMono
     {
         if (_hp <= 0 && !isDead)
         {
-            if (GameManager.instance._focusTarget.ContainsKey(_eMove._target))
-                GameManager.instance._focusTarget[_eMove._target]--;
-
             StartCoroutine(Die());
         }
     }
