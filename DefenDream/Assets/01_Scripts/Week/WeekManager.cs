@@ -13,6 +13,9 @@ public class WeekManager : MonoSingleton<WeekManager>
     private float _curTime;
     private bool _isEnded;
 
+    private float _lateUpdateTime = 0;
+    [SerializeField] private float _decreaseCycle = 0;
+
     [Header("TimeUI")]
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private Image timeFillImage;
@@ -42,6 +45,11 @@ public class WeekManager : MonoSingleton<WeekManager>
         CheckTimer();
         StressCheck();
         SetTimerText();
+        _lateUpdateTime += Time.deltaTime;
+        if (_lateUpdateTime > _decreaseCycle)
+        {
+            StressDown();
+        }
     }
 
     private void StressCheck()
@@ -114,6 +122,12 @@ public class WeekManager : MonoSingleton<WeekManager>
     public void StressUp()
     {
         _stressValue++;
+        _lateUpdateTime = 0;
+    }
+
+    public void StressDown()
+    {
+        _stressValue--;
     }
 
     private void SetTimerText()
