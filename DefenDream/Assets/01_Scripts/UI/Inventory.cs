@@ -31,6 +31,11 @@ public class Inventory : MonoBehaviour
         cardInventory.Add(infos.card, numbers);
     }
 
+    public void SetInventory(CardSO card, int numbers = 1) 
+    {
+        cardInventory[card] += numbers;
+    }
+
     public void UseInventory(CardSO currentCard)
     {
         --cardInventory[currentCard]; // »ç¿ë

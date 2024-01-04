@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodDayList:
   - dayType: 1
-    painting: {fileID: 21300050, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
+    painting: {fileID: 21300000, guid: 9295fdd18b655e74e97b3e045b743c2d, type: 3}
     text: "\uD1A0\uC69C \uCC98\uC74C \u3148\u3147"
   - dayType: 1
-    painting: {fileID: 21300050, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
-    text: "\uD1A0\uC69C\uB450\uBC88\uC9F8 \u3148\u3147"
+    painting: {fileID: 21300000, guid: 7c65193720c5a5f42a6ed0b0142fea0a, type: 3}
+    text: "\uD1A0\uC69C \uCC98\uC74C \u3148\u3147"
   badDayList:
   - dayType: 0
     painting: {fileID: 21300022, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}

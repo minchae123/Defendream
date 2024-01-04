@@ -318,5 +318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caeeac99b577df745b7955c6593e9b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisImage: {fileID: 1498136690115843057}
   diaryPainting: {fileID: 1498136689840952319}
   diaryText: {fileID: 1498136689888754198}
