@@ -1,6 +1,7 @@
 using DayEnum;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 using UnityEngine.UI;
 
@@ -72,4 +73,14 @@ public class Diary : MonoSingleton<Diary>
         }
         pages[1].UpdatePage(pageIndex, goodOrBad[pageIndex]);
     }
+
+    public void GoStart()
+	{
+        SceneManager.LoadScene(0);
+	}
+
+    public void ReGame()
+	{
+        SceneManager.LoadScene(1);
+	}
 }

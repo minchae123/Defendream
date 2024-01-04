@@ -1467,6 +1467,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 501425617443892861, guid: 73f7eae3185b5514b8bbc03107939a9b, type: 3}
   m_PrefabInstance: {fileID: 293492637}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &303036970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1693518093, guid: 85e64fff15c54164dbb77c0f521794c4, type: 3}
+  m_PrefabInstance: {fileID: 708244053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &312840714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5226,20 +5231,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21c2550f96a07644dba6f75728566190, type: 3}
   - {fileID: 21300000, guid: 233204705d91fbb4c80ce245b58e6817, type: 3}
   - {fileID: 21300000, guid: 417691605c0e747439477424a652b418, type: 3}
-  _week:
-  - {fileID: 614195550}
-  - {fileID: 1533659601}
-  - {fileID: 1862521146}
-  - {fileID: 536166316}
-  - {fileID: 41926210}
-  - {fileID: 360987470}
-  - {fileID: 111067929}
-  _OX:
-  - {fileID: 21300000, guid: 250c290948fab6846a18f20413f222a1, type: 3}
-  - {fileID: 21300000, guid: 1550c60fa87b51e43a919b344fb656c4, type: 3}
+  _goodNights: 
   _dayText: {fileID: 1766330188}
   _fadeImage: {fileID: 734237354}
   activeObjects: []
+  bedLight: {fileID: 303036970}
 --- !u!4 &788022433
 Transform:
   m_ObjectHideFlags: 0

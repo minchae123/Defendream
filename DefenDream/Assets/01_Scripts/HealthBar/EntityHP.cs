@@ -9,12 +9,12 @@ public class EntityHP : MonoBehaviour
     private float currentHP = 0;
     private float maxHP = 0;
 
-    private HealthGauge healthBar;
+    public HealthGauge HealthBar;
 
     private void Awake()
     {
         // 모든 엔티티에 달아주고 Start에서 SetHP() 호출하기
-        healthBar = transform.GetComponentInChildren<HealthGauge>(); // 자식에 HealthBar 달려있을 예정
+        HealthBar = transform.GetComponentInChildren<HealthGauge>(); // 자식에 HealthBar 달려있을 예정
     }
 
     public void SetHP(float hp)
@@ -26,12 +26,12 @@ public class EntityHP : MonoBehaviour
     {
         currentHP -= damage;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
-        healthBar.DamageCheck(damage / maxHP);
+        HealthBar.DamageCheck(damage / maxHP);
         //if(currentHP<=0) { print("Die"); }
     }
 
     public void ResetHP()
 	{
-        healthBar.ResetHealth();
+        HealthBar.ResetHealth();
 	}
 }
