@@ -417,6 +417,7 @@ MonoBehaviour:
   _anim: {fileID: 2707383615598502346}
   _hp: 0
   isDead: 0
+  coin: {fileID: 7805721795385429975, guid: a83dc9c855390884bb9ed02236615c15, type: 3}
 --- !u!1001 &8670571246502900561
 PrefabInstance:
   m_ObjectHideFlags: 0

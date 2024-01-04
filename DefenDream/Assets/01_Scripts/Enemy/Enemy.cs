@@ -22,6 +22,8 @@ public class Enemy : PoolableMono
 
     public bool isDead = false;
 
+    [SerializeField] private GameObject coin;
+
     private void Awake()
     {
         enemyMovement = GetComponent<EnemyMovement>();
@@ -126,6 +128,7 @@ public class Enemy : PoolableMono
 
     private IEnumerator Die()
     {
+        Instantiate(coin, transform.position, Quaternion.identity);
         isDead = true;
         enemyMovement.freeze();
         _anim.SetTrigger("Die");
