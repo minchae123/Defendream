@@ -15,7 +15,10 @@ MonoBehaviour:
   goodDayList:
   - dayType: 1
     painting: {fileID: 21300000, guid: 7f6b0596ace06e849b77c3a83d54732d, type: 3}
-    text: "\u3141\u3147\u3147\u3148\u3147"
+    text: "\uC624\uB298\uC758 \uC77C\uAE30\n\uC73C\uC74C ~~ \uC0C1\uCF8C\uD55C \uC544\uCE68\uC774\uAD6C\uB9CC
+      \n\uC7A0\uC744 \uC798 \uC7A4\uB354\uB2C8 \uB108\uBB34\uB108\uBB34 \uC88B\uC544\uC6A9
+      \n\uC55E\uC73C\uB85C\uB3C4 \uC7A0\uC744 \uC798 \uC790\uC11C \uD798\uC744 \uC5BB\uC5B4\uC57C\uC9C0
+      !!!"
   - dayType: 1
     painting: {fileID: 21300000, guid: 6c6e0dd2777cbdb43b3ee933d2959d4c, type: 3}
     text: "\u3141\u3147\u3147\u3148\u31472"

@@ -17,4 +17,10 @@ public class HealthGauge : MonoBehaviour
     {
         HealthCheckGauge(damage);
     }
+
+    public void ResetHealth()
+	{
+        currentScale = 1;
+        healthBar.localScale = Vector3.one;
+	}
 }

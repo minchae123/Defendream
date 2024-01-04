@@ -137,7 +137,7 @@ public class EnemyAttack : MonoBehaviour
             return;
         }
 
-        Bullet b = Instantiate(_bulletPrefabs);
+        Bullet b = PoolManager.Instance.Pop("Bullet") as Bullet;
 
         b._damage = _enemy._eType._AttackDamage;
 
