@@ -16,6 +16,8 @@ public class OurTeam : PoolableMono
     [SerializeField] private Transform _FirePos;
     [SerializeField] private float _bulletSpeed;
 
+    private EntityHP hpbar;
+
     private float _saveSpeed;
 
     [SerializeField] private float _hp;
@@ -24,12 +26,15 @@ public class OurTeam : PoolableMono
     {
         _hp = _playerSO._Hp;
         _saveSpeed = _move._speed;
+        hpbar.SetHP(_hp);
     }
 
     private void Awake()
     {
+        hpbar = GetComponent<EntityHP>();
         _hp = _playerSO._Hp;
         _saveSpeed = _move._speed;
+        hpbar.SetHP(_hp);
     }
 
     void Update()
@@ -75,7 +80,9 @@ public class OurTeam : PoolableMono
     public void DecHp(float damage)
     {
         _hp -= damage;
-
+        print(damage);
+        print(_hp);
+        hpbar.OnDamage(damage);
         DieAnim();
     }
 

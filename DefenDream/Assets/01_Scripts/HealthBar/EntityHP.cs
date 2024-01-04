@@ -6,23 +6,23 @@ using UnityEngine;
 public class EntityHP : MonoBehaviour
 {
     // 이걸 받아오기
-    private int currentHP = 0;
-    private int maxHP = 0;
+    private float currentHP = 0;
+    private float maxHP = 0;
 
     private HealthGauge healthBar;
 
     private void Start()
     {
         // 모든 엔티티에 달아주고 Start에서 SetHP() 호출하기
-        healthBar = transform.GetComponent<HealthGauge>(); // 자식에 HealthBar 달려있을 예정
+        healthBar = transform.GetComponentInChildren<HealthGauge>(); // 자식에 HealthBar 달려있을 예정
     }
 
-    public void SetHP(int hp)
+    public void SetHP(float hp)
     {
         currentHP = maxHP = hp;
     }
 
-    public void OnDamage(int damage) // 데미지 받을 때 같이 호출
+    public void OnDamage(float damage) // 데미지 받을 때 같이 호출
     {
         currentHP -= damage;
         healthBar.DamageCheck(damage / maxHP);

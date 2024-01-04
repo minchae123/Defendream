@@ -129,7 +129,7 @@ public class EnemyAttack : MonoBehaviour
 
         float damage = _enemy._eType._AttackDamage;
 
-        if (_enemyMove._target.CompareTag("Player")) GameManager.instance._player._hp -= damage;
+        if (_enemyMove._target.CompareTag("Player")) WeekManager.Instance.StressUp();
         else
         {
             Debug.Log("ourhit");
