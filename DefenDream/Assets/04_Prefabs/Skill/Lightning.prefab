@@ -19284,7 +19284,6 @@ GameObject:
   - component: {fileID: 7828182510671265462}
   - component: {fileID: 7828182510651866098}
   - component: {fileID: 7828182510651949650}
-  - component: {fileID: 7828182510677235568}
   - component: {fileID: 7828182510671127606}
   m_Layer: 0
   m_Name: CFX3_Hit_Electric_A_Ground
@@ -24111,19 +24110,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &7828182510677235568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7828182510671225496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnlyDeactivate: 0
 --- !u!114 &7828182510671127606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24136,7 +24122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearBehavior: 2
+  clearBehavior: 0
   cameraShake:
     enabled: 1
     useMainCamera: 1
@@ -24245,7 +24231,6 @@ GameObject:
   - component: {fileID: 8737158079036237890}
   - component: {fileID: 8737158079017889026}
   - component: {fileID: 8737158079017784482}
-  - component: {fileID: 8737158079042830722}
   m_Layer: 0
   m_Name: CFX3_ResurrectionLight_Circle
   m_TagString: Untagged
@@ -28998,19 +28983,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8737158079042830722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8737158079036273762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnlyDeactivate: 0
 --- !u!1 &8737158079036273764
 GameObject:
   m_ObjectHideFlags: 0
@@ -33874,7 +33846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8737158079036237894
 Transform:
   m_ObjectHideFlags: 0
@@ -33898,8 +33870,8 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8737158079036273766}
   serializedVersion: 8
-  lengthInSec: 0.25
-  simulationSpeed: 10
+  lengthInSec: 0.5
+  simulationSpeed: 5
   stopAction: 0
   cullingMode: 1
   ringBufferMode: 0
@@ -34080,7 +34052,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 0.6666667, b: 0.23529412, a: 0.7058824}
-      maxColor: {r: 1, g: 0.8784314, b: 0.45490196, a: 0.3137255}
+      maxColor: {r: 0.02264148, g: 0.9356719, b: 1, a: 0.3137255}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -34526,7 +34498,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.5, y: 10, z: 0.5}
     placementMode: 2
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
