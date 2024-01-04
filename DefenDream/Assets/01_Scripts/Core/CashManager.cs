@@ -6,10 +6,19 @@ public class CashManager : MonoSingleton<CashManager>
 {
     private int cash;
 
-    private void Start()
+    private GameData data;
+    private SaveSystem save;
+
+	private void Awake()
+	{
+		save = FindObjectOfType<SaveSystem>();
+	}
+
+	private void Start()
     {
         //제이슨으로 불러 올까요구르트
-        cash += 1000000;
+        LoadData();
+        cash = data.gold;
     }
 
     public int Cash
@@ -30,4 +39,9 @@ public class CashManager : MonoSingleton<CashManager>
         cash -= amount;
         //제이슨 이것저것
     }
+
+    public void LoadData()
+	{
+        data = save.Load();
+	}
 }

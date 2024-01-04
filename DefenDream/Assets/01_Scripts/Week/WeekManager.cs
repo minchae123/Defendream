@@ -84,7 +84,7 @@ public class WeekManager : MonoSingleton<WeekManager>
         //컷씬
 
         _weekIndex++;
-        Debug.Log(_week[_weekIndex].sprite);
+        //Debug.Log(_week[_weekIndex].sprite);
         _stressValue = 0;
 
         //다음날 직전(상점창) +++++++ 여기서 적이랑 우리팀 다 사라지는거 해야함
