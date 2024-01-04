@@ -10,7 +10,12 @@ public class PoisonSkill : PoolableMono
 
     [SerializeField] private float DMG;
 
-    public override void Init()
+	private void Awake()
+	{
+		gameObject.SetActive(false);
+	}
+
+	public override void Init()
     {
     }
 

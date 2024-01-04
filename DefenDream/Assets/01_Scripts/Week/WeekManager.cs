@@ -145,11 +145,6 @@ public class WeekManager : MonoSingleton<WeekManager>
         _stressValue--;
     }
 
-    public void StreeDown()
-    {
-
-    }
-
     private void SetTimerText()
     {
         timeText.text = $"{(int)_curTime}";

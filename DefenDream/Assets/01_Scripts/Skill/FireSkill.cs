@@ -28,6 +28,7 @@ public class FireSkill : PoolableMono
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        gameObject.SetActive(false);
     }
 
     void Update()

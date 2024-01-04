@@ -43,6 +43,8 @@ public class Enemy : PoolableMono
         enemyMovement.enabled = true;
         isDead = false;
 
+        transform.rotation = Quaternion.Euler(new Vector3(0,-90,0));
+
         hpbar.SetHP(_hp);
         hpbar.ResetHP();
     }
