@@ -116,7 +116,12 @@ public class WeekManager : MonoSingleton<WeekManager>
         _stressValue++;
     }
 
-    private void SetTimerText()
+    public void StreeDown()
+	{
+
+    }
+
+	private void SetTimerText()
     {
         timeText.text = $"{(int)_curTime}";
         timeFillImage.fillAmount = _curTime / _dayTime;
