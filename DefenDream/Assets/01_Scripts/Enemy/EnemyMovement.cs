@@ -51,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
         {
             _isStop = false;
 
-            _target = GameManager.instance._player.gameObject;
+            _target = GameManager.instance._playerTrm.gameObject;
 
             _WarriorDir = _target.transform.position - transform.position;
             _WarriorDir.y = transform.position.y;
