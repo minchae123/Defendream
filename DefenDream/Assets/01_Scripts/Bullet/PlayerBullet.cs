@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBullet : PoolableMono
 {
+    private float _damage;
+
     public override void Init()
     {
 
@@ -23,7 +25,10 @@ public class PlayerBullet : PoolableMono
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Team")) return;
+        if (other.CompareTag("Team") || other.CompareTag("Col")) return;
+
+        if (other.TryGetComponent<Enemy>(out Enemy enemy))
+            enemy.DecHp(_damage);
 
         DestroyObj();
     }
@@ -31,5 +36,10 @@ public class PlayerBullet : PoolableMono
     private void DestroyObj()
     {
         PoolManager.Instance.Push(this);
+    }
+
+    public void Damage(float damage)
+    {
+        _damage = damage;
     }
 }

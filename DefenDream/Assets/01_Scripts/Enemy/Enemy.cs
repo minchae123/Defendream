@@ -41,6 +41,7 @@ public class Enemy : PoolableMono
 
     private void Update()
     {
+        print(_hp);
         DieAnim();
     }
 
