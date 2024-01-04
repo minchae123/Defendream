@@ -64,18 +64,18 @@ public class OurTeam : PoolableMono
 
     private void Magic()
     {
-        PlayerBullet bullet = Instantiate(_magicBullet, transform);
-        bullet.transform.position = _FirePos.position;
+        PlayerBullet MagicBullet = PoolManager.Instance.Pop("MagicBullet") as PlayerBullet;
+        MagicBullet.transform.position = _FirePos.position;
 
-        bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
+        MagicBullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
     }
 
     private void Archer()
     {
-        PlayerBullet bullet = Instantiate(_ArcherBullet, transform);
-        bullet.transform.position = _FirePos.position;
+        PlayerBullet ArcherBullet = PoolManager.Instance.Pop("ArcherBullet") as PlayerBullet;
+        ArcherBullet.transform.position = _FirePos.position;
 
-        bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
+        ArcherBullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
     }
 
     public void DecHp(float damage)
