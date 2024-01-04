@@ -10,7 +10,12 @@ public class PoisonSkill : PoolableMono
 
     [SerializeField] private float DMG;
 
-    public override void Init()
+	private void Awake()
+	{
+		gameObject.SetActive(false);
+	}
+
+	public override void Init()
     {
     }
 
@@ -21,6 +26,7 @@ public class PoisonSkill : PoolableMono
 
     private IEnumerator WaitPool()
     {
+        SoundManager.Instance.Poision();
         yield return new WaitForSeconds(_duration);
         PoolManager.Instance.Push(this);
     }

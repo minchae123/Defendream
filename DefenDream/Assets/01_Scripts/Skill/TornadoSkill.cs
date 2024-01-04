@@ -6,7 +6,12 @@ public class TornadoSkill : PoolableMono
 {
     [SerializeField] private float _duration;
 
-    public override void Init()
+	private void Awake()
+	{
+		gameObject.SetActive(false);
+	}
+
+	public override void Init()
     {
     }
 
@@ -17,6 +22,7 @@ public class TornadoSkill : PoolableMono
 
     private IEnumerator WaitPool()
     {
+        SoundManager.Instance.Wind();
         yield return new WaitForSeconds(_duration);
         PoolManager.Instance.Push(this);
     }
