@@ -18,22 +18,25 @@ public class Enemy : PoolableMono
 
     [SerializeField] private float _hp;
 
+    private EntityHP hpbar;
+
     public bool isDead = false;
 
     private void Awake()
     {
         enemyMovement = GetComponent<EnemyMovement>();
+        hpbar = GetComponent<EntityHP>();
     }
     public override void Init()
     {
-        SelectType();
-        _hp = _eType._EnemyHp;
-        enemyMovement.enabled = true;
-
         for (int i = 0; i < _meshRens.Length; i++)
         {
             _meshRens[i].transform.parent.gameObject.SetActive(false);
         }
+        SelectType();
+        _hp = _eType._EnemyHp;
+        enemyMovement.enabled = true;
+        hpbar.SetHP(_hp);
     }
 
     private void Update()
@@ -58,6 +61,7 @@ public class Enemy : PoolableMono
                     _eType = _eTypeSO[(int)EnemyType.Melee];
                     _meshRens[(int)EnemyType.Melee].transform.parent.gameObject.SetActive(true);
                     _anim = _meshRens[(int)EnemyType.Melee].transform.parent.GetComponent<Animator>();
+                    print(_anim);
                     Melee();
                 }
                 break;
@@ -67,6 +71,7 @@ public class Enemy : PoolableMono
                     _meshRens[(int)EnemyType.Range].transform.parent.gameObject.SetActive(true);
                     _eType = _eTypeSO[(int)EnemyType.Range];
                     _anim = _meshRens[(int)EnemyType.Range].transform.parent.GetComponent<Animator>();
+                    print(_anim);
                     Range();
                 }
                 break;
@@ -76,6 +81,7 @@ public class Enemy : PoolableMono
                     _meshRens[(int)EnemyType.Magic].transform.parent.gameObject.SetActive(true);
                     _eType = _eTypeSO[(int)EnemyType.Magic];
                     _anim = _meshRens[(int)EnemyType.Magic].transform.parent.GetComponent<Animator>();
+                    print(_anim);
                     Magic();
                 }
                 break;
@@ -88,26 +94,24 @@ public class Enemy : PoolableMono
     {
         TypeEnum = EnemyType.Melee;
         _meshRens[(int)EnemyType.Melee].material = _eType._material;
-        print(_meshRens[(int)EnemyType.Melee].material);
     }
 
     private void Range()
     {
         TypeEnum = EnemyType.Range;
         _meshRens[(int)EnemyType.Range].material = _eType._material;
-        print(_meshRens[(int)EnemyType.Range].material);
     }
 
     private void Magic()
     {
         TypeEnum = EnemyType.Magic;
         _meshRens[(int)EnemyType.Magic].material = _eType._material;
-        print(_meshRens[(int)EnemyType.Magic].material);
     }
 
     public void DecHp(float damage)
     {
         _hp -= damage;
+        hpbar.OnDamage(damage);
     }
 
     private void DieAnim()
