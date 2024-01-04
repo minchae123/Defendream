@@ -30,7 +30,6 @@ public class SaveSystem : MonoBehaviour
 		string json = JsonUtility.ToJson(gameData);
 		File.WriteAllText(savePath + fileName, json);
 
-		print("저장");
 	}
 
 	[ContextMenu("Load")]
@@ -41,7 +40,6 @@ public class SaveSystem : MonoBehaviour
 			string loadJson = File.ReadAllText(savePath + fileName);
 			gameData = JsonUtility.FromJson<GameData>(loadJson);
 
-			print("로드");
 			return gameData;
 		}
 

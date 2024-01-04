@@ -31,5 +31,4 @@ public class BombSkill : MonoBehaviour
         Instantiate(bomb, transform);
         Destroy(gameObject, 1f);
     }
-
 }
