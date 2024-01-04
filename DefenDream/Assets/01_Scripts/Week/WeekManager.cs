@@ -27,7 +27,6 @@ public class WeekManager : MonoSingleton<WeekManager>
 
     [SerializeField] private Image _fadeImage;
 
-
     void Start()
     {
         ResetTimer();
