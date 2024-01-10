@@ -7,8 +7,8 @@ public class OurTeam : PoolableMono
 {
     public PlayerTypeSO _playerSO;
 
-    [SerializeField] private OurTeamMove _move;
-    [SerializeField] private PlayerAnim _pAnim;
+    private OurTeamMove _move;
+    private PlayerAnim _pAnim;
 
     [Header("Bullet")]
     [SerializeField] private Transform _FirePos;
@@ -23,7 +23,6 @@ public class OurTeam : PoolableMono
     public override void Init()
     {
         _hp = _playerSO._Hp;
-        _saveSpeed = _move._speed;
         hpbar.SetHP(_hp);
         hpbar.ResetHP();
     }
@@ -31,6 +30,9 @@ public class OurTeam : PoolableMono
     private void Awake()
     {
         hpbar = GetComponent<EntityHP>();
+        _move = GetComponent<OurTeamMove>();
+        _pAnim = GetComponent<PlayerAnim>();
+
         _hp = _playerSO._Hp;
         _saveSpeed = _move._speed;
         hpbar.SetHP(_hp);

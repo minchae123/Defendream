@@ -97,7 +97,7 @@ public class EnemyAttack : MonoBehaviour
         {
             InstBullet();
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
         }
     }
 
@@ -108,7 +108,7 @@ public class EnemyAttack : MonoBehaviour
             InstBullet();
 
             SoundManager.Instance.Magic();
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
         }
     }
 
