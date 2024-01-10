@@ -6,22 +6,7 @@ public class MagicBullet : PoolableMono
 {
     private float _damage;
 
-    public override void Init()
-    {
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Invoke("DestroyObj", 5);
-    }
+    public override void Init() { }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,6 +17,12 @@ public class MagicBullet : PoolableMono
             ShotParticle shotParticle = PoolManager.Instance.Pop("ShotParticle") as ShotParticle;
             shotParticle.transform.position = transform.position;
             enemy.DecHp(_damage);
+        }
+
+        if (other.CompareTag("Wall"))
+        {
+            print("»ç¶óÁü");
+            DestroyObj();
         }
     }
 

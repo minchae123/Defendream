@@ -150,15 +150,23 @@ public class Enemy : PoolableMono
     private IEnumerator Die()
     {
         Instantiate(coin, transform.position, Quaternion.identity);
+
+        GameManager.instance._enemyList.Remove(this);
+
         isDead = true;
+
         enemyMovement._speed = 0;
         enemyMovement.enabled = false;
+
         _anim.SetTrigger("Die");
+
         healthGauge.SetActive(false);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
+
         _anim.SetTrigger("Init");
         _anim.SetTrigger("Move");
+
         _meshRens[(int)EnemyType.Melee].transform.parent.transform.rotation = Quaternion.Euler(0, -90, 0);
         //_meshRens[(int)EnemyType.Magic].transform.parent.transform.rotation = Quaternion.Euler(90, -90, 0);
         _meshRens[(int)EnemyType.Range].transform.parent.transform.rotation = Quaternion.Euler(0, -90, 0);

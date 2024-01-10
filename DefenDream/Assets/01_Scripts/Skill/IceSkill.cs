@@ -34,7 +34,6 @@ public class IceSkill : PoolableMono
         if (other.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<EnemyMovement>().freeze();
-            Debug.Log("freeze");
         }
     }
 }

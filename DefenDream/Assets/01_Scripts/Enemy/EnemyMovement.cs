@@ -49,6 +49,9 @@ public class EnemyMovement : MonoBehaviour
             _WarriorDir = GameManager.instance._playerTrm.gameObject.transform.position - transform.position;
             _WarriorDir.y = 0;
 
+            Quaternion targetRotation = Quaternion.LookRotation(_target.transform.position - transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 2);
+
             float dis = Vector3.Distance(GameManager.instance._playerTrm.gameObject.transform.position, transform.position);
 
             _dis = dis;
@@ -57,7 +60,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Move()
     {
-        if (_target != null && (_target.activeSelf == true))
+        if (_target != null)
         {
             _WarriorDir = _target.transform.position - transform.position;
             _WarriorDir.y = 0;

@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Bullet
   - Col
+  - FxTemporaire
+  - Wall
   layers:
   - Default
   - TransparentFX
