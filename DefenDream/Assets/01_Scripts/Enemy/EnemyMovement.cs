@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     public float _speed;
 
     private bool _isMoveStop = false;
-    private Vector3 _WarriorDir;
+    public Vector3 _WarriorDir;
 
     Vector3 boxSize = new Vector3(100f, 100f, 100f);
 

@@ -39,6 +39,8 @@ public class Enemy : PoolableMono
     {
         enemyMovement.enabled = true;
 
+        _eMove._WarriorDir = Vector3.zero;
+
         for (int i = 0; i < _meshRens.Length; i++)
         {
             _meshRens[i].transform.parent.gameObject.SetActive(false);
