@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae9391b05c3e9a4790c2304944932ad, type: 3}
   m_Name: Witch
   m_EditorClassIdentifier: 
-  mana: 2
+  mana: 3
   icon: {fileID: 21300000, guid: 10c1af58262b97647a58bb11647f144a, type: 3}
   prefab: {fileID: 7730002306853557973, guid: daa123b8f1c5aa04dbbaef784bb243be, type: 3}
   index: 9
