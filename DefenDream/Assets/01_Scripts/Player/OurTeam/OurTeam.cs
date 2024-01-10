@@ -70,10 +70,7 @@ public class OurTeam : PoolableMono
         bullet.transform.position = _FirePos.position;
         bullet.Damage(_playerSO._AttackDamage);
 
-        Vector3 dir = _move._direction.normalized;
-        dir.y = 0;
-
-        bullet.GetComponent<Rigidbody>().velocity = dir * _bulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity = _move._direction.normalized * _bulletSpeed;
     }
 
     private void Archer()

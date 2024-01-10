@@ -6,15 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
-    public List<Enemy> _enemyList = new List<Enemy>();
-
+    [SerializeField] private PoolingSO poolSO;
     public Camera mainCam;
 
     public Transform _playerTrm;
     public Player _player;
-    
-    [SerializeField] private PoolingSO poolSO;
 
     private void Awake()
     {

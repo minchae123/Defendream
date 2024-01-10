@@ -39,7 +39,7 @@ public class OurTeamMove : MonoBehaviour
     {
         if (col.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            GameManager.instance._enemyList.Add(enemy);
+            _enemyList.Add(enemy);
         }
     }
 
@@ -47,13 +47,11 @@ public class OurTeamMove : MonoBehaviour
     {
         _min = float.MaxValue;
 
-        if (GameManager.instance._enemyList.Count == 0)
+        if(_enemyList.Count == 0)
             _direction += Vector3.right.normalized * _speed;
 
-        foreach (Enemy obj in GameManager.instance._enemyList)
+        foreach (Enemy obj in _enemyList)
         {
-            if (obj.gameObject.activeSelf == false) continue;
-
             float dis = Vector3.Distance(transform.position, obj.transform.position);
 
             if (_min > dis)
