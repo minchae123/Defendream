@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pType: 0
   _name: "\uAD81\uC218"
-  _Hp: 50
-  _AttackDamage: 1.2
+  _Hp: 30
+  _AttackDamage: 1
   _AttackDistance: 15
